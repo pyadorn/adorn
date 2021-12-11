@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - master
+  release:
+    types: [published, created, edited]
 
 jobs:
   release:
@@ -50,7 +52,7 @@ jobs:
         run: |
           poetry build --ansi
       - name: Publish package on PyPI
-        if: github.event_name == 'release' && github.event.action == 'created'
+        if: github.event_name == 'release'
         uses: pypa/gh-action-pypi-publish@v1.4.2
         with:
           user: __token__
