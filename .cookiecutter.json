@@ -1,0 +1,12 @@
+{
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Jacob Baumbach",
+  "development_status": "Development Status :: 1 - Planning",
+  "email": "jacob.baumbach@hey.com",
+  "friendly_name": "Adorn",
+  "github_user": "jacobBaumbach",
+  "license": "Apache-2.0",
+  "package_name": "adorn",
+  "project_name": "adorn",
+  "version": "0.0.0"
+}
