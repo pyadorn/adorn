@@ -7,6 +7,7 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
+   adorn.unit.anum
    adorn.unit.complex
    adorn.unit.constructor_value
    adorn.unit.parameter_value

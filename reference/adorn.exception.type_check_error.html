@@ -92,6 +92,43 @@
 <span id="adorn-exception-type-check-error-module"></span><h1>adorn.exception.type_check_error module<a class="headerlink" href="#module-adorn.exception.type_check_error" title="Permalink to this headline"></a></h1>
 <p>Exceptions specifying why a request was malformed</p>
 <dl class="py exception">
+<dt class="sig sig-object py" id="adorn.exception.type_check_error.AnumMemberError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">AnumMemberError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.AnumMemberError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
+<p>The str specified doesn’t match any of the members of <code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.unit.anum.html#adorn.unit.anum.Anum" title="adorn.unit.anum.Anum"><em>Anum</em></a>) – the requested wrapped enumeration</p></li>
+<li><p><strong>obj</strong> (<em>str</em>) – requested member that does not exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="adorn.exception.type_check_error.AnumWrongTypeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">AnumWrongTypeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.AnumWrongTypeError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.WrongTypeError" title="adorn.exception.type_check_error.WrongTypeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.WrongTypeError</span></code></a></p>
+<p>Error when provided an <code class="docutils literal notranslate"><span class="pre">obj</span></code> of the wrong type for a <a class="reference internal" href="adorn.unit.anum.html#adorn.unit.anum.Anum" title="adorn.unit.anum.Anum"><code class="xref py py-class docutils literal notranslate"><span class="pre">Anum</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.unit.anum.html#adorn.unit.anum.Anum" title="adorn.unit.anum.Anum"><em>Anum</em></a>) – the requested wrapped enumeration</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – caller provided object, that is not of type
+<code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError">TypeCheckError</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
 <dt class="sig sig-object py" id="adorn.exception.type_check_error.ComplexTypeMismatchError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">ComplexTypeMismatchError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">possibilities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.ComplexTypeMismatchError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
