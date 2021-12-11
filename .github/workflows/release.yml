@@ -6,7 +6,7 @@ on:
       - main
       - master
   release:
-    types: [published, created, edited]
+    types: [published, edited]
 
 jobs:
   release:
