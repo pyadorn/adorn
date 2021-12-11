@@ -46,9 +46,6 @@ sphinx-rtd-theme = "^1.0.0"
 Pygments = "^2.9.0"
 sphinxcontrib-apidoc = "^0.3.0"
 
-[tool.poetry.scripts]
-adorn = "adorn.__main__:main"
-
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
 
