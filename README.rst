@@ -19,9 +19,6 @@ Adorn
 .. |License| image:: https://img.shields.io/pypi/l/adorn
    :target: https://opensource.org/licenses/Apache-2.0
    :alt: License
-.. |Read the Docs| image:: https://img.shields.io/readthedocs/adorn/latest.svg?label=Read%20the%20Docs
-   :target: https://adorn.readthedocs.io/
-   :alt: Read the documentation at https://adorn.readthedocs.io/
 .. |Tests| image:: https://github.com/pyadorn/adorn/workflows/Tests/badge.svg
    :target: https://github.com/pyadorn/adorn/actions?workflow=Tests
    :alt: Tests
