@@ -43,7 +43,7 @@ jobs:
           version-command: |
             bash -o pipefail -c "poetry version | awk '{ print \$2 }'"
       - name: Bump version for developmental release
-        if: "! steps.check-version.outputs.tag"
+        if: "! github.event_name == 'release'"
         run: |
           poetry version patch &&
           version=$(poetry version | awk '{ print $2 }') &&
@@ -51,6 +51,7 @@ jobs:
       - name: Build package
         run: |
           poetry build --ansi
+
       - name: Publish package on PyPI
         if: github.event_name == 'release'
         uses: pypa/gh-action-pypi-publish@v1.4.2
@@ -59,7 +60,7 @@ jobs:
           password: ${{ secrets.PYPI_TOKEN }}
 
       - name: Publish package on TestPyPI
-        if: "! steps.check-version.outputs.tag"
+        if: "! github.event_name == 'release'"
         uses: pypa/gh-action-pypi-publish@v1.4.2
         with:
           user: __token__
@@ -69,7 +70,7 @@ jobs:
       - name: Publish the release notes
         uses: release-drafter/release-drafter@v5.15.0
         with:
-          publish: ${{ steps.check-version.outputs.tag != '' }}
-          tag: ${{ steps.check-version.outputs.tag }}
+          publish: ${{ github.event_name == 'release' }}
+          tag: ${{ GITHUB_REF##*/ }}
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
