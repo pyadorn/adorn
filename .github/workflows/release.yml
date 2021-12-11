@@ -5,8 +5,6 @@ on:
     branches:
       - main
       - master
-  release:
-    types: [published, edited]
 
 jobs:
   release:
@@ -27,14 +25,17 @@ jobs:
         run: |
           pip install --constraint=.github/workflows/constraints.txt pip
           pip --version
+
       - name: Install Poetry
         run: |
           pip install --constraint=.github/workflows/constraints.txt poetry
           poetry --version
+
       - name: Check if there is a parent commit
         id: check-parent-commit
         run: |
           echo "::set-output name=sha::$(git rev-parse --verify --quiet HEAD^)"
+
       - name: Detect and tag new version
         id: check-version
         if: steps.check-parent-commit.outputs.sha
@@ -42,25 +43,27 @@ jobs:
         with:
           version-command: |
             bash -o pipefail -c "poetry version | awk '{ print \$2 }'"
+
       - name: Bump version for developmental release
-        if: "! github.event_name == 'release'"
+        if: "! steps.check-version.outputs.tag"
         run: |
           poetry version patch &&
           version=$(poetry version | awk '{ print $2 }') &&
           poetry version $version.dev.$(date +%s)
+
       - name: Build package
         run: |
           poetry build --ansi
 
       - name: Publish package on PyPI
-        if: github.event_name == 'release'
+        if: "steps.check-version.outputs.tag"
         uses: pypa/gh-action-pypi-publish@v1.4.2
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
 
       - name: Publish package on TestPyPI
-        if: "! github.event_name == 'release'"
+        if: "! steps.check-version.outputs.tag"
         uses: pypa/gh-action-pypi-publish@v1.4.2
         with:
           user: __token__
@@ -70,7 +73,7 @@ jobs:
       - name: Publish the release notes
         uses: release-drafter/release-drafter@v5.15.0
         with:
-          publish: ${{ github.event_name == 'release' }}
-          tag: ${{ GITHUB_REF##*/ }}
+          publish: {{ "${{ steps.check-version.outputs.tag != '' }}" }}
+          tag: {{ "${{ steps.check-version.outputs.tag }}" }}
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
