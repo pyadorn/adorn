@@ -19,6 +19,7 @@ from tests.example import gym
 from tests.example.dne import _B
 
 from adorn.data.constructor import Constructor
+from adorn.exception.type_check_error import AnumMemberError
 from adorn.exception.type_check_error import ComplexTypeMismatchError
 from adorn.exception.type_check_error import KeyValueDiffError
 from adorn.exception.type_check_error import KeyValueError
@@ -85,6 +86,7 @@ COMPLEX_TYPE_CHECK_NO_UNDER = [
     (gym.Gym, gym.GrandParent, Params({"type": "beef_2", "weight": 10})),
     (gym.Gym, gym.ParentB, Params({"type": "beef_2", "weight": 10})),
     (gym.Gym, gym.Child2, Params({"type": "beef_2", "weight": 10})),
+    (gym.Meat, gym.Meat, Params({"type": "beef", "feed": "Grass", "weight": 12.0})),
 ]
 
 AMBIG_TYPE_CHECK_NO_UNDER = [
@@ -256,6 +258,18 @@ COMPLEX_TYPE_CHECK_WRONG_NO_UNDER = [
             Params({"type": "beef_2", "weight": 10.0}),
         ),
     ),
+    (
+        gym.Gym,
+        gym.Beef,
+        Params({"type": "beef", "feed": "Gass", "weight": 10.0}),
+        KeyValueError(
+            gym.BeefChild2,
+            {
+                "feed": AnumMemberError(gym.FeedType, "Gass"),
+            },
+            Params({"type": "beef", "feed": "Gass", "weight": 10.0}),
+        ),
+    ),
 ]
 
 
@@ -315,6 +329,12 @@ COMPLEX_FROM_OBJ_NO_UNDER = [
         gym.Child2(
             food=None, fruit=gym.Apple(), meat=gym.Beef(weight=10.0), gp="doesnt_matter"
         ),
+    ),
+    (
+        gym.Meat,
+        gym.Meat,
+        Params({"type": "beef", "feed": "Grass", "weight": 12.0}),
+        gym.Beef(feed=gym.FeedType.Grass, weight=12.0),
     ),
 ]
 
