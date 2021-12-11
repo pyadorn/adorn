@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>adorn.unit.parameter_value module &mdash; Adorn  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="adorn.unit.python module" href="adorn.unit.python.html" />
+    <link rel="prev" title="adorn.unit.constructor_value module" href="adorn.unit.constructor_value.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Adorn
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributor Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeofconduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pyadorn/adorn/releases">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">adorn</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="adorn.html">adorn package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="adorn.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="adorn.data.html">adorn.data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adorn.exception.html">adorn.exception package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adorn.orchestrator.html">adorn.orchestrator package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="adorn.unit.html">adorn.unit package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="adorn.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adorn.html#module-adorn">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">adorn</a> &raquo;</li>
+          <li><a href="adorn.html">adorn package</a> &raquo;</li>
+          <li><a href="adorn.unit.html">adorn.unit package</a> &raquo;</li>
+      <li>adorn.unit.parameter_value module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/adorn.unit.parameter_value.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-adorn.unit.parameter_value">
+<span id="adorn-unit-parameter-value-module"></span><h1>adorn.unit.parameter_value module<a class="headerlink" href="#module-adorn.unit.parameter_value" title="Permalink to this headline"></a></h1>
+<p>Handle an argument for a parameter specified in the constructor of a class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.Dependent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.parameter_value.</span></span><span class="sig-name descname"><span class="pre">Dependent</span></span><a class="headerlink" href="#adorn.unit.parameter_value.Dependent" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#adorn.unit.parameter_value.ParameterValue" title="adorn.unit.parameter_value.ParameterValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.parameter_value.ParameterValue</span></code></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">Dependent</span></code> allows for a parameter to leverage information from other parameters.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.Dependent.check_args">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.Dependent.check_args" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure type level args are correct</p>
+<dl class="simple">
+<dt>Exceptions:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.MalformedDependencyError" title="adorn.exception.type_check_error.MalformedDependencyError"><code class="xref py py-class docutils literal notranslate"><span class="pre">MalformedDependencyError</span></code></a>:</dt><dd><p>the <code class="docutils literal notranslate"><span class="pre">Dependent</span></code> type didn’t specify the appropriate number of
+arguments</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.MissingLiteralError" title="adorn.exception.type_check_error.MissingLiteralError"><code class="xref py py-class docutils literal notranslate"><span class="pre">MissingLiteralError</span></code></a>:</dt><dd><p>the first argument, zero based counting, wasn’t a <code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.UnaryLiteralError" title="adorn.exception.type_check_error.UnaryLiteralError"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnaryLiteralError</span></code></a>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code> specifies more than one argument</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.MalformedLiteralError" title="adorn.exception.type_check_error.MalformedLiteralError"><code class="xref py py-class docutils literal notranslate"><span class="pre">MalformedLiteralError</span></code></a>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code> wrapped a value that wasn’t of type
+<code class="docutils literal notranslate"><span class="pre">Dict[str,</span> <span class="pre">str]</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><em>Parameter</em></a>) – parameter that is dependent on
+state in the constructor</p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of types, used
+to check the argument specified in the <code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TypeCheckError</span></code> specifying an</dt><dd><p>error with the type level dependent argument, otherwise
+<code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError">TypeCheckError</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.Dependent.check_literal_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_literal_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependent_from_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.Dependent.check_literal_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure literal dict is logical given the class and local state</p>
+<dl class="simple">
+<dt>Exceptions:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.ExtraLiteralError" title="adorn.exception.type_check_error.ExtraLiteralError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExtraLiteralError</span></code></a>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code> requested state that weren’t part of the
+constructor of the parameter</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.TooDeepLiteralError" title="adorn.exception.type_check_error.TooDeepLiteralError"><code class="xref py py-class docutils literal notranslate"><span class="pre">TooDeepLiteralError</span></code></a>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code> requested state that was more than one layer deep.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><em>Parameter</em></a>) – container of the local state and dependency request</p></li>
+<li><p><strong>obj</strong> (<em>Dict</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>]</em>) – arguments for the parameter</p></li>
+<li><p><strong>dependent_from_obj</strong> (<em>bool</em>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code>, the request is grabbing
+instantiated values, otherwise configured values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TypeCheckError</span></code> if the request for state</dt><dd><p>didn’t work with the state that existed, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError">TypeCheckError</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.Dependent.check_literal_dict_keys">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_literal_dict_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">literal_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.Dependent.check_literal_dict_keys" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure all requested args exist in local state</p>
+<dl class="simple">
+<dt>Exceptions:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.MissingDependencyError" title="adorn.exception.type_check_error.MissingDependencyError"><code class="xref py py-class docutils literal notranslate"><span class="pre">MissingDependencyError</span></code></a>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code> requested state that wasn’t specified in the
+local state</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><em>Parameter</em></a>) – container parameter’s state</p></li>
+<li><p><strong>literal_dict</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – dependency request</p></li>
+<li><p><strong>args</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – local state</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TypeCheckError</span></code> if the dependency</dt><dd><p>request can’t be fulfilled by the local state, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError">TypeCheckError</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.Dependent.get_args">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">literal_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependent_from_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.Dependent.get_args" title="Permalink to this definition"></a></dt>
+<dd><p>Map the key in literal_dict to its requested dependent state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><em>Parameter</em></a>) – container of the local state</p></li>
+<li><p><strong>literal_dict</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – the request for dependent state</p></li>
+<li><p><strong>dependent_from_obj</strong> (<em>bool</em>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code>, the request is grabbing
+instantiated values, otherwise configured values</p></li>
+<li><p><strong>max_depth</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – the level at which local state will
+be inspected</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>relevant local state needed by the parameter</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.Dependent.get_constructor">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_constructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.Dependent.get_constructor" title="Permalink to this definition"></a></dt>
+<dd><p>Generate <a class="reference internal" href="adorn.data.constructor.html#adorn.data.constructor.Constructor" title="adorn.data.constructor.Constructor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Constructor</span></code></a> for relevant sub-type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><em>Parameter</em></a>) – container of the parent class</p></li>
+<li><p><strong>obj</strong> (<em>Dict</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>]</em>) – arguments to instantiate
+<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter.cls" title="adorn.data.parameter.Parameter.cls"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cls</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>The constructor for the sub class specified</dt><dd><p>in <code class="docutils literal notranslate"><span class="pre">obj</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="adorn.data.constructor.html#adorn.data.constructor.Constructor" title="adorn.data.constructor.Constructor">Constructor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.Dependent.perfunctory_type_check">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">perfunctory_type_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependent_from_obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.Dependent.perfunctory_type_check" title="Permalink to this definition"></a></dt>
+<dd><p>Ensure the Dependent type specified is well formed</p>
+<dl class="simple">
+<dt>Exceptions:</dt><dd><ul class="simple">
+<li><p>see <a class="reference internal" href="#adorn.unit.parameter_value.Dependent.check_args" title="adorn.unit.parameter_value.Dependent.check_args"><code class="xref py py-class docutils literal notranslate"><span class="pre">check_args</span></code></a></p></li>
+<li><p>see <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex.general_check" title="adorn.unit.complex.Complex.general_check"><code class="xref py py-class docutils literal notranslate"><span class="pre">general_check</span></code></a></p></li>
+<li><p>see <a class="reference internal" href="#adorn.unit.parameter_value.Dependent.check_literal_dict" title="adorn.unit.parameter_value.Dependent.check_literal_dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">check_literal_dict</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><em>Parameter</em></a>) – specification of the parameter
+and its associated state</p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of types, used
+to check nested types</p></li>
+<li><p><strong>obj</strong> (<em>Dict</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>]</em>) – the arguments to construct the parameter</p></li>
+<li><p><strong>dependent_from_obj</strong> (<em>bool</em>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code>, the request is grabbing
+instantiated values, otherwise configured values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TypeCheckError</span></code> if there was an issue</dt><dd><p>with the <code class="docutils literal notranslate"><span class="pre">DependentType</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError">TypeCheckError</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.DependentFromObj">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.parameter_value.</span></span><span class="sig-name descname"><span class="pre">DependentFromObj</span></span><a class="headerlink" href="#adorn.unit.parameter_value.DependentFromObj" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">adorn.unit.complex._T</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">adorn.unit.parameter_value.DictStrStr</span></code>], <a class="reference internal" href="#adorn.unit.parameter_value.Dependent" title="adorn.unit.parameter_value.Dependent"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.parameter_value.Dependent</span></code></a></p>
+<p>Parameter that requires local state that is known after instantiation</p>
+<p>The first argument must be a <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a>, that requires
+state, known after construction, from the constructor.  The second argument is
+a <code class="docutils literal notranslate"><span class="pre">typing.Literal[Dict[str,</span> <span class="pre">str]]</span></code> where the keys specifies the names of the
+dependent parameters and the values are the state needed from the constructor.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.DependentTypeCheck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.parameter_value.</span></span><span class="sig-name descname"><span class="pre">DependentTypeCheck</span></span><a class="headerlink" href="#adorn.unit.parameter_value.DependentTypeCheck" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">adorn.unit.complex._T</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">adorn.unit.parameter_value.DictStrStr</span></code>], <a class="reference internal" href="#adorn.unit.parameter_value.Dependent" title="adorn.unit.parameter_value.Dependent"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.parameter_value.Dependent</span></code></a></p>
+<p>Parameter that requires local state that is known before instantiation</p>
+<p>The first argument must be a <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a>, that requires
+state, known before construction, from the constructor.  The second argument is
+a <code class="docutils literal notranslate"><span class="pre">typing.Literal[Dict[str,</span> <span class="pre">str]]</span></code> where the keys specifies the names of the
+dependent parameters and the values are the state needed from the constructor.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.DependentUnion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.parameter_value.</span></span><span class="sig-name descname"><span class="pre">DependentUnion</span></span><a class="headerlink" href="#adorn.unit.parameter_value.DependentUnion" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">adorn.unit.parameter_value._DependentT</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">adorn.unit.complex._T</span></code>], <a class="reference internal" href="#adorn.unit.parameter_value.Dependent" title="adorn.unit.parameter_value.Dependent"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.parameter_value.Dependent</span></code></a></p>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">typing.Union</span></code>, but only accepts two arguments, where the zeroth argument must be <a class="reference internal" href="#adorn.unit.parameter_value.Dependent" title="adorn.unit.parameter_value.Dependent"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dependent</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.DependentUnion.get_parameter">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.DependentUnion.get_parameter" title="Permalink to this definition"></a></dt>
+<dd><p>Type Check the given <code class="docutils literal notranslate"><span class="pre">obj</span></code> against all potential types</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><em>Parameter</em></a>) – state and list of potential types <code class="docutils literal notranslate"><span class="pre">obj</span></code>
+could be</p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of all types, typically
+used to recurse nested types</p></li>
+<li><p><strong>obj</strong> (<em>Dict</em><em>[</em><em>Any</em><em>, </em><em>Any</em><em>]</em>) – arguments for one of the listed types</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>either a <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> which wraps the type</dt><dd><p><code class="docutils literal notranslate"><span class="pre">obj</span></code> can be coerced into, otherwise <code class="docutils literal notranslate"><span class="pre">KeyValueError</span></code> containing the
+reasons why <code class="docutils literal notranslate"><span class="pre">obj</span></code> cannot be coerced into any of the listed types</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter">Parameter</a>, <a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.KeyValueError" title="adorn.exception.type_check_error.KeyValueError">KeyValueError</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.DependentUnion.get_parameter_subtype">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_parameter_subtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.DependentUnion.get_parameter_subtype" title="Permalink to this definition"></a></dt>
+<dd><p>Generate an Parameter where we update the <code class="docutils literal notranslate"><span class="pre">cls</span></code> arg with a type option.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><em>Parameter</em></a>) – state and <code class="docutils literal notranslate"><span class="pre">DependentUnion</span></code> request</p></li>
+<li><p><strong>arg</strong> (<em>Type</em>) – a type option specified within <code class="docutils literal notranslate"><span class="pre">DependentUnion</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>state with <a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter.cls" title="adorn.data.parameter.Parameter.cls"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cls</span></code></a></dt><dd><p>argument specifying a type option specified in <code class="docutils literal notranslate"><span class="pre">DependentUnion</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter">Parameter</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.Identity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.parameter_value.</span></span><span class="sig-name descname"><span class="pre">Identity</span></span><a class="headerlink" href="#adorn.unit.parameter_value.Identity" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#adorn.unit.parameter_value.ParameterValue" title="adorn.unit.parameter_value.ParameterValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.parameter_value.ParameterValue</span></code></a></p>
+<p>Ignore the additional state in the <a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+<p>We extract the type information from <a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a>
+and pass off the object back to the <code class="xref py py-class docutils literal notranslate"><span class="pre">Orchestrator</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.ParameterValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.parameter_value.</span></span><span class="sig-name descname"><span class="pre">ParameterValue</span></span><a class="headerlink" href="#adorn.unit.parameter_value.ParameterValue" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="adorn.unit.simple.html#adorn.unit.simple.Simple" title="adorn.unit.simple.Simple"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.simple.Simple</span></code></a></p>
+<p><a class="reference internal" href="adorn.unit.unit.html#adorn.unit.unit.Unit" title="adorn.unit.unit.Unit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code></a> for handling an argument for a parameter specified in a constructor</p>
+<p><a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> contains the type and state from the constructor,
+which <code class="docutils literal notranslate"><span class="pre">ParameterValue</span></code> allows you to utilize when type checking or instantiating the
+argument associated with the parameter</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.ParameterValue.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.ParameterValue.contains" title="Permalink to this definition"></a></dt>
+<dd><p>Check if the <code class="docutils literal notranslate"><span class="pre">obj</span></code> is an instance of <a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>Any</em>) – potentially an instance of
+<a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of all types, typically
+used to recurse nested types</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>if <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">obj</span></code> is an instance of</dt><dd><p><a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.parameter_value.ParameterValue.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.parameter_value.ParameterValue.get" title="Permalink to this definition"></a></dt>
+<dd><p>Get the relevant class to handle the given <a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>Any</em>) – potentially an instance of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter`</span></code></p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of all types, typically
+used to recurse nested types</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>if <code class="docutils literal notranslate"><span class="pre">key</span></code> is an instance of</dt><dd><p><a class="reference internal" href="adorn.data.parameter.html#adorn.data.parameter.Parameter" title="adorn.data.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> then a subclass of
+<code class="docutils literal notranslate"><span class="pre">ParameterValue</span></code> will be returned, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#adorn.unit.parameter_value.ParameterValue" title="adorn.unit.parameter_value.ParameterValue">ParameterValue</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="adorn.unit.constructor_value.html" class="btn btn-neutral float-left" title="adorn.unit.constructor_value module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adorn.unit.python.html" class="btn btn-neutral float-right" title="adorn.unit.python module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Jacob Baumbach.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
