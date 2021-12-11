@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from collections import defaultdict
+from enum import auto
+from enum import Enum
 from sys import version_info
 from typing import Dict
 from typing import List
@@ -24,11 +26,27 @@ else:
     from typing_extensions import Literal
 
 from adorn.params import Params
+from adorn.unit.anum import Anum
 from adorn.unit.complex import Complex
 from adorn.unit.parameter_value import DependentFromObj
 from adorn.unit.parameter_value import DependentTypeCheck
 from adorn.unit.parameter_value import DependentUnion
 from adorn.unit.template import Template
+
+
+class Gymnum(Anum):
+    """Gym Enum"""
+
+    _registry = defaultdict(dict)
+
+
+@Gymnum.register()
+class FeedType(Enum):
+    """Type of feed fed to an animal"""
+
+    Grass = auto()
+    Corn = auto()
+    Unknown = auto()
 
 
 class Gym(Complex):
@@ -60,14 +78,14 @@ class Meat(Food):
 class Beef(Meat):
     """Beef"""
 
-    def __init__(self, grass_fed: bool = False, **kwargs) -> None:
+    def __init__(self, feed: FeedType = FeedType.Corn, **kwargs) -> None:
         super().__init__(**kwargs)
-        self.grass_fed = grass_fed
+        self.feed = feed
 
     def __eq__(self, other):
         if not isinstance(other, Beef):
             return False
-        return self.weight == other.weight
+        return (self.weight == other.weight) and (self.feed == other.feed)
 
 
 @Meat.register("pork")

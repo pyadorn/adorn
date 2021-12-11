@@ -24,6 +24,7 @@ from typing import Union
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.params import Params
+    from adorn.unit.anum import Anum
     from adorn.unit.unit import Unit
 
 
@@ -474,3 +475,38 @@ class MissingDependencyError(TypeCheckError):
         ]
         self.missing_dependency = missing_dependency
         super().__init__(target_cls, msg, child=None, obj=None)
+
+
+class AnumWrongTypeError(WrongTypeError):
+    """Error when provided an ``obj`` of the wrong type for a :class:`~adorn.unit.anum.Anum`
+
+    Args:
+        target_cls (Anum): the requested wrapped enumeration
+        obj (Any): caller provided object, that is not of type
+            ``target_cls``
+    """  # noqa: B950
+
+    def __init__(self, target_cls: "Anum", obj: Any) -> "TypeCheckError":
+        super().__init__(str, obj)
+        self.target_cls = target_cls
+        self.msg[0] = f"For the Anum, {self.target_cls}, " + self.msg[0]
+
+
+class AnumMemberError(TypeCheckError):
+    """The str specified doesn't match any of the members of ``target_cls``
+
+    Args:
+        target_cls (Anum): the requested wrapped enumeration
+        obj (str): requested member that does not exist
+    """
+
+    def __init__(self, target_cls: "Anum", obj: str) -> None:
+        self.members = target_cls.__members__
+        msg = [
+            f"For {target_cls}, a str specified a member,",
+            f"{obj}, which is not an acceptable option",
+            f"for {target_cls}.  The valid members",
+            f"of {target_cls} are:",
+            *[f"\t- {k}" for k in self.members.keys()],
+        ]
+        super().__init__(target_cls, msg, child=None, obj=obj)

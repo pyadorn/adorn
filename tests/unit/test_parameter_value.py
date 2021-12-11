@@ -78,22 +78,25 @@ from adorn.unit.parameter_value import DependentFromObj
             Parameter(
                 None,
                 None,
-                {"a": gym.Beef(grass_fed=False, weight=1.1), "d": 2, "e": 3},
+                {"a": gym.Beef(feed=gym.FeedType.Corn, weight=1.1), "d": 2, "e": 3},
                 "",
             ),
-            {"ab": "a.grass_fed", "ac": "a.weight", "e": "e"},
+            {"ab": "a.feed", "ac": "a.weight", "e": "e"},
             True,
             None,
-            {"ab": False, "ac": 1.1, "e": 3},
+            {"ab": gym.FeedType.Corn, "ac": 1.1, "e": 3},
         ),  # well formed Dependent._from_params
         (
             Parameter(
-                None, None, {"a": gym.Beef(grass_fed=False, weight=1.1), "d": 2}, ""
+                None,
+                None,
+                {"a": gym.Beef(feed=gym.FeedType.Corn, weight=1.1), "d": 2},
+                "",
             ),
-            {"ab": "a.grass_fed", "ac": "a.weight", "adne": "a.dne", "e": "e"},
+            {"ab": "a.feed", "ac": "a.weight", "adne": "a.dne", "e": "e"},
             True,
             None,
-            {"ab": False, "ac": 1.1},
+            {"ab": gym.FeedType.Corn, "ac": 1.1},
         ),  # well formed Dependent._from_params
     ],
 )

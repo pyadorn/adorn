@@ -30,7 +30,15 @@ from adorn.unit.python import Python
 from adorn.unit.value import Value
 
 ORCHESTRATOR = Base(
-    [Value(), ParameterValue(), ConstructorValue(), Python(), gym.Gym(), gym.Ambig()]
+    [
+        Value(),
+        ParameterValue(),
+        ConstructorValue(),
+        Python(),
+        gym.Gymnum(),
+        gym.Gym(),
+        gym.Ambig(),
+    ]
 )
 
 TYPES = [

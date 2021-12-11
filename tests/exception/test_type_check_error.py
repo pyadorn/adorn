@@ -25,6 +25,8 @@ import pytest
 from tests.example import gym
 
 from adorn.data.parameter import Parameter
+from adorn.exception.type_check_error import AnumMemberError
+from adorn.exception.type_check_error import AnumWrongTypeError
 from adorn.exception.type_check_error import ComplexTypeMismatchError
 from adorn.exception.type_check_error import ExtraLiteralError
 from adorn.exception.type_check_error import HashableError
@@ -323,4 +325,33 @@ def test_missing_dependency_error():
         "dependencies that were not in the local state.",
         "The following dependency requests were not in the local state:",
         "\t- weight: a.c",
+    ]
+
+
+def test_anum_wrong_type_error():
+    awte = AnumWrongTypeError(gym.FeedType, 1)
+    assert awte.target_cls == gym.FeedType
+    assert awte.obj == 1
+    assert awte.child is None
+    assert awte.msg == [
+        f"For the Anum, {gym.FeedType}, Expected an object of type str,\n ",
+        "but received an object of type ",
+        "int\nwith a value of:",
+        "\n\t1",
+    ]
+
+
+def test_anum_member_error():
+    ame = AnumMemberError(gym.FeedType, "Gass")
+    assert ame.target_cls == gym.FeedType
+    assert ame.obj == "Gass"
+    assert ame.child is None
+    assert ame.msg == [
+        f"For {gym.FeedType}, a str specified a member,",
+        "Gass, which is not an acceptable option",
+        f"for {gym.FeedType}.  The valid members",
+        f"of {gym.FeedType} are:",
+        "\t- Grass",
+        "\t- Corn",
+        "\t- Unknown",
     ]

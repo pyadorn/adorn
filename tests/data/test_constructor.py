@@ -33,11 +33,11 @@ from adorn.data.constructor import Constructor
                     kind=inspect.Parameter.POSITIONAL_OR_KEYWORD,
                     annotation=float,
                 ),
-                "grass_fed": inspect.Parameter(
-                    "grass_fed",
+                "feed": inspect.Parameter(
+                    "feed",
                     kind=inspect.Parameter.POSITIONAL_OR_KEYWORD,
-                    annotation=bool,
-                    default=False,
+                    annotation=gym.FeedType,
+                    default=gym.FeedType.Corn,
                 ),
             },
             None,
