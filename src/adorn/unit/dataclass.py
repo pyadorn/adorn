@@ -23,7 +23,7 @@ from typing import Type
 from typing import TYPE_CHECKING
 from typing import TypeVar
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator
 
 from adorn.data.constructor import Constructor
