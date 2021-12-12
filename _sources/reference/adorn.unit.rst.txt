@@ -10,6 +10,7 @@ Submodules
    adorn.unit.anum
    adorn.unit.complex
    adorn.unit.constructor_value
+   adorn.unit.dataclass
    adorn.unit.parameter_value
    adorn.unit.python
    adorn.unit.simple

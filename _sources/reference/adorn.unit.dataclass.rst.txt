@@ -1,0 +1,7 @@
+adorn.unit.dataclass module
+===========================
+
+.. automodule:: adorn.unit.dataclass
+   :members:
+   :undoc-members:
+   :show-inheritance:
