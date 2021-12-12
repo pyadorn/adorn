@@ -34,9 +34,14 @@ class Constructor:
     subclass: "_UnitT"
 
     def __post_init__(self):
-        self.constructor_type = self.subclass.constructor_type
-        self.constructor = self.subclass.by_name()
+        self.constructor_type = getattr(self.subclass, "constructor_type", None)
+        self.constructor = (
+            self.subclass.by_name()
+            if hasattr(self.subclass, "by_name")
+            else self.subclass
+        )
         self.parameters = self.infer_params(self.subclass, self.constructor)
+        self.parameter_order = getattr(self.subclass, "parameter_order", None)
 
     def infer_params(
         self, target_class: Type["_T"], constructor: Callable[..., "_T"]

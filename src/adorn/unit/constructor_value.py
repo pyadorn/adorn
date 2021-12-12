@@ -225,7 +225,7 @@ class ConstructorValue(Simple):
                 failed and why
         """  # noqa: RST304
         exception_dict = dict()
-        for k in target_cls.subclass.parameter_order or obj.keys():
+        for k in target_cls.parameter_order or obj.keys():
             if k in obj and (k not in {"type"}):
                 parameter = Parameter(
                     target_cls.parameters[k].annotation, target_cls, obj, k
@@ -255,10 +255,10 @@ class ConstructorValue(Simple):
                 :attr:`~adorn.unit.complex.Complex.parameter_order`
         """  # noqa: B950, RST304
         # no parameter_order, then nothing to check
-        if target_cls.subclass.parameter_order is None:
+        if target_cls.parameter_order is None:
             return None
 
-        po_set = set(target_cls.subclass.parameter_order)
+        po_set = set(target_cls.parameter_order)
         pk = target_cls.parameters.keys()
         too_few = pk - po_set
         too_many = po_set - pk
@@ -298,7 +298,7 @@ class BaseConstructorValue(ConstructorValue):
         if paramterer_order_check is not None:
             raise paramterer_order_check
         kwargs = dict()
-        for k in target_cls.subclass.parameter_order or obj.keys():
+        for k in target_cls.parameter_order or obj.keys():
             if k in obj:
                 parameter = Parameter(
                     target_cls.parameters[k].annotation, target_cls, kwargs, k

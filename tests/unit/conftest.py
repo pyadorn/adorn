@@ -86,6 +86,20 @@ COMPLEX_TYPE_CHECK_NO_UNDER = [
     (gym.Gym, gym.GrandParent, Params({"type": "beef_2", "weight": 10})),
     (gym.Gym, gym.ParentB, Params({"type": "beef_2", "weight": 10})),
     (gym.Gym, gym.Child2, Params({"type": "beef_2", "weight": 10})),
+    (
+        gym.Gym,
+        gym.Child2,
+        Params(
+            {
+                "type": "2",
+                "food": None,
+                "fruit": {"type": "apple"},
+                "meat": {"type": "pork", "weight": 1.0},
+                "gp": "works",
+                "workout": {"lift": "Squat", "reps": 1, "weight": 405.0},
+            }
+        ),
+    ),
     (gym.Meat, gym.Meat, Params({"type": "beef", "feed": "Grass", "weight": 12.0})),
 ]
 
@@ -335,6 +349,27 @@ COMPLEX_FROM_OBJ_NO_UNDER = [
         gym.Meat,
         Params({"type": "beef", "feed": "Grass", "weight": 12.0}),
         gym.Beef(feed=gym.FeedType.Grass, weight=12.0),
+    ),
+    (
+        gym.Gym,
+        gym.Child2,
+        Params(
+            {
+                "type": "2",
+                "food": None,
+                "fruit": {"type": "apple"},
+                "meat": {"type": "pork", "weight": 1.0},
+                "gp": "works",
+                "workout": {"lift": "Squat", "reps": 1, "weight": 405.0},
+            }
+        ),
+        gym.Child2(
+            food=None,
+            fruit=gym.Apple(),
+            meat=gym.Pork(1.0),
+            gp="works",
+            workout=gym.Workout(gym.Lift.Squat, reps=1, weight=405.0),
+        ),
     ),
 ]
 

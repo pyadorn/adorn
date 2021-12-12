@@ -36,6 +36,7 @@ ORCHESTRATOR = Base(
         ConstructorValue(),
         Python(),
         gym.Gymnum(),
+        gym.GymData(),
         gym.Gym(),
         gym.Ambig(),
     ]
