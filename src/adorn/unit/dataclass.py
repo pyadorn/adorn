@@ -45,7 +45,6 @@ class DataClass(Unit):
     .. code-block:: python
 
         from dataclasses import dataclass
-        from enum import auto, Enum
 
         from adorn.orchestrator.base import Base
         from adorn.params import Params
