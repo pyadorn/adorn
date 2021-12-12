@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from collections import defaultdict
+from dataclasses import dataclass
 from enum import auto
 from enum import Enum
 from sys import version_info
@@ -27,6 +28,7 @@ else:
 
 from adorn.params import Params
 from adorn.unit.anum import Anum
+from adorn.unit.dataclass import DataClass
 from adorn.unit.complex import Complex
 from adorn.unit.parameter_value import DependentFromObj
 from adorn.unit.parameter_value import DependentTypeCheck
@@ -47,6 +49,32 @@ class FeedType(Enum):
     Grass = auto()
     Corn = auto()
     Unknown = auto()
+
+
+@Gymnum.register()
+class Lift(Enum):
+    """Types of lift done at the gym"""
+
+    Squat = auto()
+    Bench = auto()
+    Deadlift = auto()
+
+
+class GymData(DataClass):
+    """registry for gym related dataclasses"""
+
+    _registry = dict()
+
+
+@GymData.register()
+@dataclass
+class Workout:
+    """dataclass for tracking a workout"""
+
+    lift: Lift
+    reps: int
+    weight: float
+    maxed: bool = False
 
 
 class Gym(Complex):
@@ -92,7 +120,10 @@ class Beef(Meat):
 class Pork(Meat):
     """Pork"""
 
-    pass
+    def __eq__(self, other):
+        if not isinstance(other, Pork):
+            return False
+        return self.weight == other.weight
 
 
 class IntentionallyUnregistered(Meat):
@@ -197,19 +228,25 @@ class Child2(ParentB):
     """Child2"""
 
     def __init__(
-        self, food: Optional[Food], fruit: Fruit, meat: Meat, **kwargs
+        self,
+        food: Optional[Food],
+        fruit: Fruit,
+        meat: Meat,
+        workout: Optional[Workout] = None,
+        **kwargs
     ) -> None:
         super().__init__(**kwargs)
         self.food = food
         self.fruit = fruit
         self.meat = meat
+        self.workout = workout
 
     def __eq__(self, o: object) -> bool:
         if not isinstance(o, Child2):
             return False
         return all(
             getattr(self, i) == getattr(o, i)
-            for i in ["food", "fruit", "meat", "b", "gp"]
+            for i in ["food", "fruit", "meat", "b", "gp", "workout"]
         )
 
 

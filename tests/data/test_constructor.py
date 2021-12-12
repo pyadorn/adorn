@@ -97,6 +97,12 @@ from adorn.data.constructor import Constructor
                 "gp": inspect.Parameter(
                     "gp", kind=inspect.Parameter.POSITIONAL_OR_KEYWORD, annotation=str
                 ),
+                "workout": inspect.Parameter(
+                    "workout",
+                    default=None,
+                    kind=inspect.Parameter.POSITIONAL_OR_KEYWORD,
+                    annotation=Optional[gym.Workout],
+                ),
             },
             None,
         ),
