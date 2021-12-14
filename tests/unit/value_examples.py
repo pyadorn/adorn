@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from itertools import chain
+from typing import Any
 from typing import List
 from typing import Set
 
@@ -19,14 +20,21 @@ from tests.example.dne import _B
 from tests.example.dne import _C
 
 from adorn.exception.type_check_error import WrongTypeError
+from adorn.unit.value import Nny
 from adorn.unit.value import Rone
 from adorn.unit.value import Value
 
-RONE_TYPES = [(Rone, None), (Rone, type(None))]
+RONE_TYPES = [(Rone, None), (Rone, type(None)), (Nny, Any)]
 
 RONE_TYPES_MISMATCH = list(chain(*[[(Rone, i) for i in [0, 0.0, "", False, True]]]))
 
-RONE_TYPE_CHECK = [(Rone, None, None), (Rone, type(None), None)]
+RONE_TYPE_CHECK = [
+    (Rone, None, None),
+    (Rone, type(None), None),
+    (Nny, Any, 1),
+    (Nny, Any, "works"),
+    (Nny, Any, None),
+]
 
 RONE_TYPE_CHECK_WRONG = [
     (Rone, None, 0, WrongTypeError(type(None), 0)),
@@ -38,6 +46,9 @@ RONE_FROM_OBJ = [
     (Rone, None, 0, None),
     (Rone, type(None), "", None),
     (Rone, None, None, None),
+    (Nny, Any, 1, 1),
+    (Nny, Any, None, None),
+    (Nny, Any, "works", "works"),
 ]
 
 VALUE_DNE_LIST = list(

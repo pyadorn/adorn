@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Representation of instances, specifically ``None``"""
+"""Representation of instances, specifically ``None`` and ``typing.Any``"""
 from collections import defaultdict
 from typing import Any
 from typing import Optional
@@ -29,7 +29,7 @@ class Value(Simple):
     """:class:`~adorn.unit.unit.Unit` that holds instances
 
     This class exists to handle ``None``, which is allowed to
-    be used as a type and a value.
+    be used as a type and a value, as well as ``typing.Any``.
     """
 
     _registry = defaultdict(dict)
@@ -120,3 +120,55 @@ class Rone(Value):
         """
         if not cls._contains(obj, orchestrator):
             return WrongTypeError(cls.NoneType, obj)
+
+
+@Value.register("any")
+class Nny(Value):
+    """Representation of python's ``typing.Any``"""
+
+    @classmethod
+    def _contains(cls, obj: Type, orchestrator: "Orchestrator") -> bool:
+        """Check if the type or instance is ``typing.Any``
+
+        Args:
+            obj (Type): the type or instance that may be ``typing.Any``
+            orchestrator (Orchestrator): container of all types, which
+                is unused, since there are no nested types
+
+        Returns:
+            bool: if ``True``, ``obj`` was ``typing.Any``
+        """
+        return obj == Any
+
+    @classmethod
+    def _from_obj(cls, target_cls: Type, orchestrator: "Orchestrator", obj: Any) -> Any:
+        """Generate an instance of ``typing.Any``
+
+        Args:
+            target_cls (Type): This is ignored
+            orchestrator (Orchestrator): This is ignored
+            obj (Any): This is returned
+
+        Returns:
+            Any: return the ``obj`` that was passed
+        """
+        return obj
+
+    @classmethod
+    def _type_check(
+        cls, target_cls: Type, orchestrator: "Orchestrator", obj: Any
+    ) -> Optional[TypeCheckError]:
+        """Check if ``obj`` is ``typing.Any``.
+
+        This will never produce an exception, since any object in python
+        is always a ``typing.Any``
+
+        Args:
+            target_cls (Type): This is ignored
+            orchestrator (Orchestrator): This is ignored
+            obj (Any): This is ignored
+
+        Returns:
+            Optional[TypeCheckError]: always ``None``
+        """
+        return None
