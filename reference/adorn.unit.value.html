@@ -90,7 +90,14 @@
              
   <section id="module-adorn.unit.value">
 <span id="adorn-unit-value-module"></span><h1>adorn.unit.value module<a class="headerlink" href="#module-adorn.unit.value" title="Permalink to this headline"></a></h1>
-<p>Representation of instances, specifically <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>Representation of instances, specifically <code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.unit.value.Nny">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.value.</span></span><span class="sig-name descname"><span class="pre">Nny</span></span><a class="headerlink" href="#adorn.unit.value.Nny" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#adorn.unit.value.Value" title="adorn.unit.value.Value"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.value.Value</span></code></a></p>
+<p>Representation of python’s <code class="docutils literal notranslate"><span class="pre">typing.Any</span></code></p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="adorn.unit.value.Rone">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.value.</span></span><span class="sig-name descname"><span class="pre">Rone</span></span><a class="headerlink" href="#adorn.unit.value.Rone" title="Permalink to this definition"></a></dt>
@@ -110,7 +117,7 @@
 <dd><p>Bases: <a class="reference internal" href="adorn.unit.simple.html#adorn.unit.simple.Simple" title="adorn.unit.simple.Simple"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.simple.Simple</span></code></a></p>
 <p><a class="reference internal" href="adorn.unit.unit.html#adorn.unit.unit.Unit" title="adorn.unit.unit.Unit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code></a> that holds instances</p>
 <p>This class exists to handle <code class="docutils literal notranslate"><span class="pre">None</span></code>, which is allowed to
-be used as a type and a value.</p>
+be used as a type and a value, as well as <code class="docutils literal notranslate"><span class="pre">typing.Any</span></code>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="adorn.unit.value.Value.contains">
 <span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.value.Value.contains" title="Permalink to this definition"></a></dt>
