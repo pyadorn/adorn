@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="adorn.unit.anum module" href="adorn.unit.anum.html" />
-    <link rel="prev" title="adorn.unit.search package" href="adorn.unit.search.html" /> 
+    <link rel="prev" title="adorn.unit.search.grid module" href="adorn.unit.search.grid.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -91,150 +91,19 @@
              
   <section id="module-adorn.unit.search.search">
 <span id="adorn-unit-search-search-module"></span><h1>adorn.unit.search.search module<a class="headerlink" href="#module-adorn.unit.search.search" title="Permalink to this headline"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.BaseGrid">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">BaseGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.search.search.BaseGrid" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.GridElement" title="adorn.unit.search.search.GridElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.GridElement</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>keys</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>values</strong> (<em>List</em><em>[</em><em>Any</em><em>]</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.BaseGridSearch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">BaseGridSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_space</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.search.search.BaseGridSearch" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.GridSearch" title="adorn.unit.search.search.GridSearch"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.GridSearch</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>search_space</strong> (<em>List</em><em>[</em><a class="reference internal" href="#adorn.unit.search.search.GridElement" title="adorn.unit.search.search.GridElement"><em>adorn.unit.search.search.GridElement</em></a><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.ComposeGridSearch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">ComposeGridSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_space</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.search.search.ComposeGridSearch" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.GridSearch" title="adorn.unit.search.search.GridSearch"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.GridSearch</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>search_space</strong> (<em>List</em><em>[</em><a class="reference internal" href="#adorn.unit.search.search.GridSearch" title="adorn.unit.search.search.GridSearch"><em>adorn.unit.search.search.GridSearch</em></a><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.FileGridSearch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">FileGridSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.search.search.FileGridSearch" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.GridSearch" title="adorn.unit.search.search.GridSearch"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.GridSearch</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filenames</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.GridElement">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">GridElement</span></span><a class="headerlink" href="#adorn.unit.search.search.GridElement" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.SearchElement" title="adorn.unit.search.search.SearchElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.SearchElement</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.unit.search.search.GridElement.str_to_list">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">str_to_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_or_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.search.search.GridElement.str_to_list" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>str_or_list</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>List[str]</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.GridElementTemplate">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">GridElementTemplate</span></span><a class="headerlink" href="#adorn.unit.search.search.GridElementTemplate" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.GridElement" title="adorn.unit.search.search.GridElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.GridElement</span></code></a>, <a class="reference internal" href="adorn.unit.template.html#adorn.unit.template.Template" title="adorn.unit.template.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.template.Template</span></code></a></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.GridSearch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">GridSearch</span></span><a class="headerlink" href="#adorn.unit.search.search.GridSearch" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.SearchSpace" title="adorn.unit.search.search.SearchSpace"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.SearchSpace</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.unit.search.search.GridSearch.tuple_to_dict">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tuple_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tpl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.search.search.GridSearch.tuple_to_dict" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>tpl</strong> (<em>Tuple</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>, </em><em>...</em><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Dict[str, Any]</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.IdGrid">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">IdGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.search.search.IdGrid" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.GridElementTemplate" title="adorn.unit.search.search.GridElementTemplate"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.GridElementTemplate</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>keys</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>value</strong> (<em>Any</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.search.search.ListGridSearch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">ListGridSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_space</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.search.search.ListGridSearch" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#adorn.unit.search.search.GridSearch" title="adorn.unit.search.search.GridSearch"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.search.search.GridSearch</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>search_space</strong> (<em>List</em><em>[</em><a class="reference internal" href="#adorn.unit.search.search.GridSearch" title="adorn.unit.search.search.GridSearch"><em>adorn.unit.search.search.GridSearch</em></a><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
+<p>Abstract classes for creating a search space for an <code class="docutils literal notranslate"><span class="pre">adorn</span></code> config</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="adorn.unit.search.search.SearchElement">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">SearchElement</span></span><a class="headerlink" href="#adorn.unit.search.search.SearchElement" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.complex.Complex</span></code></a></p>
+<p>Specification of a single component to search over</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="adorn.unit.search.search.SearchSpace">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.search.search.</span></span><span class="sig-name descname"><span class="pre">SearchSpace</span></span><a class="headerlink" href="#adorn.unit.search.search.SearchSpace" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.complex.Complex</span></code></a></p>
+<p>Specification of multiple components to search over</p>
 </dd></dl>
 
 </section>
@@ -243,7 +112,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="adorn.unit.search.html" class="btn btn-neutral float-left" title="adorn.unit.search package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adorn.unit.search.grid.html" class="btn btn-neutral float-left" title="adorn.unit.search.grid module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="adorn.unit.anum.html" class="btn btn-neutral float-right" title="adorn.unit.anum module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
