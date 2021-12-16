@@ -23,11 +23,11 @@ class GridElement(SearchElement):
     _intermediate_registry = defaultdict(list)
     _parent_registry = defaultdict(list)
 
-    def __len__(self) -> int:
+    def __len__(self) -> int:  # pragma: no cover
         """Number of elements the component is adding to the search space"""
         raise NotImplementedError
 
-    def __call__(self) -> List[Dict[str, Any]]:
+    def __call__(self) -> List[Dict[str, Any]]:  # pragma: no cover
         """Generate the collection of values to add to the search space
 
         Raises:
@@ -111,7 +111,7 @@ class GridSearch(SearchSpace):
     _intermediate_registry = defaultdict(list)
     _parent_registry = defaultdict(list)
 
-    def __call__(self) -> List[Dict[str, Any]]:
+    def __call__(self) -> List[Dict[str, Any]]:  # pragma: no cover
         """Generate all elements of the search space
 
         Raises:

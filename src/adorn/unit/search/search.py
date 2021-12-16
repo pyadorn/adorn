@@ -5,13 +5,11 @@ from adorn.unit.complex import Complex
 class SearchElement(Complex):
     """Specification of a single component to search over"""
 
-    pass
-
 
 class SearchSpace(Complex):
     """Specification of multiple components to search over"""
 
-    def __len__(self) -> int:
+    def __len__(self) -> int:  # pragma: no cover
         """Number of elements to be searched over
 
         Raises:
