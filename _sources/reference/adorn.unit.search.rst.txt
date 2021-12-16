@@ -1,0 +1,18 @@
+adorn.unit.search package
+=========================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   adorn.unit.search.search
+
+Module contents
+---------------
+
+.. automodule:: adorn.unit.search
+   :members:
+   :undoc-members:
+   :show-inheritance:
