@@ -147,8 +147,9 @@ class Identity(ParameterValue):
                 instance of :attr:`~adorn.data.parameter.Parameter.cls`,
                 otherwise ``None``
         """  # noqa: B950, RST304
-        if getattr(target_cls.cls, "__origin__", None) is None and isinstance(
-            obj, target_cls.cls
+        if (target_cls.cls == Any) or (
+            getattr(target_cls.cls, "__origin__", None) is None
+            and isinstance(obj, target_cls.cls)
         ):
             # object is already instantiated, so we assume it is ok
             return None
