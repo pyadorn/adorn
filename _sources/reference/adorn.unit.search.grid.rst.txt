@@ -1,7 +1,0 @@
-adorn.unit.search.grid module
-=============================
-
-.. automodule:: adorn.unit.search.grid
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,7 +1,0 @@
-adorn.unit.search.search module
-===============================
-
-.. automodule:: adorn.unit.search.search
-   :members:
-   :undoc-members:
-   :show-inheritance:
