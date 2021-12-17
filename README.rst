@@ -40,7 +40,7 @@ Features
 ``adorn`` can currently
 
 * instantiate an object
-* check that your config can instantiate an object
+* check that a config can instantiate an object
 
 
 Example
