@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>adorn.alter.dict_alter module &mdash; Adorn  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="adorn.data package" href="adorn.data.html" />
+    <link rel="prev" title="adorn.alter.alter module" href="adorn.alter.alter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Adorn
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributor Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codeofconduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/pyadorn/adorn/releases">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">adorn</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="adorn.html">adorn package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="adorn.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="adorn.alter.html">adorn.alter package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adorn.data.html">adorn.data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adorn.exception.html">adorn.exception package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adorn.orchestrator.html">adorn.orchestrator package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="adorn.unit.html">adorn.unit package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="adorn.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adorn.html#module-adorn">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">adorn</a> &raquo;</li>
+          <li><a href="adorn.html">adorn package</a> &raquo;</li>
+          <li><a href="adorn.alter.html">adorn.alter package</a> &raquo;</li>
+      <li>adorn.alter.dict_alter module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/adorn.alter.dict_alter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-adorn.alter.dict_alter">
+<span id="adorn-alter-dict-alter-module"></span><h1>adorn.alter.dict_alter module<a class="headerlink" href="#module-adorn.alter.dict_alter" title="Permalink to this headline"></a></h1>
+<p>Apply an alteration to an object based off a <code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.alter.dict_alter.EnvDictAlter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.alter.dict_alter.</span></span><span class="sig-name descname"><span class="pre">EnvDictAlter</span></span><a class="headerlink" href="#adorn.alter.dict_alter.EnvDictAlter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#adorn.alter.dict_alter.UserDictAlter" title="adorn.alter.dict_alter.UserDictAlter"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.alter.dict_alter.UserDictAlter</span></code></a></p>
+<p>Inject values from the environment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="adorn.alter.dict_alter.EnvDictAlter.type_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#adorn.alter.dict_alter.EnvDictAlter.type_value" title="Permalink to this definition"></a></dt>
+<dd><p>The expected value for the key <code class="docutils literal notranslate"><span class="pre">type</span></code> in the given <a class="reference internal" href="adorn.params.html#adorn.params.Params" title="adorn.params.Params"><code class="xref py py-class docutils literal notranslate"><span class="pre">Params</span></code></a> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the value of <code class="docutils literal notranslate"><span class="pre">type</span></code> for which this <code class="docutils literal notranslate"><span class="pre">Alter</span></code> is appropriate</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.alter.dict_alter.UserDictAlter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.alter.dict_alter.</span></span><span class="sig-name descname"><span class="pre">UserDictAlter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.alter.dict_alter.UserDictAlter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.alter.alter.Alter</span></code></a></p>
+<p>Inject a value from a user provided <code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user_dict</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – dictionary which contains
+values to be injected</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.alter.dict_alter.UserDictAlter.a_contains">
+<span class="sig-name descname"><span class="pre">a_contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.alter.dict_alter.UserDictAlter.a_contains" title="Permalink to this definition"></a></dt>
+<dd><p>Check if a value in <code class="docutils literal notranslate"><span class="pre">user_dict</span></code> has been requested</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<em>Type</em>) – the target Type, the given <code class="docutils literal notranslate"><span class="pre">obj</span></code> will be converted
+into or checked against</p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of all types, typically used
+to recurse down nested types</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – an instance, that will be checked to see if it can be
+converted into the <code class="docutils literal notranslate"><span class="pre">target_cls</span></code> or will be converted to an
+instance of <code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>if <code class="docutils literal notranslate"><span class="pre">True</span></code> then a value in the user dict has been</dt><dd><p>requested else <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.alter.dict_alter.UserDictAlter.a_get">
+<span class="sig-name descname"><span class="pre">a_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.alter.dict_alter.UserDictAlter.a_get" title="Permalink to this definition"></a></dt>
+<dd><p>Return this <code class="docutils literal notranslate"><span class="pre">Alter</span></code> if the associated with the arguments are requesting it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<em>Type</em>) – the target Type, the given <code class="docutils literal notranslate"><span class="pre">obj</span></code> will be converted
+into or checked against</p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of all types, typically used
+to recurse down nested types</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – an instance, that will be checked to see if it can be
+converted into the <code class="docutils literal notranslate"><span class="pre">target_cls</span></code> or will be converted to an
+instance of <code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>if the provided arguments are contained by this <code class="docutils literal notranslate"><span class="pre">Alter</span></code></dt><dd><p>return it, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter">Alter</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.alter.dict_alter.UserDictAlter.alter_obj">
+<span class="sig-name descname"><span class="pre">alter_obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.alter.dict_alter.UserDictAlter.alter_obj" title="Permalink to this definition"></a></dt>
+<dd><p>Swap <code class="docutils literal notranslate"><span class="pre">obj</span></code> with a value in <code class="docutils literal notranslate"><span class="pre">user_dict</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<em>Type</em>) – the target Type, the given <code class="docutils literal notranslate"><span class="pre">obj</span></code> will be converted
+into or checked against</p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of all types, typically used
+to recurse down nested types</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – an instance, that will be checked to see if it can be
+converted into the <code class="docutils literal notranslate"><span class="pre">target_cls</span></code> or will be converted to an
+instance of <code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>a value from <code class="docutils literal notranslate"><span class="pre">user_dict</span></code> or a</dt><dd><p><code class="docutils literal notranslate"><span class="pre">TypeCheckError</span></code> providing a reason why a value from
+<code class="docutils literal notranslate"><span class="pre">user_dict</span></code> couldn’t be provided</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[Any, <a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError">TypeCheckError</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="adorn.alter.dict_alter.UserDictAlter.type_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#adorn.alter.dict_alter.UserDictAlter.type_value" title="Permalink to this definition"></a></dt>
+<dd><p>The expected value for the key <code class="docutils literal notranslate"><span class="pre">type</span></code> in the given <a class="reference internal" href="adorn.params.html#adorn.params.Params" title="adorn.params.Params"><code class="xref py py-class docutils literal notranslate"><span class="pre">Params</span></code></a> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the value of <code class="docutils literal notranslate"><span class="pre">type</span></code> for which this <code class="docutils literal notranslate"><span class="pre">Alter</span></code> is appropriate</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="adorn.alter.alter.html" class="btn btn-neutral float-left" title="adorn.alter.alter module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adorn.data.html" class="btn btn-neutral float-right" title="adorn.data package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Jacob Baumbach.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -47,6 +47,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">adorn</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="adorn.html">adorn package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="adorn.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="adorn.alter.html">adorn.alter package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="adorn.data.html">adorn.data package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="adorn.exception.html">adorn.exception package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="adorn.orchestrator.html">adorn.orchestrator package</a></li>
@@ -91,6 +92,47 @@
   <section id="module-adorn.exception.type_check_error">
 <span id="adorn-exception-type-check-error-module"></span><h1>adorn.exception.type_check_error module<a class="headerlink" href="#module-adorn.exception.type_check_error" title="Permalink to this headline"></a></h1>
 <p>Exceptions specifying why a request was malformed</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="adorn.exception.type_check_error.AlterMissingKeysError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">AlterMissingKeysError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alter_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.AlterMissingKeysError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
+<p><a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> object was missing arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alter_cls</strong> (<a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><em>Alter</em></a>) – an alteration that was requested to be applied</p></li>
+<li><p><strong>target_cls</strong> (<em>Type</em>) – the type of the object to be instantiated</p></li>
+<li><p><strong>missing_keys</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – the arguments missing for the <code class="docutils literal notranslate"><span class="pre">Alter</span></code></p></li>
+<li><p><strong>obj</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – the arguments for the <code class="docutils literal notranslate"><span class="pre">Alter</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="adorn.exception.type_check_error.AlterUserDictMissingKeyError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">AlterUserDictMissingKeyError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alter_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_dict_keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.AlterUserDictMissingKeyError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
+<p>The requested key in a <a class="reference internal" href="adorn.alter.dict_alter.html#adorn.alter.dict_alter.UserDictAlter" title="adorn.alter.dict_alter.UserDictAlter"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDictAlter</span></code></a> did not exist</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alter_cls</strong> (<a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><em>Alter</em></a>) – an alteration that was requested to be applied</p></li>
+<li><p><strong>target_cls</strong> (<em>Type</em>) – the type of the object to be instantiated</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – the key that does not exist in the user dict</p></li>
+<li><p><strong>user_dict_keys</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – the keys that exist in the user dict</p></li>
+<li><p><strong>obj</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – the arguments for the <code class="docutils literal notranslate"><span class="pre">Alter</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py exception">
 <dt class="sig sig-object py" id="adorn.exception.type_check_error.AnumMemberError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">AnumMemberError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.AnumMemberError" title="Permalink to this definition"></a></dt>

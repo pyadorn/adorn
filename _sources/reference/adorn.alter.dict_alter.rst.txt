@@ -1,0 +1,7 @@
+adorn.alter.dict\_alter module
+==============================
+
+.. automodule:: adorn.alter.dict_alter
+   :members:
+   :undoc-members:
+   :show-inheritance:

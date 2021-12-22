@@ -1,6 +1,14 @@
 adorn.unit package
 ==================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   adorn.unit.search
+
 Submodules
 ----------
 

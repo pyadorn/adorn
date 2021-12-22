@@ -47,6 +47,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">adorn</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="adorn.html">adorn package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="adorn.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="adorn.alter.html">adorn.alter package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="adorn.data.html">adorn.data package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="adorn.exception.html">adorn.exception package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="adorn.orchestrator.html">adorn.orchestrator package</a></li>
@@ -400,6 +401,27 @@ class being the value</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Type[_ComplexT]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.unit.complex.Complex.root">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">root</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.complex.Complex.root" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize all the class attributes needed to track the class hieracrchy</p>
+<p>This decorator is typically called on a direct descendant of
+<a class="reference internal" href="#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a> enabling all of the direct
+descendant’s children to be tracked.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>decorator that initializes the</dt><dd><p>class attributes for tracking</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Callable[[Type[_T]], Type[_T]]</p>
 </dd>
 </dl>
 </dd></dl>

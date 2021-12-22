@@ -249,6 +249,28 @@ program invocation, as discussed here:
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="adorn.params.Params.left_merge">
+<span class="sig-name descname"><span class="pre">left_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rhs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.left_merge" title="Permalink to this definition"></a></dt>
+<dd><p>Inject values from a new config into the current config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rhs</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#adorn.params.Params" title="adorn.params.Params"><em>Params</em></a><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – configuration, where its values
+will be injected into the current config</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>flattened version of the original config that includes</dt><dd><p>values from the passed config, <code class="docutils literal notranslate"><span class="pre">rhs</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="adorn.params.Params.pop">
 <span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=&lt;object</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_as_dict=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.pop" title="Permalink to this definition"></a></dt>
 <dd><p>Performs the functionality associated with dict.pop(key).</p>

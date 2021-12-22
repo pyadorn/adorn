@@ -1,0 +1,19 @@
+adorn.alter package
+===================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   adorn.alter.alter
+   adorn.alter.dict_alter
+
+Module contents
+---------------
+
+.. automodule:: adorn.alter
+   :members:
+   :undoc-members:
+   :show-inheritance:

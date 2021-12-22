@@ -86,10 +86,7 @@
 </section>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-
-
-<span class="kn">from</span> <span class="nn">adorn.orchestrator.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">adorn.orchestrator.base</span> <span class="kn">import</span> <span class="n">Base</span>
 <span class="kn">from</span> <span class="nn">adorn.params</span> <span class="kn">import</span> <span class="n">Params</span>
 <span class="kn">from</span> <span class="nn">adorn.unit.complex</span> <span class="kn">import</span> <span class="n">Complex</span>
 <span class="kn">from</span> <span class="nn">adorn.unit.constructor_value</span> <span class="kn">import</span> <span class="n">ConstructorValue</span>
@@ -97,12 +94,9 @@
 <span class="kn">from</span> <span class="nn">adorn.unit.python</span> <span class="kn">import</span> <span class="n">Python</span>
 
 
+<span class="nd">@Complex</span><span class="o">.</span><span class="n">root</span><span class="p">()</span>
 <span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">Complex</span><span class="p">):</span>
-    <span class="n">_registry</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
-    <span class="n">_subclass_registry</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="n">_intermediate_registry</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-    <span class="n">_parent_registry</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-
+   <span class="k">pass</span>
 
 <span class="nd">@Example</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">Parent</span><span class="p">(</span><span class="n">Example</span><span class="p">):</span>
