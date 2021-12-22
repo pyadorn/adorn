@@ -73,6 +73,8 @@ class Complex(Unit):
     parameter_order: Optional[List[str]] = None
     """The order in which the
        parameters for a class should be instantiated"""
+    constructor_name: Optional[str] = None
+    """Name of the constructor to use to instantiate the class"""
 
     @classmethod
     def root(cls: Type[_ComplexT]) -> Callable[[Type[_T]], Type[_T]]:

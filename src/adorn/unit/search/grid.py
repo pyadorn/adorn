@@ -387,6 +387,8 @@ class GroupBy(Group):
 class GridOrchestrator(Complex, Generic[GRID_OUTPUT]):
     """Generate a grid search space and optionally alter the space"""
 
+    constructor_name = "__init__"
+
     def __init__(self) -> None:
         super().__init__()
 
