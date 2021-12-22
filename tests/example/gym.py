@@ -77,13 +77,9 @@ class Workout:
     maxed: bool = False
 
 
+@Complex.root()
 class Gym(Complex):
     """Gym"""
-
-    _registry = defaultdict(dict)
-    _subclass_registry = dict()
-    _intermediate_registry = defaultdict(list)
-    _parent_registry = defaultdict(list)
 
 
 class Food(Gym):
@@ -280,13 +276,9 @@ class BeefChild2(Template, Gym):
         )
 
 
+@Complex.root()
 class Ambig(Complex):
     """Ambig"""
-
-    _registry = defaultdict(dict)
-    _subclass_registry = dict()
-    _intermediate_registry = defaultdict(list)
-    _parent_registry = defaultdict(list)
 
     _attr: Optional[List[str]]
 

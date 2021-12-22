@@ -1,27 +1,43 @@
+# Copyright 2021 Jacob Baumbach
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 """Objects that enable grid searching adorn configs"""
-from collections import defaultdict
 from functools import reduce
 from itertools import chain
+from itertools import groupby
 from itertools import product
 from typing import Any
 from typing import Dict
+from typing import Generic
 from typing import List
+from typing import Optional
 from typing import Tuple
+from typing import TypeVar
 from typing import Union
 
 from adorn.params import Params
+from adorn.unit.complex import Complex
 from adorn.unit.search.search import SearchElement
 from adorn.unit.search.search import SearchSpace
 from adorn.unit.template import Template
 
 
+GRID_OUTPUT = TypeVar("GRID_OUTPUT", List[Params], List[List[Params]])
+
+
+@SearchElement.root()
 class GridElement(SearchElement):
     """Individual component that make up a space to search over"""
-
-    _registry = defaultdict(dict)
-    _subclass_registry = dict()
-    _intermediate_registry = defaultdict(list)
-    _parent_registry = defaultdict(list)
 
     def __len__(self) -> int:  # pragma: no cover
         """Number of elements the component is adding to the search space"""
@@ -103,13 +119,9 @@ class IdGrid(GridElementTemplate):
         return Params({"type": "base_grid", "keys": self.keys, "values": [self.value]})
 
 
+@SearchSpace.root()
 class GridSearch(SearchSpace):
     """Generate a grid search space by composing multiple grid components"""
-
-    _registry = defaultdict(dict)
-    _subclass_registry = dict()
-    _intermediate_registry = defaultdict(list)
-    _parent_registry = defaultdict(list)
 
     def __call__(self) -> List[Dict[str, Any]]:  # pragma: no cover
         """Generate all elements of the search space
@@ -213,3 +225,212 @@ class FileGridSearch(GridSearch):
                 where each element was an adorn config read from disk
         """
         return [Params.from_file(i).as_dict() for i in self.filenames]
+
+
+@Complex.root()
+class Organize(Complex):
+    """Alter the order of a list of grid points"""
+
+    def __call__(
+        self, search_list: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:  # pragma: no cover
+        """Rearrange a list of grid points
+
+        Args:
+            search_list (List[Dict[str, Any]]): list of grid points
+
+        Raises:
+            NotImplementedError: needs to be implemented by child class
+        """
+        raise NotImplementedError
+
+
+@Organize.register("id_organize")
+class IDOrganize(Organize):
+    """Perform no alterations to the list of grid points"""
+
+    def __call__(self, search_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Return the list of grid points without alterations
+
+        Args:
+            search_list (List[Dict[str, Any]]): list of grid points
+
+        Returns:
+            List[Dict[str, Any]]: list of grid points passed, without
+                alterations
+        """
+        return search_list
+
+
+@Organize.register("sort_organize")
+class SortOrganize(Organize):
+    """Sort a list of grid points based on the values contained in each element
+
+    Args:
+        keys (Union[str, List[str]]): names of the values to sort the values
+            of a list
+    """
+
+    def __init__(self, keys: Union[str, List[str]]) -> None:
+        super().__init__()
+        self.keys = keys
+
+    def generate_key(self, dct: Dict[str, Any]) -> Union[Any, Tuple[Any, ...]]:
+        """Get the values associated with a grid point for sorting
+
+        Args:
+            dct (Dict[str, Any]): the grid point, which will have values parsed from it
+
+        Returns:
+            Union[Any, Tuple[Any, ...]]: values from a grid point to be used for sorting
+        """
+        return tuple(
+            dct[key]
+            for key in (self.keys if isinstance(self.keys, list) else [self.keys])
+        )
+
+    def __call__(self, search_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Sort a list of grid points based on a subset of values
+
+        Args:
+            search_list (List[Dict[str, Any]]): collection of grid points to be sorted
+
+        Returns:
+            List[Dict[str, Any]]: list of grid points passed, sorted
+                based on a subset of their values
+        """
+        return sorted(search_list, key=self.generate_key)
+
+
+@Complex.root()
+class Group(Complex):
+    """Partition a list of grid points based on shared characteristics"""
+
+    def __call__(
+        self, search_list: List[Dict[str, Any]]
+    ) -> List[List[Dict[str, Any]]]:  # pragma: no cover
+        """Partition a list of grid points
+
+        Args:
+            search_list (List[Dict[str, Any]]): collection of grid
+                points to be partitioned
+
+        Raises:
+            NotImplementedError: needs to be implemented by child class
+        """
+        raise NotImplementedError
+
+
+@Group.register("id_group")
+class IDGroup(Group):
+    """Add each element of a list of grid points to its own partition"""
+
+    def __init__(self) -> None:
+        super().__init__()
+
+    def __call__(self, search_list: List[Dict[str, Any]]) -> List[List[Dict[str, Any]]]:
+        """Place each element of the grid list into its own group
+
+        Args:
+            search_list (List[Dict[str, Any]]): collection of grid points
+
+        Returns:
+            List[List[Dict[str, Any]]]: each element is in its own partition
+        """
+        return [[i] for i in search_list]
+
+
+@Group.register("group_by")
+class GroupBy(Group):
+    """Partition a list of grid points based on common values
+
+    Args:
+        keys (Union[str, List[str]]): names of the values to group
+            the grid elements by
+    """
+
+    def __init__(self, keys: Union[str, List[str]]) -> None:
+        super().__init__()
+        self.sort_organize = SortOrganize(keys=keys)
+
+    def __call__(self, search_list: List[Dict[str, Any]]) -> List[List[Dict[str, Any]]]:
+        """Group grid points based on common values
+
+        Args:
+            search_list (List[Dict[str, Any]]): collection of grid points
+
+        Returns:
+            List[List[Dict[str, Any]]]: partitions of elements with common values
+        """
+        return [
+            list(i)
+            for _, i in groupby(
+                self.sort_organize(search_list=search_list),
+                key=self.sort_organize.generate_key,
+            )
+        ]
+
+
+@Complex.root()
+class GridOrchestrator(Complex, Generic[GRID_OUTPUT]):
+    """Generate a grid search space and optionally alter the space"""
+
+    def __call__(self) -> GRID_OUTPUT:  # pragma: no cover
+        """Produce a grid search space of collection of grid search spaces
+
+        Raises:
+            NotImplementedError: needs to be implemented by child class
+        """
+        raise NotImplementedError
+
+
+@GridOrchestrator.register("grid_orch_list")
+class GridList(GridOrchestrator[List[Params]]):
+    """Generate a grid search space and optionally alter the order of the space
+
+    Args:
+        grid_search (GridSearch): specification of a grid search space
+        organize (Optional[Organize]): optionally alter the order of a search
+            space, if ``None`` the order is not altered
+    """
+
+    def __init__(
+        self, grid_search: GridSearch, organize: Optional[Organize] = None
+    ) -> None:
+        super().__init__()
+        self.grid_search = grid_search
+        self.organize = organize or IDOrganize()
+
+    def __call__(self) -> List[Params]:
+        """Generate a search space and order it
+
+        Returns:
+            List[Params]: a grid search space that has potentially had
+                its order altered
+        """
+        return self.organize(self.grid_search())
+
+
+@GridOrchestrator.register("grid_orch_nested_list")
+class GridNestedList(GridOrchestrator[List[List[Params]]]):
+    """Generate a collection of grid search spaces
+
+    Args:
+        grid_search (GridSearch): specification of a grid search space
+        group (Optional[Group]): optional specification of how to create
+            grid search spaces, if ``None`` each element in the grid search
+            becomes its own grid search space
+    """
+
+    def __init__(self, grid_search: GridSearch, group: Optional[Group] = None) -> None:
+        super().__init__()
+        self.grid_search = grid_search
+        self.group = group or IDGroup()
+
+    def __call__(self) -> List[List[Params]]:
+        """Create a collection of grid search spaces
+
+        Returns:
+            List[List[Params]]: a collection of grid search spaces
+        """
+        return self.group(self.grid_search())

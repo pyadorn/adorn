@@ -24,7 +24,10 @@ else:
 import pytest
 from tests.example import gym
 
+from adorn.alter.dict_alter import UserDictAlter
 from adorn.data.parameter import Parameter
+from adorn.exception.type_check_error import AlterMissingKeysError
+from adorn.exception.type_check_error import AlterUserDictMissingKeyError
 from adorn.exception.type_check_error import AnumMemberError
 from adorn.exception.type_check_error import AnumWrongTypeError
 from adorn.exception.type_check_error import ComplexTypeMismatchError
@@ -354,4 +357,38 @@ def test_anum_member_error():
         "\t- Grass",
         "\t- Corn",
         "\t- Unknown",
+    ]
+
+
+def test_alter_missing_keys():
+    amk = AlterMissingKeysError(UserDictAlter, int, ["key"], Params({"a": 1}))
+    assert amk.alter_cls == UserDictAlter
+    assert amk.target_cls == int
+    assert amk.missing_keys == ["key"]
+    assert amk.obj == Params({"a": 1})
+    assert amk.child is None
+    assert amk.msg == [
+        f"{int} was provided an Alter of type {UserDictAlter}",
+        "which expects the following arguments, which weren't provided",
+        "\t- key",
+    ]
+
+
+def test_alter_user_dict_missing_key():
+    audmk = AlterUserDictMissingKeyError(
+        UserDictAlter, int, "b", ["c", "d", "e"], Params({"a": 1})
+    )
+    assert audmk.alter_cls == UserDictAlter
+    assert audmk.target_cls == int
+    assert audmk.key == "b"
+    assert audmk.user_dict_keys == ["c", "d", "e"]
+    assert audmk.obj == Params({"a": 1})
+    assert audmk.child is None
+    assert audmk.msg == [
+        f"{int} was provided an Alter of type {UserDictAlter}",
+        "with a requested ``key`` of b, which was not in the user dict",
+        "but the underlying user dict only contains the following keys:",
+        "\t- c",
+        "\t- d",
+        "\t- e",
     ]
