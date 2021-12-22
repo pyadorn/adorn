@@ -20,9 +20,8 @@ from typing import Type
 from typing import TYPE_CHECKING
 from typing import Union
 
-from adorn.exception.type_check_error import AlterMissingKeysError
-from adorn.exception.type_check_error import AlterUserDictMissingKeyError
 from adorn.exception.type_check_error import TypeCheckError
+from adorn.exception.type_check_error import UserDictError
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator
@@ -69,6 +68,7 @@ class UserDictAlter(Alter):
             isinstance(target_cls, Parameter)
             and isinstance(obj, Params)
             and obj.get("type") == self.type_value
+            and obj.get("key") in self.user_dict
         )
 
     def a_get(
@@ -121,14 +121,11 @@ class UserDictAlter(Alter):
                 ``TypeCheckError`` providing a reason why a value from
                 ``user_dict`` couldn't be provided
         """
-        if "key" not in obj:
-            return AlterMissingKeysError(type(self), target_cls.cls, ["key"], obj)
-        if obj["key"] not in self.user_dict:
-            return AlterUserDictMissingKeyError(
-                type(self), target_cls.cls, obj["key"], list(self.user_dict.keys()), obj
-            )
-        user_dict_value = self.user_dict[obj["key"]]
-        new_obj = orchestrator.from_obj(target_cls.cls, user_dict_value)
+        user_dict_value = self.user_dict[obj.get("key")]
+        try:
+            new_obj = orchestrator.from_obj(target_cls.cls, user_dict_value)
+        except Exception as e:
+            return UserDictError(type(self), target_cls, obj, e)
         return new_obj
 
     @property

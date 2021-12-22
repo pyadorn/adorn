@@ -19,12 +19,20 @@ from tests.conftest import ORCHESTRATOR
 from adorn.alter.dict_alter import EnvDictAlter
 from adorn.alter.dict_alter import UserDictAlter
 from adorn.data.parameter import Parameter
-from adorn.exception.type_check_error import AlterMissingKeysError
-from adorn.exception.type_check_error import AlterUserDictMissingKeyError
+from adorn.exception.type_check_error import UserDictError
 from adorn.params import Params
 
 
 CONTAINS = [
+    (
+        UserDictAlter(dict(a=None)),
+        (
+            Parameter(int, None, dict(), ""),
+            None,
+            Params({"type": "user_dict", "key": "a"}),
+        ),
+        True,
+    ),
     (
         UserDictAlter(dict()),
         (
@@ -32,7 +40,7 @@ CONTAINS = [
             None,
             Params({"type": "user_dict", "key": "a"}),
         ),
-        True,
+        False,
     ),
     (
         UserDictAlter(dict()),
@@ -86,21 +94,16 @@ ALTER_OBJ = [
         3.4,
     ),
     (
-        EnvDictAlter(),
+        UserDictAlter({"USER": "abc", "PASSWORD": "120", "FLT": "a"}),
         {
-            "target_cls": Parameter(float, None, dict(), ""),
-            "obj": {"type": "user_dict"},
+            "target_cls": Parameter(float, None, dict(), "b"),
+            "obj": {"type": "user_dict", "key": "FLT"},
         },
-        AlterMissingKeysError(EnvDictAlter, float, ["key"], {"type": "user_dict"}),
-    ),
-    (
-        UserDictAlter({"USER": "abc"}),
-        {
-            "target_cls": Parameter(float, None, dict(), ""),
-            "obj": {"type": "user_dict", "key": "DNE"},
-        },
-        AlterUserDictMissingKeyError(
-            UserDictAlter, float, "DNE", ["USER"], {"type": "user_dict", "key": "DNE"}
+        UserDictError(
+            UserDictAlter,
+            Parameter(float, None, dict(), "b"),
+            {"type": "user_dict", "key": "FLT"},
+            ValueError(),
         ),
     ),
 ]

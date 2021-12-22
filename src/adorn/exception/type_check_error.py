@@ -23,7 +23,7 @@ from typing import TYPE_CHECKING
 from typing import Union
 
 if TYPE_CHECKING:  # pragma: no cover
-    from adorn.alter.alter import Alter
+    from adorn.data.parameter import Parameter
     from adorn.params import Params
     from adorn.unit.anum import Anum
     from adorn.unit.unit import Unit
@@ -513,59 +513,43 @@ class AnumMemberError(TypeCheckError):
         super().__init__(target_cls, msg, child=None, obj=obj)
 
 
-class AlterMissingKeysError(TypeCheckError):
-    """:class:`~adorn.alter.alter.Alter` object was missing arguments
+class UserDictError(TypeCheckError):
+    """Report an error during the from_obj step of :class:`~adorn.alter.dict_alter.UserDictAlter`
 
     Args:
-        alter_cls (Alter): an alteration that was requested to be applied
-        target_cls (Type): the type of the object to be instantiated
-        missing_keys (List[str]): the arguments missing for the ``Alter``
-        obj (Optional[Any]): the arguments for the ``Alter``
-    """
+        alter_type (Type): the type of ``Alter`` being performed
+        target_cls (Parameter): the parameter the alter was trying to convert
+            the ``obj`` into
+        obj (Any): the alter request that produced an exception
+        exception (Exception): the ``Exception`` produced from trying to convert ``obj``
+            into the requested data.
 
-    def __init__(
-        self,
-        alter_cls: "Alter",
-        target_cls: Type,
-        missing_keys: List[str],
-        obj: Optional[Any] = None,
-    ) -> None:
-        self.alter_cls = alter_cls
-        self.missing_keys = missing_keys
-        msg = [
-            f"{target_cls} was provided an Alter of type {self.alter_cls}",
-            "which expects the following arguments, which weren't provided",
-            *[f"\t- {k}" for k in self.missing_keys],
-        ]
-        super().__init__(target_cls, msg, child=None, obj=obj)
-
-
-class AlterUserDictMissingKeyError(TypeCheckError):
-    """The requested key in a :class:`~adorn.alter.dict_alter.UserDictAlter` did not exist
-
-    Args:
-        alter_cls (Alter): an alteration that was requested to be applied
-        target_cls (Type): the type of the object to be instantiated
-        key (str): the key that does not exist in the user dict
-        user_dict_keys (List[str]): the keys that exist in the user dict
-        obj (Optional[Any]): the arguments for the ``Alter``
     """  # noqa: B950
 
     def __init__(
-        self,
-        alter_cls: "Alter",
-        target_cls: Type,
-        key: str,
-        user_dict_keys: List[str],
-        obj: Optional[Any] = None,
+        self, alter_type: Type, target_cls: "Parameter", obj: Any, exception: Exception
     ) -> None:
-        self.alter_cls = alter_cls
-        self.key = key
-        self.user_dict_keys = user_dict_keys
+        self.alter_type = alter_type
+        self.exception = exception
         msg = [
-            f"{target_cls} was provided an Alter of type {self.alter_cls}",
-            f"with a requested ``key`` of {key}, which was not in the user dict",
-            "but the underlying user dict only contains the following keys:",
-            *[f"\t- {k}" for k in self.user_dict_keys],
+            f"An Alter of type {alter_type} was requested for",
+            f"a parameter named {target_cls.parameter_name} of type {target_cls.cls}",
+            "but an exception was caused when converting the obj:",
+            f"{obj}",
+            f"to type {target_cls.cls}.  The exception was:",
+            f"{self.exception}",
         ]
         super().__init__(target_cls, msg, child=None, obj=obj)
+
+    def __eq__(self, other) -> bool:
+        if type(self) != type(other):
+            return False
+        return all(
+            [
+                self.target_cls == other.target_cls,
+                self.msg[:-1] == other.msg[:-1],
+                self.child == other.child,
+                self.obj == other.obj,
+                isinstance(self.exception, type(other.exception)),
+            ]
+        )
