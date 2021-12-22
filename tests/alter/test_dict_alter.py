@@ -57,15 +57,6 @@ CONTAINS = [
         (None, None, Params({"type": "user_dict", "key": "a"})),
         False,
     ),
-    (
-        EnvDictAlter(),
-        (
-            Parameter(int, None, dict(), ""),
-            None,
-            Params({"type": "ENV", "key": "USER"}),
-        ),
-        True,
-    ),
 ]
 
 ALTER_OBJ = [
