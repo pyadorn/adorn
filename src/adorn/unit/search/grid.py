@@ -39,6 +39,9 @@ GRID_OUTPUT = TypeVar("GRID_OUTPUT", List[Params], List[List[Params]])
 class GridElement(SearchElement):
     """Individual component that make up a space to search over"""
 
+    def __init__(self) -> None:
+        super().__init__()
+
     def __len__(self) -> int:  # pragma: no cover
         """Number of elements the component is adding to the search space"""
         raise NotImplementedError
@@ -122,6 +125,9 @@ class IdGrid(GridElementTemplate):
 @SearchSpace.root()
 class GridSearch(SearchSpace):
     """Generate a grid search space by composing multiple grid components"""
+
+    def __init__(self) -> None:
+        super().__init__()
 
     def __call__(self) -> List[Dict[str, Any]]:  # pragma: no cover
         """Generate all elements of the search space
@@ -231,6 +237,9 @@ class FileGridSearch(GridSearch):
 class Organize(Complex):
     """Alter the order of a list of grid points"""
 
+    def __init__(self) -> None:
+        super().__init__()
+
     def __call__(
         self, search_list: List[Dict[str, Any]]
     ) -> List[Dict[str, Any]]:  # pragma: no cover
@@ -306,6 +315,9 @@ class SortOrganize(Organize):
 class Group(Complex):
     """Partition a list of grid points based on shared characteristics"""
 
+    def __init__(self) -> None:
+        super().__init__()
+
     def __call__(
         self, search_list: List[Dict[str, Any]]
     ) -> List[List[Dict[str, Any]]]:  # pragma: no cover
@@ -374,6 +386,9 @@ class GroupBy(Group):
 @Complex.root()
 class GridOrchestrator(Complex, Generic[GRID_OUTPUT]):
     """Generate a grid search space and optionally alter the space"""
+
+    def __init__(self) -> None:
+        super().__init__()
 
     def __call__(self) -> GRID_OUTPUT:  # pragma: no cover
         """Produce a grid search space of collection of grid search spaces
