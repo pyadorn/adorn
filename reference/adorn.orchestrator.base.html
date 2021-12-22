@@ -94,7 +94,7 @@
 <p>Vanilla coordinator</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="adorn.orchestrator.base.Base">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.orchestrator.base.</span></span><span class="sig-name descname"><span class="pre">Base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.orchestrator.base.Base" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.orchestrator.base.</span></span><span class="sig-name descname"><span class="pre">Base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">units</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.orchestrator.base.Base" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.orchestrator.orchestrator.Orchestrator</span></code></a></p>
 <p>Vanilla coordinator between different <a class="reference internal" href="adorn.unit.unit.html#adorn.unit.unit.Unit" title="adorn.unit.unit.Unit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code></a></p>
 <p><code class="docutils literal notranslate"><span class="pre">Base</span></code> finds the first <a class="reference internal" href="adorn.unit.unit.html#adorn.unit.unit.Unit" title="adorn.unit.unit.Unit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code></a> specified in
@@ -104,7 +104,11 @@ Therefore, the earlier a <a class="reference internal" href="adorn.unit.unit.htm
 <code class="docutils literal notranslate"><span class="pre">units</span></code> the higher priority it has in the orchestrator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>units</strong> (<em>List</em><em>[</em><a class="reference internal" href="adorn.unit.unit.html#adorn.unit.unit.Unit" title="adorn.unit.unit.Unit"><em>Unit</em></a><em>]</em>) – a collection of collection of types</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>units</strong> (<em>List</em><em>[</em><a class="reference internal" href="adorn.unit.unit.html#adorn.unit.unit.Unit" title="adorn.unit.unit.Unit"><em>Unit</em></a><em>]</em>) – a collection of collection of types</p></li>
+<li><p><strong>alters</strong> (<em>List</em><em>[</em><a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><em>Alter</em></a><em>]</em>) – a collection of ways to dynamically alter
+a configuration</p></li>
+</ul>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>None</p>
@@ -119,6 +123,64 @@ Therefore, the earlier a <a class="reference internal" href="adorn.unit.unit.htm
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>OrderedDict[Type, <a class="reference internal" href="adorn.unit.unit.html#adorn.unit.unit.Unit" title="adorn.unit.unit.Unit">Unit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.orchestrator.base.Base.a_get">
+<span class="sig-name descname"><span class="pre">a_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.orchestrator.base.Base.a_get" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the <a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> associated with <cite>cls</cite></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first <a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> will be returned,
+where order is determined by a
+<a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> location in <code class="docutils literal notranslate"><span class="pre">alters</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cls</strong> (<em>Type</em>) – a type that you want to check or convert the <code class="docutils literal notranslate"><span class="pre">obj</span></code> into</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – the object to be type checked or converted into <code class="docutils literal notranslate"><span class="pre">cls</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>either the class requested to perform a dynamic alteration</dt><dd><p>to the <code class="docutils literal notranslate"><span class="pre">obj</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter">Alter</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.orchestrator.base.Base.alter_obj">
+<span class="sig-name descname"><span class="pre">alter_obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.orchestrator.base.Base.alter_obj" title="Permalink to this definition"></a></dt>
+<dd><p>Poterntially perform a dynamic alteration to an object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cls</strong> (<em>Type</em>) – a type that you want to check or convert the <code class="docutils literal notranslate"><span class="pre">obj</span></code> into</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – the object to be type checked or converted into <code class="docutils literal notranslate"><span class="pre">cls</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Either an unaltered <code class="docutils literal notranslate"><span class="pre">obj</span></code> is returned, when no</dt><dd><p>:class`~adorn.alter.alter.Alter` in <code class="docutils literal notranslate"><span class="pre">alters</span></code> contains the
+given <code class="docutils literal notranslate"><span class="pre">cls</span></code> and <code class="docutils literal notranslate"><span class="pre">obj</span></code>, an altered <code class="docutils literal notranslate"><span class="pre">obj</span></code> is returned when the
+given <code class="docutils literal notranslate"><span class="pre">cls</span></code> and <code class="docutils literal notranslate"><span class="pre">obj</span></code> is contained by an
+:class`~adorn.alter.alter.Alter` in <code class="docutils literal notranslate"><span class="pre">alters</span></code>, or a <code class="docutils literal notranslate"><span class="pre">TypeCheckError</span></code>,
+when there was an issue performing a dynamic alteration to the <code class="docutils literal notranslate"><span class="pre">obj</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[Any, <a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError">TypeCheckError</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -165,6 +227,10 @@ relevant <a class="reference internal" href="adorn.unit.unit.html#adorn.unit.uni
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Any</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>obj</strong> – obj is a <code class="docutils literal notranslate"><span class="pre">TypeCheckError</span></code> indicating there was an issue
+    applying a dynamic alteration to <code class="docutils literal notranslate"><span class="pre">obj</span></code></p>
 </dd>
 </dl>
 </dd></dl>
