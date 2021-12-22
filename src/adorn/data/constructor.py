@@ -82,7 +82,7 @@ class Constructor:
         if not has_kwargs:
             return parameters
         # probably only want to do this when the associated type is inspect._empty
-        parameters.pop("kwargs", None)
+        parameters.pop("kwargs")
         # "mro" is "method resolution order".  The first one is the current class,
         # the next is the first superclass, and so on.  We take the first
         # superclass we find that inherits from Complex.
