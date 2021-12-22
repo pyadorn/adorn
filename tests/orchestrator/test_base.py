@@ -68,3 +68,36 @@ def test_from_obj_type_check_error(orchestrator_dne):
     (orchestrator, typ, obj) = orchestrator_dne
     with pytest.raises(TypeCheckError):
         _ = orchestrator.from_obj(typ, obj)
+
+
+def test_a_get(a_orchestrator, a_get):
+    cls, obj, output = a_get
+    assert a_orchestrator.a_get(cls, obj) == output
+
+
+def test_a_type_check(a_orchestrator, a_wellformed):
+    cls, obj, _ = a_wellformed
+    assert a_orchestrator.type_check(cls, obj) is None
+
+
+def test_a_from_obj(a_orchestrator, a_wellformed):
+    cls, obj, output_dict = a_wellformed
+    output = a_orchestrator.from_obj(cls, obj)
+    assert isinstance(output, cls)
+    assert all(getattr(output, k) == v for k, v in output_dict.items())
+
+
+def test_a_type_check_bad(a_orchestrator, a_malformed):
+    cls, obj, output, a = a_malformed
+    o = a_orchestrator.type_check(cls, obj)
+    kv = o.key_values["reps"]
+    assert kv == a
+    assert type(o) == type(output)
+    assert o.target_cls == output.target_cls
+    assert list(o.key_values.keys()) == list(output.key_values.keys())
+
+
+def test_a_from_obj_bad(a_orchestrator, a_malformed):
+    cls, obj, _, output = a_malformed
+    with pytest.raises(type(output)):
+        a_orchestrator.from_obj(cls, obj)

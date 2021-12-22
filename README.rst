@@ -48,9 +48,6 @@ Example
 
 .. code-block:: python
 
-   from collections import defaultdict
-
-
    from adorn.orchestrator.base import Base
    from adorn.params import Params
    from adorn.unit.complex import Complex
@@ -59,12 +56,9 @@ Example
    from adorn.unit.python import Python
 
 
+   @Complex.root()
    class Example(Complex):
-       _registry = defaultdict(dict)
-       _subclass_registry = dict()
-       _intermediate_registry = defaultdict(list)
-       _parent_registry = defaultdict(list)
-
+      pass
 
    @Example.register(None)
    class Parent(Example):

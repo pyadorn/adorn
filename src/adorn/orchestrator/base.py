@@ -17,7 +17,9 @@ from typing import Any
 from typing import List
 from typing import Optional
 from typing import Type
+from typing import Union
 
+from adorn.alter.alter import Alter
 from adorn.exception.type_check_error import TypeCheckError
 from adorn.orchestrator.orchestrator import Orchestrator
 from adorn.unit.unit import Unit
@@ -34,6 +36,8 @@ class Base(Orchestrator):
 
     Args:
         units (List[Unit]): a collection of collection of types
+        alters (List[Alter]): a collection of ways to dynamically alter
+            a configuration
 
     Attributes:
         unit_dict (OrderedDict[Type, Unit]): a mapping from a type of a
@@ -41,9 +45,10 @@ class Base(Orchestrator):
             :class:`~adorn.unit.unit.Unit`
     """
 
-    def __init__(self, units: List[Unit]) -> None:
+    def __init__(self, units: List[Unit], alters: Optional[List[Alter]] = None) -> None:
         super().__init__()
         self.units = units
+        self.alters = alters or []
         self.unit_dict = OrderedDict([(type(i), i) for i in self.units])
 
     def contains(self, cls: Type) -> bool:
@@ -92,6 +97,47 @@ class Base(Orchestrator):
             ],
         )
 
+    def a_get(self, cls: Type, obj: Any) -> Optional[Alter]:
+        """Finds the :class:`~adorn.alter.alter.Alter` associated with `cls`
+
+        .. note::
+
+            The first :class:`~adorn.alter.alter.Alter` will be returned,
+            where order is determined by a
+            :class:`~adorn.alter.alter.Alter` location in ``alters``.
+
+        Args:
+            cls (Type): a type that you want to check or convert the ``obj`` into
+            obj (Any): the object to be type checked or converted into ``cls``
+
+        Returns:
+            Optional[Alter]: either the class requested to perform a dynamic alteration
+                to the ``obj`` or ``None``
+        """
+        for i in self.alters:
+            if i.a_contains(cls, self, obj):
+                return i
+
+    def alter_obj(self, cls: Type, obj: Any) -> Union[Any, TypeCheckError]:
+        """Poterntially perform a dynamic alteration to an object
+
+        Args:
+            cls (Type): a type that you want to check or convert the ``obj`` into
+            obj (Any): the object to be type checked or converted into ``cls``
+
+        Returns:
+            Union[Any, TypeCheckError]: Either an unaltered ``obj`` is returned, when no
+                :class`~adorn.alter.alter.Alter` in ``alters`` contains the
+                given ``cls`` and ``obj``, an altered ``obj`` is returned when the
+                given ``cls`` and ``obj`` is contained by an
+                :class`~adorn.alter.alter.Alter` in ``alters``, or a ``TypeCheckError``,
+                when there was an issue performing a dynamic alteration to the ``obj``
+        """
+        alter = self.a_get(cls, obj)
+        if alter is not None:
+            obj = alter.alter_obj(cls, self, obj)
+        return obj
+
     def type_check(self, cls: Type, obj: Any) -> Optional[TypeCheckError]:
         """Check if `obj` can be converted to type of `cls`
 
@@ -108,6 +154,9 @@ class Base(Orchestrator):
                 instance of ``cls``, otherwise an error is returned explaining
                 why an ``obj`` cannot be converted to an instance of ``cls``
         """
+        obj = self.alter_obj(cls, obj)
+        if isinstance(obj, TypeCheckError):
+            return obj
         ru = self.get(cls)
         return ru.type_check(cls, self, obj)
 
@@ -124,6 +173,13 @@ class Base(Orchestrator):
 
         Returns:
             Any: an instance of type ``cls``, that was created from ``obj``
+
+        Raises:
+            obj: obj is a ``TypeCheckError`` indicating there was an issue
+                applying a dynamic alteration to ``obj``
         """
+        obj = self.alter_obj(cls, obj)
+        if isinstance(obj, TypeCheckError):
+            raise obj
         ru = self.get(cls)
         return ru.from_obj(cls, self, obj)

@@ -409,6 +409,27 @@ class Params(MutableMapping):
     def __str__(self) -> str:
         return f"{self.history}Params({self.params})"
 
+    def left_merge(self, rhs: Union["Params", Dict[str, Any]]) -> Dict[str, Any]:
+        """Inject values from a new config into the current config
+
+        Args:
+            rhs (Union[Params, Dict[str, Any]]): configuration, where its values
+                will be injected into the current config
+
+        Returns:
+            Dict[str, Any]: flattened version of the original config that includes
+                values from the passed config, ``rhs``
+        """
+        self_flat_dict = self.as_flat_dict()
+        rhs_flat_dict = (
+            rhs.as_flat_dict()
+            if isinstance(rhs, Params)
+            else Params(rhs).as_flat_dict()
+        )
+        for k, v in rhs_flat_dict.items():
+            self_flat_dict[k] = v
+        return self_flat_dict
+
 
 def _replace_none(params: Any) -> Any:
     if params == "None":

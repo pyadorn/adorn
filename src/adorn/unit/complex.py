@@ -14,6 +14,7 @@
 """Container of types with a class hierarchy."""
 import inspect
 import logging
+from collections import defaultdict
 from typing import _GenericAlias
 from typing import Any
 from typing import Callable
@@ -72,6 +73,30 @@ class Complex(Unit):
     parameter_order: Optional[List[str]] = None
     """The order in which the
        parameters for a class should be instantiated"""
+    constructor_name: Optional[str] = None
+    """Name of the constructor to use to instantiate the class"""
+
+    @classmethod
+    def root(cls: Type[_ComplexT]) -> Callable[[Type[_T]], Type[_T]]:
+        """Initialize all the class attributes needed to track the class hieracrchy
+
+        This decorator is typically called on a direct descendant of
+        :class:`~adorn.unit.complex.Complex` enabling all of the direct
+        descendant's children to be tracked.
+
+        Returns:
+            Callable[[Type[_T]], Type[_T]]: decorator that initializes the
+                class attributes for tracking
+        """
+
+        def _root(subclass: Type[_T]) -> Type[_T]:
+            subclass._registry = defaultdict(dict)
+            subclass._subclass_registry = dict()
+            subclass._intermediate_registry = defaultdict(list)
+            subclass._parent_registry = defaultdict(list)
+            return subclass
+
+        return _root
 
     @classmethod
     def register(

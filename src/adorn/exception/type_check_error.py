@@ -23,6 +23,7 @@ from typing import TYPE_CHECKING
 from typing import Union
 
 if TYPE_CHECKING:  # pragma: no cover
+    from adorn.data.parameter import Parameter
     from adorn.params import Params
     from adorn.unit.anum import Anum
     from adorn.unit.unit import Unit
@@ -510,3 +511,45 @@ class AnumMemberError(TypeCheckError):
             *[f"\t- {k}" for k in self.members.keys()],
         ]
         super().__init__(target_cls, msg, child=None, obj=obj)
+
+
+class UserDictError(TypeCheckError):
+    """Report an error during the from_obj step of :class:`~adorn.alter.dict_alter.UserDictAlter`
+
+    Args:
+        alter_type (Type): the type of ``Alter`` being performed
+        target_cls (Parameter): the parameter the alter was trying to convert
+            the ``obj`` into
+        obj (Any): the alter request that produced an exception
+        exception (Exception): the ``Exception`` produced from trying to convert ``obj``
+            into the requested data.
+
+    """  # noqa: B950
+
+    def __init__(
+        self, alter_type: Type, target_cls: "Parameter", obj: Any, exception: Exception
+    ) -> None:
+        self.alter_type = alter_type
+        self.exception = exception
+        msg = [
+            f"An Alter of type {alter_type} was requested for",
+            f"a parameter named {target_cls.parameter_name} of type {target_cls.cls}",
+            "but an exception was caused when converting the obj:",
+            f"{obj}",
+            f"to type {target_cls.cls}.  The exception was:",
+            f"{self.exception}",
+        ]
+        super().__init__(target_cls, msg, child=None, obj=obj)
+
+    def __eq__(self, other) -> bool:
+        if type(self) != type(other):
+            return False
+        return all(
+            [
+                self.target_cls == other.target_cls,
+                self.msg[:-1] == other.msg[:-1],
+                self.child == other.child,
+                self.obj == other.obj,
+                isinstance(self.exception, type(other.exception)),
+            ]
+        )

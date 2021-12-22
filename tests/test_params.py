@@ -26,6 +26,68 @@ from adorn.params import Params
 from adorn.params import unflatten
 
 
+LEFT_MERGE = [
+    (
+        Params({"a": 0, "b": {"c": 1, "d": 2, "e": {"f": 3, "g": 4}}}),
+        dict(),
+        {"a": 0, "b.c": 1, "b.d": 2, "b.e.f": 3, "b.e.g": 4},
+    ),
+    (
+        Params({"a": 0, "b": {"c": 1, "d": 2, "e": {"f": 3, "g": 4}}}),
+        Params({}),
+        {"a": 0, "b.c": 1, "b.d": 2, "b.e.f": 3, "b.e.g": 4},
+    ),
+    (
+        Params({"a": 0, "b": {"c": 1, "d": 2, "e": {"f": 3, "g": 4}}}),
+        {"a": 5, "b.d": 6, "b.e.f": 7},
+        {"a": 5, "b.c": 1, "b.d": 6, "b.e.f": 7, "b.e.g": 4},
+    ),
+    (
+        Params({"a": 0, "b": {"c": 1, "d": 2, "e": {"f": 3, "g": 4}}}),
+        Params({"a": 5, "b.d": 6, "b.e.f": 7}),
+        {"a": 5, "b.c": 1, "b.d": 6, "b.e.f": 7, "b.e.g": 4},
+    ),
+    (
+        Params({"a": 0, "b": {"c": 1, "d": 2, "e": {"f": 3, "g": 4}}}),
+        {"a": 5, "b": {"d": 6, "e": {"f": 7, "h": 8}, "i": 9}, "j": 10},
+        {
+            "a": 5,
+            "b.c": 1,
+            "b.d": 6,
+            "b.e.f": 7,
+            "b.e.g": 4,
+            "b.e.h": 8,
+            "b.i": 9,
+            "j": 10,
+        },
+    ),
+    (
+        Params({"a": 0, "b": {"c": 1, "d": 2, "e": {"f": 3, "g": 4}}}),
+        Params({"a": 5, "b": {"d": 6, "e": {"f": 7, "h": 8}, "i": 9}, "j": 10}),
+        {
+            "a": 5,
+            "b.c": 1,
+            "b.d": 6,
+            "b.e.f": 7,
+            "b.e.g": 4,
+            "b.e.h": 8,
+            "b.i": 9,
+            "j": 10,
+        },
+    ),
+]
+
+
+@pytest.fixture(params=LEFT_MERGE)
+def left_merge(request):
+    return request.param
+
+
+def test_left_merge(left_merge):
+    params, rhs, output = left_merge
+    assert params.left_merge(rhs) == output
+
+
 def test_load_from_file(tmpdir):
     dct = {"a": 0, "b": 1, "c": {"d": 2}}
     file_content = tmpdir.mkdir("sub").join("temp.json")

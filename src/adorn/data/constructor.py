@@ -35,12 +35,17 @@ class Constructor:
 
     def __post_init__(self):
         self.constructor_type = getattr(self.subclass, "constructor_type", None)
-        self.constructor = (
-            self.subclass.by_name()
-            if hasattr(self.subclass, "by_name")
-            else self.subclass
-        )
-        self.parameters = self.infer_params(self.subclass, self.constructor)
+        if hasattr(self.subclass, "by_name"):
+            self.constructor = self.subclass.by_name()
+            constructor = (
+                self.constructor
+                if self.constructor.constructor_name is None
+                else getattr(self.constructor, self.constructor.constructor_name)
+            )
+        else:
+            self.constructor = self.subclass
+            constructor = self.constructor
+        self.parameters = self.infer_params(self.subclass, constructor)
         self.parameter_order = getattr(self.subclass, "parameter_order", None)
 
     def infer_params(
@@ -67,6 +72,8 @@ class Constructor:
 
         signature = inspect.signature(constructor)
         parameters = dict(signature.parameters)
+
+        parameters.pop("self", None)
 
         has_kwargs = False
         var_positional_key = None

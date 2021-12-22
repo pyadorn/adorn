@@ -24,8 +24,9 @@ else:
 import pytest
 from tests.example import gym
 
+from adorn.alter.dict_alter import UserDictAlter
 from adorn.data.parameter import Parameter
-from adorn.exception.type_check_error import AnumMemberError
+from adorn.exception.type_check_error import AnumMemberError, UserDictError
 from adorn.exception.type_check_error import AnumWrongTypeError
 from adorn.exception.type_check_error import ComplexTypeMismatchError
 from adorn.exception.type_check_error import ExtraLiteralError
@@ -354,4 +355,18 @@ def test_anum_member_error():
         "\t- Grass",
         "\t- Corn",
         "\t- Unknown",
+    ]
+
+
+def test_user_dict_exception():
+    ude = UserDictError(UserDictAlter, Parameter(int, None, dict(), "a"), "b", "c")
+    assert ude.alter_type == UserDictAlter
+    assert ude.exception == "c"
+    assert ude.msg == [
+        f"An Alter of type {UserDictAlter} was requested for",
+        f"a parameter named a of type {int}",
+        "but an exception was caused when converting the obj:",
+        "b",
+        f"to type {int}.  The exception was:",
+        "c",
     ]
