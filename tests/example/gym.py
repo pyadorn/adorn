@@ -276,6 +276,44 @@ class BeefChild2(Template, Gym):
         )
 
 
+class Depth(Gym):
+    """See how deep adorn can track"""
+
+
+@Depth.register(None)
+class DA(Depth):
+    """DA"""
+
+
+@DA.register(None)
+class DA0(DA):
+    """DA0"""
+
+
+@DA.register("da1")
+class DA1(DA):
+    """DA1"""
+
+    def __init__(self) -> None:
+        super().__init__()
+
+
+@DA0.register("da0a")
+class DA0A(DA0):
+    """DA0A"""
+
+    def __init__(self) -> None:
+        super().__init__()
+
+
+@DA1.register("da1a")
+class DA1A(DA1):
+    """DA1"""
+
+    def __init__(self) -> None:
+        super().__init__()
+
+
 @Complex.root()
 class Ambig(Complex):
     """Ambig"""

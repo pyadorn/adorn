@@ -128,6 +128,9 @@ class Complex(Unit):
                     raise ConfigurationError(message)
                 registry[name] = subclass
                 cls._subclass_registry[subclass] = (cls, name)
+                if cls in cls._subclass_registry:
+                    parent, _ = cls._subclass_registry[cls]
+                    cls._parent_registry[parent].append(cls)
             else:
                 cls._intermediate_registry[subclass].append(cls)
                 cls._parent_registry[cls].append(subclass)
@@ -151,8 +154,9 @@ class Complex(Unit):
             for i in intermediate_children:
                 if i in cls._parent_registry:
                     instantiate_children = {
-                        **cls.get_instantiate_children(i),
+                        **i.get_instantiate_children(),
                         **instantiate_children,
+                        # **i._explode_registry(),
                     }
                 else:
                     instantiate_children = {
