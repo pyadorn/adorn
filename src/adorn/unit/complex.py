@@ -145,17 +145,14 @@ class Complex(Unit):
         Returns:
             Dict[str, _ComplexT]: All the subclasses of a class that can be instantiated
         """
-        instantiate_children = dict()
-        intermediate_children = cls.get_intermediate_children()
-        if intermediate_children:
-            for i in intermediate_children:
-                instantiate_children = {
-                    **i.get_instantiate_children(),
-                    **instantiate_children,
-                    **i._explode_registry(),
-                }
-            return instantiate_children
-        return cls._explode_registry()
+        instantiate_children = cls._explode_registry()
+        for i in cls.get_intermediate_children():
+            instantiate_children = {
+                **i.get_instantiate_children(),
+                **instantiate_children,
+                **i._explode_registry(),
+            }
+        return instantiate_children
 
     @classmethod
     def _explode_registry(cls: Type[_ComplexT]) -> Dict[str, _ComplexT]:

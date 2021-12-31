@@ -49,7 +49,7 @@ from adorn.params import Params
             gym.Depth,
             {"da1": gym.DA1, "da2": gym.DA2, "da0a": gym.DA0A, "da1a": gym.DA1A},
         ),
-        (gym.DA, {"da1": gym.DA1, "da0a": gym.DA0A, "da1a": gym.DA1A}),
+        (gym.DA, {"da1": gym.DA1, "da2": gym.DA2, "da0a": gym.DA0A, "da1a": gym.DA1A}),
         (gym.DA1, {"da1": gym.DA1, "da1a": gym.DA1A}),
     ],
 )
