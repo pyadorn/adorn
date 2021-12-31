@@ -45,7 +45,12 @@ from adorn.params import Params
         (gym.Child0, {"0": gym.Child0}),
         (gym.Meat, {"beef": gym.Beef, "pork": gym.Pork}),
         (gym.Beef, {"beef": gym.Beef}),
-        (gym.Depth, {"da1": gym.DA1, "da0a": gym.DA0A, "da1a": gym.DA1A}),
+        (
+            gym.Depth,
+            {"da1": gym.DA1, "da2": gym.DA2, "da0a": gym.DA0A, "da1a": gym.DA1A},
+        ),
+        (gym.DA, {"da1": gym.DA1, "da0a": gym.DA0A, "da1a": gym.DA1A}),
+        (gym.DA1, {"da1": gym.DA1, "da1a": gym.DA1A}),
     ],
 )
 def test_get_instantiate_children(input, target):
@@ -131,10 +136,10 @@ def test_resolve_class_name(input, name, target):
     [
         (
             gym.GrandParent,
-            [gym.BadChild0, gym.BeefChild2, gym.Child2, gym.Child0, gym.Child1],
+            [gym.BadChild0, gym.Child2, gym.BeefChild2, gym.Child0, gym.Child1],
         ),
         (gym.ParentA, [gym.Child0, gym.Child1]),
-        (gym.ParentB, [gym.BeefChild2, gym.Child2]),
+        (gym.ParentB, [gym.Child2, gym.BeefChild2]),
         (gym.Child2, [gym.Child2, gym.BeefChild2]),
         (gym.BeefChild2, [gym.BeefChild2]),
         (gym.Child0, [gym.Child0]),

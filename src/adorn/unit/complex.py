@@ -145,31 +145,15 @@ class Complex(Unit):
         Returns:
             Dict[str, _ComplexT]: All the subclasses of a class that can be instantiated
         """
-        if cls in cls._subclass_registry:
-            return {cls.name(): cls, **cls._explode_registry()}
-
         instantiate_children = dict()
         intermediate_children = cls.get_intermediate_children()
         if intermediate_children:
             for i in intermediate_children:
-                if i in cls._parent_registry:
-                    instantiate_children = {
-                        **i.get_instantiate_children(),
-                        **instantiate_children,
-                        # **i._explode_registry(),
-                    }
-                else:
-                    instantiate_children = {
-                        **i._explode_registry(),
-                        **instantiate_children,
-                    }
-
-                if i in cls._subclass_registry:
-                    instantiate_children[i.name()] = i
-                    instantiate_children = {
-                        **instantiate_children,
-                        **cls._explode_registry(),
-                    }
+                instantiate_children = {
+                    **i.get_instantiate_children(),
+                    **instantiate_children,
+                    **i._explode_registry(),
+                }
             return instantiate_children
         return cls._explode_registry()
 
@@ -180,7 +164,9 @@ class Complex(Unit):
         Returns:
             Dict[str, _ComplexT]: Dictionary containing all the descendants of a class
         """
-        instantiate_children = dict()
+        instantiate_children = (
+            dict() if cls not in cls._subclass_registry else {cls.name(): cls}
+        )
         for v in cls._registry[cls].values():
             instantiate_children = {
                 **instantiate_children,

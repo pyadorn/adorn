@@ -298,6 +298,14 @@ class DA1(DA):
         super().__init__()
 
 
+@DA.register("da2")
+class DA2(DA):
+    """DA2"""
+
+    def __init__(self) -> None:
+        super().__init__()
+
+
 @DA0.register("da0a")
 class DA0A(DA0):
     """DA0A"""
