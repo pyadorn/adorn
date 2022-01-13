@@ -446,7 +446,6 @@ class Dependent(ParameterValue):
         if check_arg_ouptut is not None:
             raise check_arg_ouptut
         literal_dict = target_cls.args[1].__args__[0]
-        constructor = cls.get_constructor(target_cls=target_cls, obj=obj)
 
         args = cls.get_args(
             target_cls=target_cls, literal_dict=literal_dict, dependent_from_obj=True
@@ -463,7 +462,8 @@ class Dependent(ParameterValue):
         for k, v in args.items():
             if k not in obj:
                 obj[k] = v
-        return orchestrator.from_obj(constructor, obj)
+        subcls = target_cls.args[0].resolve_class_name(obj["type"])
+        return orchestrator.from_obj(subcls, obj)
 
 
 @ParameterValue.register("dependent_type_check")

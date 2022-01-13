@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adorn"
-version = "0.0.8"
+version = "0.0.9"
 description = "Adorn"
 authors = ["Jacob Baumbach <jacob.baumbach@hey.com>"]
 license = "Apache-2.0"
