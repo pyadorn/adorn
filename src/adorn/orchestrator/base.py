@@ -97,26 +97,23 @@ class Base(Orchestrator):
             ],
         )
 
-    def a_get(self, cls: Type, obj: Any) -> Optional[Alter]:
-        """Finds the :class:`~adorn.alter.alter.Alter` associated with `cls`
+    def a_get(self, cls: Type, obj: Any) -> List[Alter]:
+        """Finds all the :class:`~adorn.alter.alter.Alter` associated with `cls`
 
         .. note::
 
-            The first :class:`~adorn.alter.alter.Alter` will be returned,
-            where order is determined by a
-            :class:`~adorn.alter.alter.Alter` location in ``alters``.
+            The list of :class:`~adorn.alter.alter.Alter` will be returned,
+            in the order :class:`~adorn.alter.alter.Alter` were passed.
 
         Args:
             cls (Type): a type that you want to check or convert the ``obj`` into
             obj (Any): the object to be type checked or converted into ``cls``
 
         Returns:
-            Optional[Alter]: either the class requested to perform a dynamic alteration
-                to the ``obj`` or ``None``
+            List[Alter]: the classes requested to perform a dynamic alteration
+                to the ``obj``
         """
-        for i in self.alters:
-            if i.a_contains(cls, self, obj):
-                return i
+        return [i for i in self.alters if i.a_contains(cls, self, obj)]
 
     def alter_obj(self, cls: Type, obj: Any) -> Union[Any, TypeCheckError]:
         """Poterntially perform a dynamic alteration to an object
@@ -133,8 +130,8 @@ class Base(Orchestrator):
                 :class`~adorn.alter.alter.Alter` in ``alters``, or a ``TypeCheckError``,
                 when there was an issue performing a dynamic alteration to the ``obj``
         """
-        alter = self.a_get(cls, obj)
-        if alter is not None:
+        alter_list = self.a_get(cls, obj)
+        for alter in alter_list:
             obj = alter.alter_obj(cls, self, obj)
         return obj
 

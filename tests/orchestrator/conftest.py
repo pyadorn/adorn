@@ -48,17 +48,17 @@ A_GET = [
     (
         Parameter(int, gym.Workout, dict(), "reps"),
         Params({"type": "user_dict", "key": "a"}),
-        A_ORCHESTRATOR.alters[0],
+        [A_ORCHESTRATOR.alters[0]],
     ),
     (
         Parameter(int, gym.Workout, dict(), "reps"),
         Params({"type": "user_dict", "key": "c"}),
-        A_ORCHESTRATOR.alters[1],
+        [A_ORCHESTRATOR.alters[1]],
     ),
     (
         Parameter(int, gym.Workout, dict(), "reps"),
         {"type": "user_dict", "key": "c"},
-        None,
+        [],
     ),
 ]
 
