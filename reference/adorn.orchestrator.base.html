@@ -130,12 +130,11 @@ a configuration</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="adorn.orchestrator.base.Base.a_get">
 <span class="sig-name descname"><span class="pre">a_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.orchestrator.base.Base.a_get" title="Permalink to this definition"></a></dt>
-<dd><p>Finds the <a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> associated with <cite>cls</cite></p>
+<dd><p>Finds all the <a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> associated with <cite>cls</cite></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The first <a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> will be returned,
-where order is determined by a
-<a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> location in <code class="docutils literal notranslate"><span class="pre">alters</span></code>.</p>
+<p>The list of <a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> will be returned,
+in the order <a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Alter</span></code></a> were passed.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -146,13 +145,13 @@ where order is determined by a
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
-<dt>either the class requested to perform a dynamic alteration</dt><dd><p>to the <code class="docutils literal notranslate"><span class="pre">obj</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<dt>the classes requested to perform a dynamic alteration</dt><dd><p>to the <code class="docutils literal notranslate"><span class="pre">obj</span></code></p>
 </dd>
 </dl>
 </p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Optional[<a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter">Alter</a>]</p>
+<dd class="field-odd"><p>List[<a class="reference internal" href="adorn.alter.alter.html#adorn.alter.alter.Alter" title="adorn.alter.alter.Alter">Alter</a>]</p>
 </dd>
 </dl>
 </dd></dl>
