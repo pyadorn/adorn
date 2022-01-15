@@ -116,7 +116,7 @@ class Base(Orchestrator):
         return [i for i in self.alters if i.a_contains(cls, self, obj)]
 
     def alter_obj(self, cls: Type, obj: Any) -> Union[Any, TypeCheckError]:
-        """Poterntially perform a dynamic alteration to an object
+        """Potentially perform a dynamic alteration to an object
 
         Args:
             cls (Type): a type that you want to check or convert the ``obj`` into
@@ -134,6 +134,19 @@ class Base(Orchestrator):
         for alter in alter_list:
             obj = alter.alter_obj(cls, self, obj)
         return obj
+
+    def log_instance(self, cls: Type, obj: Any, instance: Any) -> None:
+        """Potentially perform a dynamic logging of instantiated instances
+
+        Args:
+            cls (Type): a type that you converted the ``obj`` into
+            obj (Any): the object converted into ``cls``
+            instance (Any): the object created from converting ``obj`` into an
+                instance of ``cls``
+        """
+        alter_list = self.a_get(cls, obj)
+        for alter in alter_list:
+            obj = alter.log_instance(cls, self, obj, instance)
 
     def type_check(self, cls: Type, obj: Any) -> Optional[TypeCheckError]:
         """Check if `obj` can be converted to type of `cls`
@@ -179,4 +192,6 @@ class Base(Orchestrator):
         if isinstance(obj, TypeCheckError):
             raise obj
         ru = self.get(cls)
-        return ru.from_obj(cls, self, obj)
+        output = ru.from_obj(cls, self, obj)
+        self.log_instance(cls, obj, output)
+        return output

@@ -128,6 +128,30 @@ class UserDictAlter(Alter):
             return UserDictError(type(self), target_cls, obj, e)
         return new_obj
 
+    def log_instance(
+        self,
+        target_cls: Type,
+        orchestrator: "Orchestrator",
+        obj: Any,
+        instance: Any,
+    ) -> None:  # pragma: no cover
+        """Apply logging to an instantiate object
+
+        Args:
+            target_cls (Type): the target Type, the given ``obj`` was converted
+                into
+            orchestrator (Orchestrator): container of all types, typically used
+                to recurse down nested types
+            obj (Any): an instance, that was converted to an
+                instance of ``target_cls``
+            instance (Any): the output of converting ``obj`` into an instance
+                of ``target_cls``
+
+        Returns:
+            None: nothing is returned, this is a logging event
+        """
+        return None
+
     @property
     def type_value(self) -> str:
         """The expected value for the key ``type`` in the given :class:`~adorn.params.Params` object

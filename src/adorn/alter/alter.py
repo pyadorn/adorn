@@ -92,3 +92,27 @@ class Alter:
             NotImplementedError: This method must be overriden by a subclass
         """
         raise NotImplementedError
+
+    def log_instance(
+        self,
+        target_cls: Type,
+        orchestrator: "Orchestrator",
+        obj: Any,
+        instance: Any,
+    ) -> None:  # pragma: no cover
+        """Apply logging to an instantiate object
+
+        Args:
+            target_cls (Type): the target Type, the given ``obj`` was converted
+                into
+            orchestrator (Orchestrator): container of all types, typically used
+                to recurse down nested types
+            obj (Any): an instance, that was converted to an
+                instance of ``target_cls``
+            instance (Any): the output of converting ``obj`` into an instance
+                of ``target_cls``
+
+        Raises:
+            NotImplementedError: This method must be overriden by a subclass
+        """
+        raise NotImplementedError
