@@ -159,7 +159,7 @@ in the order <a class="reference internal" href="adorn.alter.alter.html#adorn.al
 <dl class="py method">
 <dt class="sig sig-object py" id="adorn.orchestrator.base.Base.alter_obj">
 <span class="sig-name descname"><span class="pre">alter_obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.orchestrator.base.Base.alter_obj" title="Permalink to this definition"></a></dt>
-<dd><p>Poterntially perform a dynamic alteration to an object</p>
+<dd><p>Potentially perform a dynamic alteration to an object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -258,6 +258,25 @@ where order is determined by a
 <dd class="field-even"><p><a class="reference internal" href="adorn.exception.type_check_error.html#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><strong>TypeCheckError</strong></a> – <code class="docutils literal notranslate"><span class="pre">cls</span></code> cannot be represented by any of
     the <a class="reference internal" href="adorn.unit.unit.html#adorn.unit.unit.Unit" title="adorn.unit.unit.Unit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code></a> contained in the
     orchestrator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.orchestrator.base.Base.log_instance">
+<span class="sig-name descname"><span class="pre">log_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.orchestrator.base.Base.log_instance" title="Permalink to this definition"></a></dt>
+<dd><p>Potentially perform a dynamic logging of instantiated instances</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cls</strong> (<em>Type</em>) – a type that you converted the <code class="docutils literal notranslate"><span class="pre">obj</span></code> into</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – the object converted into <code class="docutils literal notranslate"><span class="pre">cls</span></code></p></li>
+<li><p><strong>instance</strong> (<em>Any</em>) – the object created from converting <code class="docutils literal notranslate"><span class="pre">obj</span></code> into an
+instance of <code class="docutils literal notranslate"><span class="pre">cls</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>

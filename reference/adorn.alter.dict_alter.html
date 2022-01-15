@@ -220,6 +220,32 @@ instance of <code class="docutils literal notranslate"><span class="pre">target_
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="adorn.alter.dict_alter.UserDictAlter.log_instance">
+<span class="sig-name descname"><span class="pre">log_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.alter.dict_alter.UserDictAlter.log_instance" title="Permalink to this definition"></a></dt>
+<dd><p>Apply logging to an instantiate object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_cls</strong> (<em>Type</em>) – the target Type, the given <code class="docutils literal notranslate"><span class="pre">obj</span></code> was converted
+into</p></li>
+<li><p><strong>orchestrator</strong> (<a class="reference internal" href="adorn.orchestrator.orchestrator.html#adorn.orchestrator.orchestrator.Orchestrator" title="adorn.orchestrator.orchestrator.Orchestrator"><em>Orchestrator</em></a>) – container of all types, typically used
+to recurse down nested types</p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – an instance, that was converted to an
+instance of <code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p></li>
+<li><p><strong>instance</strong> (<em>Any</em>) – the output of converting <code class="docutils literal notranslate"><span class="pre">obj</span></code> into an instance
+of <code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nothing is returned, this is a logging event</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="adorn.alter.dict_alter.UserDictAlter.type_value">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#adorn.alter.dict_alter.UserDictAlter.type_value" title="Permalink to this definition"></a></dt>
