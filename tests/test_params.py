@@ -199,6 +199,20 @@ def test_to_file(tmp_path):
     assert json.dumps(expected_ordered_params_dict) == json.dumps(ordered_params_dict)
 
 
+@pytest.mark.parametrize(
+    "params",
+    [
+        Params({"a": "b", "c": "d"}),
+        Params({"a": {"b": "c"}, "d": Params({"e": "f"})}),
+        Params({"a": {"b": "c"}, "d": Params({"e": Params({"f": "g"})})}),
+    ],
+)
+def test_to_file_from_file(tmp_path, params):
+    file_path = tmp_path / "config.json"
+    params.to_file(file_path)
+    assert Params.from_file(file_path) == params
+
+
 def test__is_dict_free_list():
     assert _is_dict_free([1, 2, 3, [3, 4, 5]])
 

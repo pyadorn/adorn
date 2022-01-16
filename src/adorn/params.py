@@ -280,7 +280,7 @@ class Params(MutableMapping):
 
         def log_recursively(parameters, history):
             for key, value in parameters.items():
-                if isinstance(value, dict):
+                if isinstance(value, (dict, Params)):
                     new_local_history = history + key + "."
                     log_recursively(value, new_local_history)
                 else:
@@ -299,7 +299,7 @@ class Params(MutableMapping):
         def recurse(parameters, path):
             for key, value in parameters.items():
                 newpath = path + [key]
-                if isinstance(value, dict):
+                if isinstance(value, (dict, Params)):
                     recurse(value, newpath)
                 else:
                     flat_params[".".join(newpath)] = value
@@ -387,7 +387,9 @@ class Params(MutableMapping):
             # Recursively orders dictionary according to scoring order_func
             result = OrderedDict()
             for key, val in sorted(dictionary.items(), key=lambda item: item[0]):
-                result[key] = order_dict(val) if isinstance(val, dict) else val
+                result[key] = (
+                    order_dict(val) if isinstance(val, (dict, Params)) else val
+                )
             return result
 
         return order_dict(params_dict)
