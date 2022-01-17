@@ -205,6 +205,7 @@ def test_to_file(tmp_path):
         Params({"a": "b", "c": "d"}),
         Params({"a": {"b": "c"}, "d": Params({"e": "f"})}),
         Params({"a": {"b": "c"}, "d": Params({"e": Params({"f": "g"})})}),
+        Params({"a": {"b": "c"}, "d": [Params({"e": Params({"f": "g"})})]}),
     ],
 )
 def test_to_file_from_file(tmp_path, params):

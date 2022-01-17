@@ -30,6 +30,23 @@ from adorn.exception.configuration_error import ConfigurationError
 logger = logging.getLogger(__name__)
 
 
+class ParamsEncoder(json.JSONEncoder):
+    """Custom Encoder for nested ``Params``"""
+
+    def default(self, obj):
+        """Ensure nested ``Params`` are serializable
+
+        Args:
+            obj: something trying to be serialized to disk
+
+        Returns:
+            Encoded version of the input
+        """
+        if isinstance(obj, Params):
+            return obj.as_ordered_dict()
+        return json.JSONEncoder.default(self, obj)
+
+
 def infer_and_cast(value: Any) -> Any:  # noqa:C901
     """In some cases we'll be feeding params dicts to functions we don't own
 
@@ -377,7 +394,7 @@ class Params(MutableMapping):
     def to_file(self, params_file: str) -> None:
         """Writes params object to disk as a json"""
         with open(params_file, "w") as handle:
-            json.dump(self.as_ordered_dict(), handle, indent=4)
+            json.dump(self.as_ordered_dict(), handle, indent=4, cls=ParamsEncoder)
 
     def as_ordered_dict(self) -> OrderedDict:
         """Returns Ordered Dict of Params from list of partial order preferences."""
