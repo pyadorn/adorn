@@ -392,7 +392,7 @@ python-versions = "*"
 
 [[package]]
 name = "ipython"
-version = "7.32.0"
+version = "7.34.0"
 description = "IPython: Productive Interactive Computing"
 category = "dev"
 optional = false
@@ -1164,7 +1164,7 @@ docs = ["rst.linker (>=1.9)", "jaraco.packaging (>=8.2)", "sphinx"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.0"
-content-hash = "db010173e4f1ff9ef24e8d5ca8fdbf6db49a8e6a5a8ce69e33b5d6339945a550"
+content-hash = "3d86044d17cac53fd379367d236a50e71649ec451102c026eea999e1c67cb80a"
 
 [metadata.files]
 alabaster = [
@@ -1377,8 +1377,8 @@ iniconfig = [
     {file = "iniconfig-1.1.1.tar.gz", hash = "sha256:bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"},
 ]
 ipython = [
-    {file = "ipython-7.32.0-py3-none-any.whl", hash = "sha256:86df2cf291c6c70b5be6a7b608650420e89180c8ec74f376a34e2dc15c3400e7"},
-    {file = "ipython-7.32.0.tar.gz", hash = "sha256:468abefc45c15419e3c8e8c0a6a5c115b2127bafa34d7c641b1d443658793909"},
+    {file = "ipython-7.34.0-py3-none-any.whl", hash = "sha256:c175d2440a1caff76116eb719d40538fbb316e214eda85c5515c303aacbfb23e"},
+    {file = "ipython-7.34.0.tar.gz", hash = "sha256:af3bdb46aa292bce5615b1b2ebc76c2080c5f77f54bda2ec72461317273e7cd6"},
 ]
 jedi = [
     {file = "jedi-0.18.1-py2.py3-none-any.whl", hash = "sha256:637c9635fcf47945ceb91cd7f320234a7be540ded6f3e99a50cb6febdfd1ba8d"},
