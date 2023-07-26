@@ -15,6 +15,7 @@
 import copy
 import json
 import logging
+import yaml
 import zlib
 from collections import OrderedDict
 from collections.abc import MutableMapping
@@ -24,6 +25,8 @@ from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Union
+
+import tomli
 
 from adorn.exception.configuration_error import ConfigurationError
 
@@ -387,8 +390,19 @@ class Params(MutableMapping):
             Params: content of the file wrapped in a ``Params``
         """
         params_file = str(params_file)
-        with open(params_file) as file_handle:
-            file_dict = json.loads(file_handle.read())
+        file_dict = None
+        if params_file.endswith("json"):
+            with open(params_file) as file_handle:
+                file_dict = json.loads(file_handle.read())
+        elif params_file.endswith("yaml"):
+            with open(params_file) as file_handle:
+                file_dict = yaml.safe_load(file_handle)
+        elif params_file.endswith("toml"):
+            with open(params_file, "rb") as file_handle:
+                file_dict = tomli.load(file_handle)
+
+        if file_dict is None:
+            raise Exception("Only supported file formats are json, yaml and toml")
         return cls(file_dict)
 
     def to_file(self, params_file: str) -> None:

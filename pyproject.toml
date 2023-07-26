@@ -21,6 +21,7 @@ Changelog = "https://github.com/pyadorn/adorn/releases"
 [tool.poetry.dependencies]
 python = "^3.7.0"
 typing-extensions = "^4.0.1"
+tomli = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
