@@ -27,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Adorn
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Adorn
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -67,8 +71,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Contributor Guide</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contributor Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/contributing.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -117,13 +121,13 @@ and/or steps to reproduce the issue.</p>
 <li><p><a class="reference external" href="https://nox-poetry.readthedocs.io/">nox-poetry</a></p></li>
 </ul>
 <p>Install the package with development requirements:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry install
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>install
 </pre></div>
 </div>
 <p>You can now run an interactive Python session,
 or the command-line interface:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry run python
-<span class="gp">$ </span>poetry run adorn
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>run<span class="w"> </span>python
+<span class="gp">$ </span>poetry<span class="w"> </span>run<span class="w"> </span>adorn
 </pre></div>
 </div>
 </section>
@@ -134,12 +138,12 @@ or the command-line interface:</p>
 </pre></div>
 </div>
 <p>List the available Nox sessions:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox --list-sessions
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox<span class="w"> </span>--list-sessions
 </pre></div>
 </div>
 <p>You can also run a specific Nox session.
 For example, invoke the unit test suite like this:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox --session<span class="o">=</span>tests
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox<span class="w"> </span>--session<span class="o">=</span>tests
 </pre></div>
 </div>
 <p>Unit tests are located in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory,
@@ -156,7 +160,7 @@ and are written using the <a class="reference external" href="https://pytest.rea
 </ul>
 <p>Feel free to submit early, though—we can always iterate on this.</p>
 <p>To run linting and code formatting checks before commiting your change, you can install pre-commit as a Git hook by running the following command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox --session<span class="o">=</span>pre-commit -- install
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>nox<span class="w"> </span>--session<span class="o">=</span>pre-commit<span class="w"> </span>--<span class="w"> </span>install
 </pre></div>
 </div>
 <p>It is recommended to open an issue before starting work on anything.
@@ -175,7 +179,7 @@ This will allow a chance to talk it over with the owners and validate your appro
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Jacob Baumbach.</p>
+    <p>&#169; Copyright 2023, Jacob Baumbach.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

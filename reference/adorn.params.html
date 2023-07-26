@@ -26,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Adorn
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Adorn
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -70,10 +74,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">adorn</a> &raquo;</li>
-          <li><a href="adorn.html">adorn package</a> &raquo;</li>
-      <li>adorn.params module</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">adorn</a></li>
+          <li class="breadcrumb-item"><a href="adorn.html">adorn package</a></li>
+      <li class="breadcrumb-item active">adorn.params module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/reference/adorn.params.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -83,382 +87,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-adorn.params">
-<span id="adorn-params-module"></span><h1>adorn.params module<a class="headerlink" href="#module-adorn.params" title="Permalink to this headline"></a></h1>
-<p>Params: a glorified dictionary</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.params.Params">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.params.</span></span><span class="sig-name descname"><span class="pre">Params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.MutableMapping</span></code></p>
-<p>Represents a parameter dictionary with a history.</p>
-<p>Contains other functionality around parameter passing and validation for Adorn.
-There are currently two benefits of a <cite>Params</cite> object over a plain dictionary for
-parameter passing:</p>
-<ol class="arabic simple">
-<li><p>We handle a few kinds of parameter validation, including making sure that
-parameters representing discrete choices actually have acceptable values,
-and making sure no extra parameters are passed.</p></li>
-<li><p>We log all parameter reads, including default values.  This gives a more
-complete specification of the actual parameters used than is given in a JSON
-file, because those may not specify what default values were used, whereas
-this will log them.</p></li>
-</ol>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>params</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
-<li><p><strong>history</strong> (<em>str</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="adorn.params.Params.DEFAULT">
-<span class="sig-name descname"><span class="pre">DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;object</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#adorn.params.Params.DEFAULT" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.as_dict">
-<span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">infer_type_and_cast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.as_dict" title="Permalink to this definition"></a></dt>
-<dd><p>Sometimes we need to just represent the parameters as a dict.</p>
-<p>For instance when we pass them to PyTorch code.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>quiet</strong> (<em>bool</em>) – Whether to log the parameters before
-returning them as a dict.</p></li>
-<li><p><strong>infer_type_and_cast</strong> (<em>bool</em>) – If True, we infer types and cast
-(e.g. things that look like floats to floats).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict containing the content of <code class="docutils literal notranslate"><span class="pre">Params</span></code></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Dict[str, Any]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.as_flat_dict">
-<span class="sig-name descname"><span class="pre">as_flat_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.as_flat_dict" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the parameters of a flat dictionary from keys to values.</p>
-<p>Nested structure is collapsed with periods.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Dict[str, Any]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.as_ordered_dict">
-<span class="sig-name descname"><span class="pre">as_ordered_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.as_ordered_dict" title="Permalink to this definition"></a></dt>
-<dd><p>Returns Ordered Dict of Params from list of partial order preferences.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>collections.OrderedDict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.assert_empty">
-<span class="sig-name descname"><span class="pre">assert_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.assert_empty" title="Permalink to this definition"></a></dt>
-<dd><p>Raises a <cite>ConfigurationError</cite> if <cite>self.params</cite> is not empty.</p>
-<p>We take <cite>class_name</cite> as an argument so that the error message
-gives some idea of where an error happened, if there was one.
-<cite>class_name</cite> should be the name of the <cite>calling</cite> class,
-the one that got extra parameters (if there are any).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>class_name</strong> (<em>str</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.duplicate">
-<span class="sig-name descname"><span class="pre">duplicate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.duplicate" title="Permalink to this definition"></a></dt>
-<dd><p>Uses <cite>copy.deepcopy()</cite> to create a duplicate (but fully distinct)</p>
-<p>copy of these Params.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#adorn.params.Params" title="adorn.params.Params">adorn.params.Params</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.from_file">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.from_file" title="Permalink to this definition"></a></dt>
-<dd><p>Load a <cite>Params</cite> object from a configuration file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>params_file</strong> (<em>str</em>) – The path to the configuration file to load.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>content of the file wrapped in a <code class="docutils literal notranslate"><span class="pre">Params</span></code></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#adorn.params.Params" title="adorn.params.Params">Params</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=&lt;object</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.get" title="Permalink to this definition"></a></dt>
-<dd><p>Performs the functionality associated with dict.get(key).</p>
-<p>Also checks for returned dicts and returns a Params object in
-their place with an updated history.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – </p></li>
-<li><p><strong>default</strong> (<em>Any</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.get_hash">
-<span class="sig-name descname"><span class="pre">get_hash</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.get_hash" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a hash code representing the current state of this <cite>Params</cite> object.</p>
-<p>We don’t want to implement <cite>__hash__</cite> because that has deeper python
-implications (and this is a mutable object), but this will give you a
-representation of the current state. We use <cite>zlib.adler32</cite> instead of Python’s
-builtin <cite>hash</cite> because the random seed for the latter is reset on each new
-program invocation, as discussed here:
-<a class="reference external" href="https://stackoverflow.com/questions/27954892/deterministic-hashing-in-python-3">https://stackoverflow.com/questions/27954892/deterministic-hashing-in-python-3</a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.left_merge">
-<span class="sig-name descname"><span class="pre">left_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rhs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.left_merge" title="Permalink to this definition"></a></dt>
-<dd><p>Inject values from a new config into the current config</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>rhs</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#adorn.params.Params" title="adorn.params.Params"><em>Params</em></a><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – configuration, where its values
-will be injected into the current config</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>flattened version of the original config that includes</dt><dd><p>values from the passed config, <code class="docutils literal notranslate"><span class="pre">rhs</span></code></p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Dict[str, Any]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.pop">
-<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=&lt;object</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_as_dict=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.pop" title="Permalink to this definition"></a></dt>
-<dd><p>Performs the functionality associated with dict.pop(key).</p>
-<p>Along with checking for returned dictionaries, replacing them
-with Param objects with an updated history (unless keep_as_dict is True, in
-which case we leave them as dictionaries). If <cite>key</cite> is not present in the
-dictionary, and no default was specified, we raise a <cite>ConfigurationError</cite>,
-instead of the typical <cite>KeyError</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – </p></li>
-<li><p><strong>default</strong> (<em>Any</em>) – </p></li>
-<li><p><strong>keep_as_dict</strong> (<em>bool</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.pop_bool">
-<span class="sig-name descname"><span class="pre">pop_bool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=&lt;object</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.pop_bool" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a pop and coerces to a bool.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – </p></li>
-<li><p><strong>default</strong> (<em>Any</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Optional[bool]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.pop_choice">
-<span class="sig-name descname"><span class="pre">pop_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_to_first_choice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_class_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.pop_choice" title="Permalink to this definition"></a></dt>
-<dd><p>Gets the value of <cite>key</cite> in the <cite>params</cite> dictionary,</p>
-<p>Ensuring that the value is one of the given choices. Note that
-this <cite>pops</cite> the key from params, modifying the dictionary,
-consistent with how parameters are processed in this codebase.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – Key to get the value from in the param dictionary</p></li>
-<li><p><strong>choices</strong> (<em>List</em><em>[</em><em>Any</em><em>]</em>) – A list of valid options for values corresponding to <cite>key</cite>.
-For example, if you’re specifying the type of encoder to use for some part
-of your model, the choices might be the list of encoder classes we know
-about and can instantiate.  If the value we find in the param dictionary
-is not in <cite>choices</cite>, we raise a <cite>ConfigurationError</cite>, because
-the user specified an invalid value in their parameter file.</p></li>
-<li><p><strong>default_to_first_choice</strong> (<em>bool</em>) – If this is <cite>True</cite>, we allow the <cite>key</cite> to not be
-present in the parameter dictionary.  If the key is not present, we will
-use the return as the value the first choice in the <cite>choices</cite> list.
-If this is <cite>False</cite>, we raise a <cite>ConfigurationError</cite>, because
-specifying the <cite>key</cite> is required (e.g., you <cite>have</cite> to specify
-your model class when running an experiment, but you can
-feel free to usedefault settings for encoders if you want).</p></li>
-<li><p><strong>allow_class_names</strong> (<em>bool</em>) – If this is <cite>True</cite>, then we allow unknown
-choices that look like fully-qualified class names.
-This is to allow e.g. specifying a model type
-as my_library.my_model.MyModel and importing it on the fly. Our check for
-“looks like” is extremely lenient and consists of checking that the value
-contains a ‘.’.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>value which was one of the listed <code class="docutils literal notranslate"><span class="pre">choices</span></code></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Any</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="adorn.exception.configuration_error.html#adorn.exception.configuration_error.ConfigurationError" title="adorn.exception.configuration_error.ConfigurationError"><strong>ConfigurationError</strong></a> – requested a key that DNE</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.pop_float">
-<span class="sig-name descname"><span class="pre">pop_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=&lt;object</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.pop_float" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a pop and coerces to a float.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – </p></li>
-<li><p><strong>default</strong> (<em>Any</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Optional[float]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.pop_int">
-<span class="sig-name descname"><span class="pre">pop_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=&lt;object</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.pop_int" title="Permalink to this definition"></a></dt>
-<dd><p>Performs a pop and coerces to an int.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>str</em>) – </p></li>
-<li><p><strong>default</strong> (<em>Any</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Optional[int]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.Params.to_file">
-<span class="sig-name descname"><span class="pre">to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.Params.to_file" title="Permalink to this definition"></a></dt>
-<dd><p>Writes params object to disk as a json</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>params_file</strong> (<em>str</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.params.ParamsEncoder">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.params.</span></span><span class="sig-name descname"><span class="pre">ParamsEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipkeys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_circular</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_nan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.ParamsEncoder" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">json.encoder.JSONEncoder</span></code></p>
-<p>Custom Encoder for nested <code class="docutils literal notranslate"><span class="pre">Params</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="adorn.params.ParamsEncoder.default">
-<span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.ParamsEncoder.default" title="Permalink to this definition"></a></dt>
-<dd><p>Ensure nested <code class="docutils literal notranslate"><span class="pre">Params</span></code> are serializable</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>obj</strong> – something trying to be serialized to disk</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Encoded version of the input</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="adorn.params.infer_and_cast">
-<span class="sig-prename descclassname"><span class="pre">adorn.params.</span></span><span class="sig-name descname"><span class="pre">infer_and_cast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.infer_and_cast" title="Permalink to this definition"></a></dt>
-<dd><p>In some cases we’ll be feeding params dicts to functions we don’t own</p>
-<p>For example, PyTorch optimizers. In that case we can’t use <cite>pop_int</cite>
-or similar to force casts (which means you can’t specify <cite>int</cite> parameters
-using environment variables). This function takes something that looks JSON-like
-and recursively casts things that look like (bool, int, float) to
-(bool, int, float).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>Any</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="adorn.params.unflatten">
-<span class="sig-prename descclassname"><span class="pre">adorn.params.</span></span><span class="sig-name descname"><span class="pre">unflatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flat_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.params.unflatten" title="Permalink to this definition"></a></dt>
-<dd><p>Given a “flattened” dict with compound keys, e.g.</p>
-<p><code class="docutils literal notranslate"><span class="pre">{&quot;a.b&quot;:</span> <span class="pre">0}</span></code> after unflatten, <code class="docutils literal notranslate"><span class="pre">{&quot;a&quot;:</span> <span class="pre">{&quot;b&quot;:</span> <span class="pre">0}}</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>flat_dict</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Dict[str, Any]</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="adorn-params-module">
+<h1>adorn.params module<a class="headerlink" href="#adorn-params-module" title="Permalink to this headline"></a></h1>
 </section>
 
 
@@ -471,7 +101,7 @@ and recursively casts things that look like (bool, int, float) to
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Jacob Baumbach.</p>
+    <p>&#169; Copyright 2023, Jacob Baumbach.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

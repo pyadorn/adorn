@@ -27,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Adorn
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Adorn
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,11 +79,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">adorn</a> &raquo;</li>
-          <li><a href="adorn.html">adorn package</a> &raquo;</li>
-          <li><a href="adorn.unit.html">adorn.unit package</a> &raquo;</li>
-      <li>adorn.unit.constructor_value module</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">adorn</a></li>
+          <li class="breadcrumb-item"><a href="adorn.html">adorn package</a></li>
+          <li class="breadcrumb-item"><a href="adorn.unit.html">adorn.unit package</a></li>
+      <li class="breadcrumb-item active">adorn.unit.constructor_value module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/reference/adorn.unit.constructor_value.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,17 +111,17 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="adorn.unit.constructor_value.ConstructorValue.check_parameter_order">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_parameter_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.constructor_value.ConstructorValue.check_parameter_order" title="Permalink to this definition"></a></dt>
-<dd><p>Ensure <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex.parameter_order" title="adorn.unit.complex.Complex.parameter_order"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parameter_order</span></code></a> specifies all the parameters.</p>
+<dd><p>Ensure <code class="xref py py-attr docutils literal notranslate"><span class="pre">parameter_order</span></code> specifies all the parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>target_cls</strong> (<a class="reference internal" href="adorn.data.constructor.html#adorn.data.constructor.Constructor" title="adorn.data.constructor.Constructor"><em>Constructor</em></a>) – <a class="reference internal" href="adorn.data.constructor.html#adorn.data.constructor.Constructor.subclass" title="adorn.data.constructor.Constructor.subclass"><code class="xref py py-attr docutils literal notranslate"><span class="pre">subclass</span></code></a>
-specifies a <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex.parameter_order" title="adorn.unit.complex.Complex.parameter_order"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parameter_order</span></code></a></p>
+specifies a <code class="xref py py-attr docutils literal notranslate"><span class="pre">parameter_order</span></code></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
-<dt>if <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex.parameter_order" title="adorn.unit.complex.Complex.parameter_order"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parameter_order</span></code></a></dt><dd><p>is complete then <code class="docutils literal notranslate"><span class="pre">None</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">ParameterOrderError</span></code>, which specifies
+<dt>if <code class="xref py py-attr docutils literal notranslate"><span class="pre">parameter_order</span></code></dt><dd><p>is complete then <code class="docutils literal notranslate"><span class="pre">None</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">ParameterOrderError</span></code>, which specifies
 the additional and/or missing parameters in
-<a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex.parameter_order" title="adorn.unit.complex.Complex.parameter_order"><code class="xref py py-attr docutils literal notranslate"><span class="pre">parameter_order</span></code></a></p>
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">parameter_order</span></code></p>
 </dd>
 </dl>
 </p>
@@ -211,10 +215,10 @@ to recurse down nested types</p></li>
 <dt class="sig sig-object py" id="adorn.unit.constructor_value.ConstructorValue.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orchestrator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.unit.constructor_value.ConstructorValue.get" title="Permalink to this definition"></a></dt>
 <dd><p>Get the relevant class to handle the given <a class="reference internal" href="adorn.data.constructor.html#adorn.data.constructor.Constructor" title="adorn.data.constructor.Constructor"><code class="xref py py-class docutils literal notranslate"><span class="pre">Constructor</span></code></a> instance.</p>
-<p>The <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex.constructor_type" title="adorn.unit.complex.Complex.constructor_type"><code class="xref py py-attr docutils literal notranslate"><span class="pre">constructor_type</span></code></a> attached to the
+<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">constructor_type</span></code> attached to the
 <a class="reference internal" href="adorn.data.constructor.html#adorn.data.constructor.Constructor.subclass" title="adorn.data.constructor.Constructor.subclass"><code class="xref py py-attr docutils literal notranslate"><span class="pre">subclass</span></code></a> is used to determine which
 subclass of <code class="docutils literal notranslate"><span class="pre">ConstructorValue</span></code> to use.  If
-<a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex.constructor_type" title="adorn.unit.complex.Complex.constructor_type"><code class="xref py py-attr docutils literal notranslate"><span class="pre">constructor_type</span></code></a> is <code class="docutils literal notranslate"><span class="pre">None</span></code> then
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">constructor_type</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> then
 <a class="reference internal" href="#adorn.unit.constructor_value.BaseConstructorValue" title="adorn.unit.constructor_value.BaseConstructorValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConstructorValue</span></code></a> will be returned</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -354,7 +358,7 @@ otherwise <code class="docutils literal notranslate"><span class="pre">None</spa
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Jacob Baumbach.</p>
+    <p>&#169; Copyright 2023, Jacob Baumbach.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -27,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Adorn
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Adorn
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,11 +79,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">adorn</a> &raquo;</li>
-          <li><a href="adorn.html">adorn package</a> &raquo;</li>
-          <li><a href="adorn.exception.html">adorn.exception package</a> &raquo;</li>
-      <li>adorn.exception.type_check_error module</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">adorn</a></li>
+          <li class="breadcrumb-item"><a href="adorn.html">adorn package</a></li>
+          <li class="breadcrumb-item"><a href="adorn.exception.html">adorn.exception package</a></li>
+      <li class="breadcrumb-item active">adorn.exception.type_check_error module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/reference/adorn.exception.type_check_error.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -140,7 +144,7 @@
 <li><p><strong>target_cls</strong> (<em>Type</em>) – the requested type</p></li>
 <li><p><strong>possibilities</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>type</em><em>]</em>) – the different subclasses that can be
 requested for <code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p></li>
-<li><p><strong>obj</strong> (<a class="reference internal" href="adorn.params.html#adorn.params.Params" title="adorn.params.Params"><em>Params</em></a>) – <code class="docutils literal notranslate"><span class="pre">Params</span></code> with a value for <code class="docutils literal notranslate"><span class="pre">type</span></code> that doesn’t map to
+<li><p><strong>obj</strong> (<em>Params</em>) – <code class="docutils literal notranslate"><span class="pre">Params</span></code> with a value for <code class="docutils literal notranslate"><span class="pre">type</span></code> that doesn’t map to
 any of the subclasses of <code class="docutils literal notranslate"><span class="pre">target_cls</span></code></p></li>
 </ul>
 </dd>
@@ -195,14 +199,14 @@ to the unhashable type</p></li>
 <dt class="sig sig-object py" id="adorn.exception.type_check_error.KeyValueDiffError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">KeyValueDiffError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter_kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.KeyValueDiffError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
-<p><a class="reference internal" href="adorn.params.html#adorn.params.Params" title="adorn.params.Params"><code class="xref py py-class docutils literal notranslate"><span class="pre">Params</span></code></a> object had missing and/or additional information</p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Params</span></code> object had missing and/or additional information</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>target_cls</strong> (<em>type</em>) – the type that the <code class="docutils literal notranslate"><span class="pre">obj</span></code> was intended to create</p></li>
 <li><p><strong>parameter_kv</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>type</em><em>]</em><em>]</em>) – missing information from the <code class="docutils literal notranslate"><span class="pre">obj</span></code></p></li>
 <li><p><strong>obj_kv</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>type</em><em>]</em><em>]</em>) – additional information in the <code class="docutils literal notranslate"><span class="pre">obj</span></code></p></li>
-<li><p><strong>obj</strong> (<a class="reference internal" href="adorn.params.html#adorn.params.Params" title="adorn.params.Params"><em>Params</em></a>) – the <code class="docutils literal notranslate"><span class="pre">Params</span></code> object that has missing and/or additional
+<li><p><strong>obj</strong> (<em>Params</em>) – the <code class="docutils literal notranslate"><span class="pre">Params</span></code> object that has missing and/or additional
 information</p></li>
 </ul>
 </dd>
@@ -263,7 +267,7 @@ and error the dependency produced</p></li>
 <dt class="sig sig-object py" id="adorn.exception.type_check_error.MalformedDependencyError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">MalformedDependencyError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.MalformedDependencyError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
-<p><a class="reference internal" href="adorn.unit.parameter_value.html#adorn.unit.parameter_value.Dependent" title="adorn.unit.parameter_value.Dependent"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dependent</span></code></a> type was not provided all the necessary information.</p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dependent</span></code> type was not provided all the necessary information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>target_cls</strong> (<em>Type</em>) – The type with malformed dependency information</p>
@@ -318,7 +322,7 @@ exist in the local state</p></li>
 <dt class="sig sig-object py" id="adorn.exception.type_check_error.MissingLiteralError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">MissingLiteralError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.MissingLiteralError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
-<p><a class="reference internal" href="adorn.unit.parameter_value.html#adorn.unit.parameter_value.Dependent" title="adorn.unit.parameter_value.Dependent"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dependent</span></code></a> type’s first argument was not a <code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code>.</p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dependent</span></code> type’s first argument was not a <code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>target_cls</strong> (<em>Type</em>) – Type with a dependency that didn’t have a <code class="docutils literal notranslate"><span class="pre">typing.Literal</span></code></p>
@@ -333,7 +337,7 @@ exist in the local state</p></li>
 <dt class="sig sig-object py" id="adorn.exception.type_check_error.ParamError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">ParamError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.ParamError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
-<p>Error when an obj of not type <a class="reference internal" href="adorn.params.html#adorn.params.Params" title="adorn.params.Params"><code class="xref py py-class docutils literal notranslate"><span class="pre">Params</span></code></a> is passed</p>
+<p>Error when an obj of not type <code class="xref py py-class docutils literal notranslate"><span class="pre">Params</span></code> is passed</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -484,7 +488,7 @@ with more than one arg</p>
 <dt class="sig sig-object py" id="adorn.exception.type_check_error.UserDictError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.exception.type_check_error.</span></span><span class="sig-name descname"><span class="pre">UserDictError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alter_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adorn.exception.type_check_error.UserDictError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#adorn.exception.type_check_error.TypeCheckError" title="adorn.exception.type_check_error.TypeCheckError"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.exception.type_check_error.TypeCheckError</span></code></a></p>
-<p>Report an error during the from_obj step of <a class="reference internal" href="adorn.alter.dict_alter.html#adorn.alter.dict_alter.UserDictAlter" title="adorn.alter.dict_alter.UserDictAlter"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserDictAlter</span></code></a></p>
+<p>Report an error during the from_obj step of <code class="xref py py-class docutils literal notranslate"><span class="pre">UserDictAlter</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -534,7 +538,7 @@ into the requested data.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Jacob Baumbach.</p>
+    <p>&#169; Copyright 2023, Jacob Baumbach.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

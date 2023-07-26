@@ -27,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Adorn
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Adorn
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,11 +79,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">adorn</a> &raquo;</li>
-          <li><a href="adorn.html">adorn package</a> &raquo;</li>
-          <li><a href="adorn.unit.html">adorn.unit package</a> &raquo;</li>
-      <li>adorn.unit.template module</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">adorn</a></li>
+          <li class="breadcrumb-item"><a href="adorn.html">adorn package</a></li>
+          <li class="breadcrumb-item"><a href="adorn.unit.html">adorn.unit package</a></li>
+      <li class="breadcrumb-item active">adorn.unit.template module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/reference/adorn.unit.template.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,28 +93,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-adorn.unit.template">
-<span id="adorn-unit-template-module"></span><h1>adorn.unit.template module<a class="headerlink" href="#module-adorn.unit.template" title="Permalink to this headline"></a></h1>
-<p>Subclass of <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a> to specify alternate construction of a class</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="adorn.unit.template.Template">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.template.</span></span><span class="sig-name descname"><span class="pre">Template</span></span><a class="headerlink" href="#adorn.unit.template.Template" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.complex.Complex</span></code></a></p>
-<p>Subclass of <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a> to specify alternate construction of a class</p>
-<p>This construct allows for you to specify a different way of constructing
-an instance of <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a>, without having
-to add an additional method to the given class of
-<a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a>.  This is especially useful
-for creating configurable constructs, that reduces parameters,
-while still covering most use cases.</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="adorn.unit.template.Template.params">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="adorn.params.html#adorn.params.Params" title="adorn.params.Params"><span class="pre">adorn.params.Params</span></a></em><a class="headerlink" href="#adorn.unit.template.Template.params" title="Permalink to this definition"></a></dt>
-<dd><p>Configuration for the object being shadowed</p>
-</dd></dl>
-
-</dd></dl>
-
+  <section id="adorn-unit-template-module">
+<h1>adorn.unit.template module<a class="headerlink" href="#adorn-unit-template-module" title="Permalink to this headline"></a></h1>
 </section>
 
 
@@ -124,7 +108,7 @@ while still covering most use cases.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Jacob Baumbach.</p>
+    <p>&#169; Copyright 2023, Jacob Baumbach.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
