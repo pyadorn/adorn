@@ -13,12 +13,12 @@
 # limitations under the License.
 import json
 import re
-import yaml
 from collections import OrderedDict
 from typing import Optional
 from typing import Union
 
 import pytest
+import yaml
 
 from adorn.exception.configuration_error import ConfigurationError
 from adorn.params import _is_dict_free
@@ -235,7 +235,6 @@ def test_from_file_toml(tmp_path):
     name = "Numminen"
     number = 27
     """
-    dct = dict(a=0, b=1, c=2)
     with open(file_path, "w") as fh:
         fh.write(toml_str)
     p = Params.from_file(file_path)

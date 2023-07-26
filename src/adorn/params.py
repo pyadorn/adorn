@@ -15,7 +15,6 @@
 import copy
 import json
 import logging
-import yaml
 import zlib
 from collections import OrderedDict
 from collections.abc import MutableMapping
@@ -27,6 +26,7 @@ from typing import Optional
 from typing import Union
 
 import tomli
+import yaml
 
 from adorn.exception.configuration_error import ConfigurationError
 
@@ -388,7 +388,7 @@ class Params(MutableMapping):
 
         Returns:
             Params: content of the file wrapped in a ``Params``
-        """
+        """  # noqa: DAR401
         params_file = str(params_file)
         file_dict = None
         if params_file.endswith("json"):
