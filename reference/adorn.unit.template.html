@@ -93,8 +93,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="adorn-unit-template-module">
-<h1>adorn.unit.template module<a class="headerlink" href="#adorn-unit-template-module" title="Permalink to this headline"></a></h1>
+  <section id="module-adorn.unit.template">
+<span id="adorn-unit-template-module"></span><h1>adorn.unit.template module<a class="headerlink" href="#module-adorn.unit.template" title="Permalink to this headline"></a></h1>
+<p>Subclass of <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a> to specify alternate construction of a class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="adorn.unit.template.Template">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adorn.unit.template.</span></span><span class="sig-name descname"><span class="pre">Template</span></span><a class="headerlink" href="#adorn.unit.template.Template" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">adorn.unit.complex.Complex</span></code></a></p>
+<p>Subclass of <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a> to specify alternate construction of a class</p>
+<p>This construct allows for you to specify a different way of constructing
+an instance of <a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a>, without having
+to add an additional method to the given class of
+<a class="reference internal" href="adorn.unit.complex.html#adorn.unit.complex.Complex" title="adorn.unit.complex.Complex"><code class="xref py py-class docutils literal notranslate"><span class="pre">Complex</span></code></a>.  This is especially useful
+for creating configurable constructs, that reduces parameters,
+while still covering most use cases.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="adorn.unit.template.Template.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="adorn.params.html#adorn.params.Params" title="adorn.params.Params"><span class="pre">adorn.params.Params</span></a></em><a class="headerlink" href="#adorn.unit.template.Template.params" title="Permalink to this definition"></a></dt>
+<dd><p>Configuration for the object being shadowed</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
