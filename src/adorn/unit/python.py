@@ -500,9 +500,7 @@ class Ruple(Wrapper):
                 by ``target_cls``
         """
         args = getattr(target_cls, "__args__", [])
-        return tuple(
-            orchestrator.from_obj(i, j) for i, j in zip(args, obj)
-        )
+        return tuple(orchestrator.from_obj(i, j) for i, j in zip(args, obj))
 
     @classmethod
     def _type_check(
@@ -539,8 +537,7 @@ class Ruple(Wrapper):
             if len(target_args) != len(obj):
                 return TupleArgLenError(target_cls, obj)
             list_checks = [
-                orchestrator.type_check(i, j)
-                for i, j in zip(target_args, obj)
+                orchestrator.type_check(i, j) for i, j in zip(target_args, obj)
             ]
             relevant_checks = [
                 (en, i) for en, i in enumerate(list_checks) if i is not None
