@@ -18,6 +18,7 @@ from typing import Optional
 from typing import Union
 
 import pytest
+import yaml
 
 from adorn.exception.configuration_error import ConfigurationError
 from adorn.params import _is_dict_free
@@ -136,8 +137,8 @@ def test_as_flat_dict():
 
 
 def test_regexes_with_backslashes(tmp_path):
-    bad_regex = tmp_path / "bad_regex.jsonnet"
-    good_regex = tmp_path / "good_regex.jsonnet"
+    bad_regex = tmp_path / "bad_regex.json"
+    good_regex = tmp_path / "good_regex.json"
 
     with open(bad_regex, "w") as f:
         f.write(r'{"myRegex": "a\.b"}')
@@ -155,7 +156,7 @@ def test_regexes_with_backslashes(tmp_path):
     assert not re.match(regex, "a-b")
 
     # Check roundtripping
-    good_regex2 = tmp_path / "good_regex2.jsonnet"
+    good_regex2 = tmp_path / "good_regex2.json"
     with open(good_regex2, "w") as f:
         f.write(json.dumps(params.as_dict()))
     params2 = Params.from_file(good_regex2)
@@ -212,6 +213,37 @@ def test_to_file_from_file(tmp_path, params):
     file_path = tmp_path / "config.json"
     params.to_file(file_path)
     assert Params.from_file(file_path) == params
+
+
+def test_from_file_yaml(tmp_path):
+    file_path = tmp_path / "config.yaml"
+    dct = dict(a=0, b=1, c=2)
+    with open(file_path, "w") as fh:
+        fh.write(yaml.dump(dct))
+    p = Params.from_file(file_path)
+    assert dct == p.as_dict()
+
+
+def test_from_file_toml(tmp_path):
+    file_path = tmp_path / "config.toml"
+    toml_str = """
+    [[players]]
+    name = "Lehtinen"
+    number = 26
+
+    [[players]]
+    name = "Numminen"
+    number = 27
+    """
+    with open(file_path, "w") as fh:
+        fh.write(toml_str)
+    p = Params.from_file(file_path)
+    assert p.as_dict() == {
+        "players": [
+            {"name": "Lehtinen", "number": 26},
+            {"name": "Numminen", "number": 27},
+        ]
+    }
 
 
 def test__is_dict_free_list():
