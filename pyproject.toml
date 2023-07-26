@@ -10,16 +10,15 @@ repository = "https://github.com/pyadorn/adorn"
 documentation = "https://pyadorn.github.io/adorn/"
 classifiers = [
     "Development Status :: 1 - Planning",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
 ]
 
 [tool.poetry.urls]
 Changelog = "https://github.com/pyadorn/adorn/releases"
 
 [tool.poetry.dependencies]
-python = "^3.7.0"
+python = "^3.9.0"
 typing-extensions = "^4.0.1"
 tomli = "^2.0.1"
 
