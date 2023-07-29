@@ -85,19 +85,19 @@ jobs:
           name: coverage-data
           path: ".coverage.*"
 
-#       - name: Upload documentation
-#         if: matrix.session == 'docs-build'
-#         uses: actions/upload-artifact@v3
-#         with:
-#           name: docs
-#           path: docs/_build
+      #       - name: Upload documentation
+      #         if: matrix.session == 'docs-build'
+      #         uses: actions/upload-artifact@v3
+      #         with:
+      #           name: docs
+      #           path: docs/_build
 
-#       - name: Upload documentation to github pages
-#         if: matrix.session == 'docs-build'
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: docs/_build
+      #       - name: Upload documentation to github pages
+      #         if: matrix.session == 'docs-build'
+      #         uses: peaceiris/actions-gh-pages@v3
+      #         with:
+      #           github_token: ${{ secrets.GITHUB_TOKEN }}
+      #           publish_dir: docs/_build
 
   coverage:
     runs-on: ubuntu-latest
