@@ -19,7 +19,6 @@ Changelog = "https://github.com/pyadorn/adorn/releases"
 
 [tool.poetry.dependencies]
 python = "^3.9.0"
-typing-extensions = "^4.0.1"
 tomli = "^2.0.1"
 pyyaml = "^6.0.0"
 
