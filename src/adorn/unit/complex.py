@@ -100,7 +100,7 @@ class Complex(Unit):
 
     @classmethod
     def register(
-        cls: Type[_ComplexT], name: Optional[str]
+        cls: Type[_ComplexT], name: Optional[str], exist_ok: bool = False
     ) -> Callable[[Type[_T]], Type[_T]]:
         """Decorator that adds a class to the class hierarchy
 
@@ -109,6 +109,8 @@ class Complex(Unit):
                 ``None``, then the class is both a child of another ``Complex`` type
                 and a parent of other ``Complex`` type(s), but cannot be
                 instantiated
+            exist_ok (bool): if ``True``, then `name` is allowed to already be in the
+                `_registry`
 
         Returns:
             Callable[[Type[_T]], Type[_T]]: funcion that adds the decorated type
@@ -120,7 +122,7 @@ class Complex(Unit):
         def add_subclass_to_registry(subclass: Type[_T]) -> Type[_T]:
             # Add to registry, raise an error if key has already been used.
             if name is not None:
-                if name in registry:
+                if not exist_ok and name in registry:
                     message = (
                         f"Cannot register {name} as {cls.__name__}; "
                         f"name already in use for {registry[name].__name__}"
