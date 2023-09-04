@@ -14,14 +14,7 @@
 """Handle an argument for a parameter specified in the constructor of a class"""
 from collections import defaultdict
 from sys import version_info
-from typing import Any
-from typing import Dict
-from typing import Generic
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, Generic, Optional, Type, TypeVar, Union
 
 if (version_info.major > 3) or (version_info.major == 3 and version_info.minor >= 8):
     from typing import Literal
@@ -31,8 +24,8 @@ else:
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator
 
-from adorn.data.parameter import Parameter
 from adorn.data.constructor import Constructor
+from adorn.data.parameter import Parameter
 from adorn.exception.type_check_error import (
     ExtraLiteralError,
     KeyValueError,

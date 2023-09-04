@@ -14,7 +14,6 @@
 from inspect import isclass
 
 import pytest
-
 from adorn.exception.type_check_error import TypeCheckError
 
 

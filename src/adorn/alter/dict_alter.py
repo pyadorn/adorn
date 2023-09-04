@@ -13,15 +13,9 @@
 # limitations under the License.
 """Apply an alteration to an object based off a ``dict``"""
 from os import environ
-from typing import Any
-from typing import Dict
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import Union
+from typing import TYPE_CHECKING, Any, Dict, Optional, Type, Union
 
-from adorn.exception.type_check_error import TypeCheckError
-from adorn.exception.type_check_error import UserDictError
+from adorn.exception.type_check_error import TypeCheckError, UserDictError
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator

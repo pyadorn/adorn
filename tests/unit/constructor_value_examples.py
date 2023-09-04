@@ -11,21 +11,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from typing import List
-from typing import Optional
+from typing import List, Optional
+
+from adorn.data.constructor import Constructor
+from adorn.exception.type_check_error import (
+    KeyValueDiffError,
+    KeyValueError,
+    ParameterOrderError,
+    WrongTypeError,
+)
+from adorn.params import Params
+from adorn.unit.constructor_value import BaseConstructorValue, ConstructorValue
 
 from tests.example import gym
 from tests.example.dne import _B
-
-from adorn.data.constructor import Constructor
-from adorn.exception.type_check_error import KeyValueDiffError
-from adorn.exception.type_check_error import KeyValueError
-from adorn.exception.type_check_error import ParameterOrderError
-from adorn.exception.type_check_error import WrongTypeError
-from adorn.params import Params
-from adorn.unit.constructor_value import BaseConstructorValue
-from adorn.unit.constructor_value import ConstructorValue
-
 
 CONSTRUCTOR_VALUE_TYPES_MISMATCH = [
     (BaseConstructorValue, gym.Apple),

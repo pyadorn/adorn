@@ -13,24 +13,13 @@
 # limitations under the License.
 """Objects that enable grid searching adorn configs"""
 from functools import reduce
-from itertools import chain
-from itertools import groupby
-from itertools import product
-from typing import Any
-from typing import Dict
-from typing import Generic
-from typing import List
-from typing import Optional
-from typing import Tuple
-from typing import TypeVar
-from typing import Union
+from itertools import chain, groupby, product
+from typing import Any, Dict, Generic, List, Optional, Tuple, TypeVar, Union
 
 from adorn.params import Params
 from adorn.unit.complex import Complex
-from adorn.unit.search.search import SearchElement
-from adorn.unit.search.search import SearchSpace
+from adorn.unit.search.search import SearchElement, SearchSpace
 from adorn.unit.template import Template
-
 
 GRID_OUTPUT = TypeVar("GRID_OUTPUT", List[Params], List[List[Params]])
 

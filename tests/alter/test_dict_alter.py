@@ -14,14 +14,12 @@
 from os import environ
 
 import pytest
-from tests.conftest import ORCHESTRATOR
-
-from adorn.alter.dict_alter import EnvDictAlter
-from adorn.alter.dict_alter import UserDictAlter
+from adorn.alter.dict_alter import EnvDictAlter, UserDictAlter
 from adorn.data.parameter import Parameter
 from adorn.exception.type_check_error import UserDictError
 from adorn.params import Params
 
+from tests.conftest import ORCHESTRATOR
 
 CONTAINS = [
     (

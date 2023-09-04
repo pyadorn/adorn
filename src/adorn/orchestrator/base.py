@@ -13,11 +13,7 @@
 # limitations under the License.
 """Vanilla coordinator"""
 from collections import OrderedDict
-from typing import Any
-from typing import List
-from typing import Optional
-from typing import Type
-from typing import Union
+from typing import Any, List, Optional, Type, Union
 
 from adorn.alter.alter import Alter
 from adorn.exception.type_check_error import TypeCheckError

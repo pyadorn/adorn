@@ -12,12 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import pytest
-
 from adorn.exception.configuration_error import ConfigurationError
 from adorn.exception.type_check_error import WrongTypeError
-from adorn.unit.python import BuiltIn
-from adorn.unit.python import Int
-from adorn.unit.python import Python
+from adorn.unit.python import BuiltIn, Int, Python
 
 
 @pytest.mark.parametrize("i", [0, 1, 2, -1, -2])

@@ -14,9 +14,7 @@
 from inspect import isclass
 
 import pytest
-
-from adorn.exception.type_check_error import TypeCheckError
-from adorn.exception.type_check_error import UnRepresentedTypeError
+from adorn.exception.type_check_error import TypeCheckError, UnRepresentedTypeError
 
 
 def test_contains(contains):

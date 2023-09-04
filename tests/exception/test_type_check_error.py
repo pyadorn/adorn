@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from sys import version_info
-from typing import Dict
-from typing import List
-from typing import Tuple
+from typing import Dict, List, Tuple
 
 if (version_info.major > 3) or (version_info.major == 3 and version_info.minor >= 8):
     from typing import Literal
@@ -22,32 +20,35 @@ else:
     from typing_extensions import Literal
 
 import pytest
-from tests.example import gym
-
 from adorn.alter.dict_alter import UserDictAlter
 from adorn.data.parameter import Parameter
-from adorn.exception.type_check_error import AnumMemberError, UserDictError
-from adorn.exception.type_check_error import AnumWrongTypeError
-from adorn.exception.type_check_error import ComplexTypeMismatchError
-from adorn.exception.type_check_error import ExtraLiteralError
-from adorn.exception.type_check_error import HashableError
-from adorn.exception.type_check_error import KeyValueDiffError
-from adorn.exception.type_check_error import KeyValueError
-from adorn.exception.type_check_error import MalformedDependencyError
-from adorn.exception.type_check_error import MalformedLiteralError
-from adorn.exception.type_check_error import MissingDependencyError
-from adorn.exception.type_check_error import MissingLiteralError
-from adorn.exception.type_check_error import ParamError
-from adorn.exception.type_check_error import ParameterOrderError
-from adorn.exception.type_check_error import TooDeepLiteralError
-from adorn.exception.type_check_error import TupleArgLenError
-from adorn.exception.type_check_error import TypeCheckError
-from adorn.exception.type_check_error import UnaryLiteralError
-from adorn.exception.type_check_error import UnRepresentedTypeError
-from adorn.exception.type_check_error import WrongTypeError
+from adorn.exception.type_check_error import (
+    AnumMemberError,
+    AnumWrongTypeError,
+    ComplexTypeMismatchError,
+    ExtraLiteralError,
+    HashableError,
+    KeyValueDiffError,
+    KeyValueError,
+    MalformedDependencyError,
+    MalformedLiteralError,
+    MissingDependencyError,
+    MissingLiteralError,
+    ParamError,
+    ParameterOrderError,
+    TooDeepLiteralError,
+    TupleArgLenError,
+    TypeCheckError,
+    UnaryLiteralError,
+    UnRepresentedTypeError,
+    UserDictError,
+    WrongTypeError,
+)
 from adorn.params import Params
-from adorn.unit.python import BuiltIn, Python
 from adorn.unit.parameter_value import DependentTypeCheck
+from adorn.unit.python import BuiltIn, Python
+
+from tests.example import gym
 
 
 def test_to_str():

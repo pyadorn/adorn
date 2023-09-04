@@ -14,10 +14,7 @@
 """A container of information relevant for constructing an object."""
 import inspect
 from dataclasses import dataclass
-from typing import Callable
-from typing import Dict
-from typing import Type
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Callable, Dict, Type
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.unit.complex import _T, _UnitT

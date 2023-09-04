@@ -12,10 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Coordinator between different collections of types."""
-from typing import Any
-from typing import List
-from typing import Optional
-from typing import Type
+from typing import Any, List, Optional, Type
 
 from adorn.exception.type_check_error import TypeCheckError
 from adorn.unit.unit import Unit

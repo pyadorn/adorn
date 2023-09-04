@@ -13,10 +13,7 @@
 # limitations under the License.
 """Representation of instances, specifically ``None`` and ``typing.Any``"""
 from collections import defaultdict
-from typing import Any
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional, Type
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator

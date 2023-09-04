@@ -20,27 +20,25 @@ else:
     from typing_extensions import Literal
 
 import pytest
-from tests.conftest import ORCHESTRATOR
-from tests.example import gym
-
 from adorn.data.parameter import Parameter
 from adorn.exception.type_check_error import (
     ExtraLiteralError,
     KeyValueDiffError,
     KeyValueError,
+    MalformedDependencyError,
+    MalformedLiteralError,
+    MissingDependencyError,
+    MissingLiteralError,
+    ParamError,
+    TooDeepLiteralError,
+    UnaryLiteralError,
+    WrongTypeError,
 )
-from adorn.exception.type_check_error import MalformedDependencyError
-from adorn.exception.type_check_error import MalformedLiteralError
-from adorn.exception.type_check_error import MissingDependencyError
-from adorn.exception.type_check_error import MissingLiteralError
-from adorn.exception.type_check_error import ParamError
-from adorn.exception.type_check_error import TooDeepLiteralError
-from adorn.exception.type_check_error import UnaryLiteralError
-from adorn.exception.type_check_error import WrongTypeError
 from adorn.params import Params
-from adorn.unit.parameter_value import Dependent
-from adorn.unit.parameter_value import DependentUnion
-from adorn.unit.parameter_value import DependentFromObj
+from adorn.unit.parameter_value import Dependent, DependentFromObj, DependentUnion
+
+from tests.conftest import ORCHESTRATOR
+from tests.example import gym
 
 
 @pytest.mark.parametrize(

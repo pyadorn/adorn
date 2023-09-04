@@ -14,9 +14,9 @@
 from inspect import isclass
 
 import pytest
-from tests.example import gym
-
 from adorn.exception.type_check_error import TypeCheckError
+
+from tests.example import gym
 
 
 def test__contains(contains):

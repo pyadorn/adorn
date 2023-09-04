@@ -14,20 +14,21 @@
 from itertools import chain
 
 import pytest
-from tests.example import gym
-from tests.example.dne import _B
-from tests.example.dne import _C
-from tests.unit import conftest as unit
-from tests.unit import constructor_value_examples
-from tests.unit import parameter_value_examples
-from tests.unit import python_examples
-from tests.unit import value_examples
-
 from adorn.orchestrator.base import Base
 from adorn.unit.constructor_value import ConstructorValue
 from adorn.unit.parameter_value import ParameterValue
 from adorn.unit.python import Python
 from adorn.unit.value import Value
+
+from tests.example import gym
+from tests.example.dne import _B, _C
+from tests.unit import (
+    conftest as unit,
+    constructor_value_examples,
+    parameter_value_examples,
+    python_examples,
+    value_examples,
+)
 
 ORCHESTRATOR = Base(
     [

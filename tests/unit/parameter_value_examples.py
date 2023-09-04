@@ -12,30 +12,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from sys import version_info
-from typing import Dict
-from typing import List
+from typing import Dict, List
 
 if (version_info.major > 3) or (version_info.major == 3 and version_info.minor >= 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
 
+from adorn.data.parameter import Parameter
+from adorn.exception.type_check_error import (
+    ComplexTypeMismatchError,
+    ExtraLiteralError,
+    KeyValueDiffError,
+    KeyValueError,
+    ParamError,
+    WrongTypeError,
+)
+from adorn.params import Params
+from adorn.unit.parameter_value import (
+    DependentFromObj,
+    DependentTypeCheck,
+    DependentUnion,
+    ParameterValue,
+)
+
 from tests.example import gym
 from tests.example.dne import _B
-
-from adorn.data.parameter import Parameter
-from adorn.exception.type_check_error import ComplexTypeMismatchError
-from adorn.exception.type_check_error import ExtraLiteralError
-from adorn.exception.type_check_error import KeyValueDiffError
-from adorn.exception.type_check_error import KeyValueError
-from adorn.exception.type_check_error import ParamError
-from adorn.exception.type_check_error import WrongTypeError
-from adorn.params import Params
-from adorn.unit.parameter_value import ParameterValue
-from adorn.unit.parameter_value import DependentUnion
-from adorn.unit.parameter_value import DependentFromObj
-from adorn.unit.parameter_value import DependentTypeCheck
-
 
 PARAMETER_VALUE_TYPES = [
     (

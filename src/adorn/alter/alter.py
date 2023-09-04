@@ -12,11 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Base Class for altering a config during type checking or object creation"""
-from typing import Any
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import Union
+from typing import TYPE_CHECKING, Any, Optional, Type, Union
 
 from adorn.exception.type_check_error import TypeCheckError
 

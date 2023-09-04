@@ -11,15 +11,16 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from enum import auto
-from enum import Enum
+from enum import Enum, auto
 
 import pytest
-from tests.example import gym
+from adorn.exception.type_check_error import (
+    AnumMemberError,
+    AnumWrongTypeError,
+    UnRepresentedTypeError,
+)
 
-from adorn.exception.type_check_error import AnumMemberError
-from adorn.exception.type_check_error import AnumWrongTypeError
-from adorn.exception.type_check_error import UnRepresentedTypeError
+from tests.example import gym
 
 
 class UnregistereEnum(Enum):

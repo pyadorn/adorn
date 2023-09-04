@@ -102,15 +102,11 @@ def precommit(session: Session) -> None:
     args = session.posargs or ["run", "--all-files", "--show-diff-on-failure"]
     session.install(
         "black",
-        "darglint",
+        "ruff",
         "flake8",
-        "flake8-bugbear",
-        "flake8-docstrings",
         "flake8-rst-docstrings",
-        "pep8-naming",
         "pre-commit",
         "pre-commit-hooks",
-        "reorder-python-imports",
     )
     session.run("pre-commit", *args)
     if args and args[0] == "install":
