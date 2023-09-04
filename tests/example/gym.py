@@ -329,7 +329,7 @@ class Ambig(Complex):
     _attr: Optional[List[str]]
 
     def __eq__(self, o: object) -> bool:
-        return type(self) == type(o) and all(
+        return type(self) == type(o) and all(  # noqa: E721
             getattr(self, i) == getattr(o, i) for i in self._attr
         )
 

@@ -92,7 +92,7 @@ def test_a_type_check_bad(a_orchestrator, a_malformed):
     o = a_orchestrator.type_check(cls, obj)
     kv = o.key_values["reps"]
     assert kv == a
-    assert type(o) == type(output)
+    assert type(o) == type(output)  # noqa: E721
     assert o.target_cls == output.target_cls
     assert list(o.key_values.keys()) == list(output.key_values.keys())
 
