@@ -106,7 +106,7 @@ def test_name(input, target):
     "input", [gym.Food, gym.Fruit, gym.Meat, gym.GrandParent, gym.ParentA, gym.ParentB]
 )
 def test_name_exception(input):
-    with pytest.raises(Exception): # noqa: B017
+    with pytest.raises(Exception):  # noqa: B017
         input.name()
 
 
