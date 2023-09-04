@@ -83,7 +83,7 @@ class TypeCheckError(Exception):
         return self.to_str()
 
     def __eq__(self, other) -> bool:
-        if type(self) != type(other):
+        if type(self) != type(other):  # noqa: E721
             return False
         return all(
             [
@@ -542,7 +542,7 @@ class UserDictError(TypeCheckError):
         super().__init__(target_cls, msg, child=None, obj=obj)
 
     def __eq__(self, other) -> bool:
-        if type(self) != type(other):
+        if type(self) != type(other):  # noqa: E721
             return False
         return all(
             [

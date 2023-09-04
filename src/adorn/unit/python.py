@@ -246,7 +246,7 @@ class Int(BuiltIn):
                 the reason why the ``obj`` didn't pass the additional checks,
                 otherwise ``None``
         """
-        if type(obj) == bool:
+        if type(obj) == bool:  # noqa: E721
             return WrongTypeError(int, obj)
 
 
