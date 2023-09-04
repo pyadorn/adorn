@@ -164,9 +164,9 @@ class Params(MutableMapping):
             try:
                 value = self.params.pop(key)
             except KeyError:
-                msg = f'key "{key}" is required'
+                msg = f"key {key!r} is required"
                 if self.history:
-                    msg += f' at location "{self.history}"'
+                    msg += f" at location {self.history!r}"
                 raise ConfigurationError(msg) from KeyError
         else:
             value = self.params.pop(key, default)
