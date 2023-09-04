@@ -278,14 +278,14 @@ def test_infer_and_cast():
 
 def test_pop_exception():
     params = Params({"a": 1})
-    with pytest.raises(ConfigurationError) as e:
+    with pytest.raises(ConfigurationError) as e:  # noqa: B908
         params.pop("b")
         assert e == 'key "b" is required'
 
 
 def test_pop_exception_history():
     params = Params({"a": 1}, history="blah")
-    with pytest.raises(ConfigurationError) as e:
+    with pytest.raises(ConfigurationError) as e:  # noqa: B908
         params.pop("b")
         assert "blah" in e
 
