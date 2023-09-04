@@ -14,14 +14,16 @@
 import dataclasses
 
 import pytest
+from adorn.exception.type_check_error import (
+    AnumMemberError,
+    KeyValueError,
+    ParamError,
+    UnRepresentedTypeError,
+)
+from adorn.params import Params
+
 from tests.conftest import ORCHESTRATOR
 from tests.example import gym
-
-from adorn.exception.type_check_error import AnumMemberError
-from adorn.exception.type_check_error import KeyValueError
-from adorn.exception.type_check_error import ParamError
-from adorn.exception.type_check_error import UnRepresentedTypeError
-from adorn.params import Params
 
 
 @dataclasses.dataclass

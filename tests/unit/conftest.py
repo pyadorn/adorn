@@ -11,21 +11,21 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from typing import Dict
-from typing import List
-from typing import Optional
+from typing import Dict, List, Optional
+
+from adorn.data.constructor import Constructor
+from adorn.exception.type_check_error import (
+    AnumMemberError,
+    ComplexTypeMismatchError,
+    KeyValueDiffError,
+    KeyValueError,
+    ParamError,
+    WrongTypeError,
+)
+from adorn.params import Params
 
 from tests.example import gym
 from tests.example.dne import _B
-
-from adorn.data.constructor import Constructor
-from adorn.exception.type_check_error import AnumMemberError
-from adorn.exception.type_check_error import ComplexTypeMismatchError
-from adorn.exception.type_check_error import KeyValueDiffError
-from adorn.exception.type_check_error import KeyValueError
-from adorn.exception.type_check_error import ParamError
-from adorn.exception.type_check_error import WrongTypeError
-from adorn.params import Params
 
 COMPLEX_TYPES = [
     (gym.GrandParent, gym.GrandParent),

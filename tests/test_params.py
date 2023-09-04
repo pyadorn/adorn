@@ -14,18 +14,12 @@
 import json
 import re
 from collections import OrderedDict
-from typing import Optional
-from typing import Union
+from typing import Optional, Union
 
 import pytest
 import yaml
-
 from adorn.exception.configuration_error import ConfigurationError
-from adorn.params import _is_dict_free
-from adorn.params import infer_and_cast
-from adorn.params import Params
-from adorn.params import unflatten
-
+from adorn.params import Params, _is_dict_free, infer_and_cast, unflatten
 
 LEFT_MERGE = [
     (

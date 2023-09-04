@@ -12,13 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import inspect
-from typing import List
-from typing import Optional
+from typing import List, Optional
 
 import pytest
-from tests.example import gym
-
 from adorn.data.constructor import Constructor
+
+from tests.example import gym
 
 
 @pytest.mark.parametrize(

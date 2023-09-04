@@ -12,17 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from itertools import chain
-from typing import Any
-from typing import List
-from typing import Set
-
-from tests.example.dne import _B
-from tests.example.dne import _C
+from typing import Any, List, Set
 
 from adorn.exception.type_check_error import WrongTypeError
-from adorn.unit.value import Nny
-from adorn.unit.value import Rone
-from adorn.unit.value import Value
+from adorn.unit.value import Nny, Rone, Value
+
+from tests.example.dne import _B, _C
 
 RONE_TYPES = [(Rone, None), (Rone, type(None)), (Nny, Any)]
 

@@ -13,13 +13,9 @@
 # limitations under the License.
 from collections import defaultdict
 from dataclasses import dataclass
-from enum import auto
-from enum import Enum
+from enum import Enum, auto
 from sys import version_info
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Set
+from typing import Dict, List, Optional, Set
 
 if (version_info.major > 3) or (version_info.major == 3 and version_info.minor >= 8):
     from typing import Literal
@@ -28,11 +24,13 @@ else:
 
 from adorn.params import Params
 from adorn.unit.anum import Anum
-from adorn.unit.dataclass import DataClass
 from adorn.unit.complex import Complex
-from adorn.unit.parameter_value import DependentFromObj
-from adorn.unit.parameter_value import DependentTypeCheck
-from adorn.unit.parameter_value import DependentUnion
+from adorn.unit.dataclass import DataClass
+from adorn.unit.parameter_value import (
+    DependentFromObj,
+    DependentTypeCheck,
+    DependentUnion,
+)
 from adorn.unit.template import Template
 
 

@@ -15,20 +15,22 @@
 import inspect
 import logging
 from collections import defaultdict
-from typing import _GenericAlias
-from typing import Any
-from typing import Callable
-from typing import cast
-from typing import ClassVar
-from typing import DefaultDict
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Tuple
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
-from typing import Union
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
+    ClassVar,
+    DefaultDict,
+    Dict,
+    List,
+    Optional,
+    Tuple,
+    Type,
+    TypeVar,
+    Union,
+    _GenericAlias,
+    cast,
+)
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator

@@ -16,29 +16,29 @@ from shutil import rmtree
 from tempfile import mkdtemp
 
 import pytest
-
 from adorn.orchestrator.base import Base
 from adorn.params import Params
 from adorn.unit.constructor_value import ConstructorValue
 from adorn.unit.parameter_value import ParameterValue
 from adorn.unit.python import Python
-from adorn.unit.search.grid import BaseGrid
-from adorn.unit.search.grid import BaseGridSearch
-from adorn.unit.search.grid import FileGridSearch
-from adorn.unit.search.grid import GridElement
-from adorn.unit.search.grid import GridList
-from adorn.unit.search.grid import GridNestedList
-from adorn.unit.search.grid import GridOrchestrator
-from adorn.unit.search.grid import GridSearch
-from adorn.unit.search.grid import Group
-from adorn.unit.search.grid import GroupBy
-from adorn.unit.search.grid import IDGroup
-from adorn.unit.search.grid import IDOrganize
-from adorn.unit.search.grid import ListGridSearch
-from adorn.unit.search.grid import Organize
-from adorn.unit.search.grid import SortOrganize
+from adorn.unit.search.grid import (
+    BaseGrid,
+    BaseGridSearch,
+    FileGridSearch,
+    GridElement,
+    GridList,
+    GridNestedList,
+    GridOrchestrator,
+    GridSearch,
+    Group,
+    GroupBy,
+    IDGroup,
+    IDOrganize,
+    ListGridSearch,
+    Organize,
+    SortOrganize,
+)
 from adorn.unit.value import Value
-
 
 STR_TO_LIST = [("a", ["a"]), (["a", "b", "c"], ["a", "b", "c"])]
 

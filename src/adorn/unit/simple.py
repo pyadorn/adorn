@@ -13,16 +13,18 @@
 # limitations under the License.
 """Container of types with a flat class hierarchy."""
 import logging
-from typing import Any
-from typing import Callable
-from typing import ClassVar
-from typing import DefaultDict
-from typing import Dict
-from typing import Iterable
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
-from typing import TypeVar
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
+    ClassVar,
+    DefaultDict,
+    Dict,
+    Iterable,
+    Optional,
+    Type,
+    TypeVar,
+)
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator

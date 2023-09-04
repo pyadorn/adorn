@@ -19,10 +19,10 @@ if (version_info.major > 3) or (version_info.major == 3 and version_info.minor >
 else:
     from typing_extensions import Literal
 
-from tests.example import gym
-
 from adorn.data.parameter import Parameter
 from adorn.unit.parameter_value import DependentFromObj
+
+from tests.example import gym
 
 
 def test_parameter():

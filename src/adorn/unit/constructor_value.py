@@ -14,19 +14,13 @@
 """Different ways to handle instances of :class:`~adorn.data.constructor.Constructor`"""
 import inspect
 from collections import defaultdict
-from typing import Any
-from typing import Callable
-from typing import Dict
-from typing import Optional
-from typing import Set
-from typing import Type
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Callable, Dict, Optional, Set, Type
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator
 
-from adorn.data.parameter import Parameter
 from adorn.data.constructor import Constructor
+from adorn.data.parameter import Parameter
 from adorn.exception.type_check_error import (
     KeyValueDiffError,
     KeyValueError,

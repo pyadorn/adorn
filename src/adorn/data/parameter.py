@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """State from the constructor for a parameter from the constructor."""
-from typing import Any
-from typing import Dict
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Dict
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.unit.complex import _UnitT

@@ -12,10 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """Subclass of :class:`~adorn.unit.complex.Complex` to specify alternate construction of a class"""  # noqa: B950
-from typing import Any
-from typing import Optional
-from typing import Type
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional, Type
 
 if TYPE_CHECKING:  # pragma: no cover
     from adorn.orchestrator.orchestrator import Orchestrator

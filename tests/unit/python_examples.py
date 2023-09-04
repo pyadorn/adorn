@@ -12,33 +12,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from itertools import chain
-from typing import Dict
-from typing import Iterable
-from typing import List
-from typing import Set
-from typing import Tuple
-from typing import Union
+from typing import Dict, Iterable, List, Set, Tuple, Union
 
-from tests.example.dne import _A
-from tests.example.dne import _B
-from tests.example.dne import _C
-
-from adorn.exception.type_check_error import HashableError
-from adorn.exception.type_check_error import KeyValueError
-from adorn.exception.type_check_error import TupleArgLenError
-from adorn.exception.type_check_error import UnRepresentedTypeError
-from adorn.exception.type_check_error import WrongTypeError
+from adorn.exception.type_check_error import (
+    HashableError,
+    KeyValueError,
+    TupleArgLenError,
+    UnRepresentedTypeError,
+    WrongTypeError,
+)
 from adorn.orchestrator.base import Base
-from adorn.unit.python import Bool
-from adorn.unit.python import Float
-from adorn.unit.python import Int
-from adorn.unit.python import Python
-from adorn.unit.python import Ret
-from adorn.unit.python import Rict
-from adorn.unit.python import Rnion
-from adorn.unit.python import Rterable
-from adorn.unit.python import Ruple
-from adorn.unit.python import Str
+from adorn.unit.python import (
+    Bool,
+    Float,
+    Int,
+    Python,
+    Ret,
+    Rict,
+    Rnion,
+    Rterable,
+    Ruple,
+    Str,
+)
+
+from tests.example.dne import _A, _B, _C
 
 BUILTIN_TYPES = [
     (Int, int),

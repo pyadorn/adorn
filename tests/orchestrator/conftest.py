@@ -12,19 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import pytest
-from tests.example import gym
-
 from adorn.alter.dict_alter import UserDictAlter
 from adorn.data.constructor import Constructor
 from adorn.data.parameter import Parameter
-from adorn.exception.type_check_error import KeyValueError
-from adorn.exception.type_check_error import UserDictError
+from adorn.exception.type_check_error import KeyValueError, UserDictError
 from adorn.orchestrator.base import Base
 from adorn.params import Params
 from adorn.unit.constructor_value import ConstructorValue
 from adorn.unit.parameter_value import ParameterValue
 from adorn.unit.python import Python
 from adorn.unit.value import Value
+
+from tests.example import gym
 
 A_ORCHESTRATOR = Base(
     [
