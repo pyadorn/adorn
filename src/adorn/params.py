@@ -168,7 +168,6 @@ class Params(MutableMapping):
             value = self.params.pop(key, default)
 
         if keep_as_dict or _is_dict_free(value):
-            logger.info(f"{self.history}{key} = {value}")
             return value
         else:
             return self._check_is_dict(key, value)
@@ -271,7 +270,7 @@ class Params(MutableMapping):
         return value
 
     def as_dict(
-        self, quiet: bool = False, infer_type_and_cast: bool = False
+        self, quiet: bool = True, infer_type_and_cast: bool = False
     ) -> Dict[str, Any]:
         """Sometimes we need to just represent the parameters as a dict.
 
