@@ -237,7 +237,7 @@ class Complex(Unit):
         if cls not in cls._subclass_registry:
             return cls
         name = name or cls.name()
-        logger.debug(f"instantiating registered subclass {name} of {cls}")
+        logger.info(f"instantiating registered subclass {name} of {cls}")
         subclass = cls.resolve_class_name(name)
         return cast(Type[_ComplexT], subclass)
 
