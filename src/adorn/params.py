@@ -270,7 +270,7 @@ class Params(MutableMapping):
         return value
 
     def as_dict(
-        self, quiet: bool = True, infer_type_and_cast: bool = False
+        self, quiet: bool = False, infer_type_and_cast: bool = False
     ) -> Dict[str, Any]:
         """Sometimes we need to just represent the parameters as a dict.
 
@@ -299,7 +299,7 @@ class Params(MutableMapping):
                     new_local_history = history + key + "."
                     log_recursively(value, new_local_history)
                 else:
-                    logger.info(f"{history}{key} = {value}")
+                    logger.debug(f"{history}{key} = {value}")
 
         log_recursively(self.params, self.history)
         return params_as_dict
