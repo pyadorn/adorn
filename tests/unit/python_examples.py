@@ -127,18 +127,35 @@ WRAPPER_TYPES = list(
         *[
             [
                 (Rterable, i)
-                for i in [List[int], Iterable[str], Iterable[float], List[bool], list[int]]
+                for i in [
+                    List[int],
+                    Iterable[str],
+                    Iterable[float],
+                    List[bool],
+                    list[int],
+                ]
             ],
             [(Ret, i) for i in [Set[int], Set[float], Set[str], set[str]]],
             [
                 (Ruple, i)
-                for i in [Tuple[int, List[Set[str]]], tuple[list[int], str], Tuple[str, Set[int], List[float]]]
+                for i in [
+                    Tuple[int, List[Set[str]]],
+                    tuple[list[int], str],
+                    Tuple[str, Set[int], List[float]],
+                ]
             ],
             [
                 (Rnion, i)
                 for i in [Union[Set[str], List[Tuple[float, bool]]], Union[float, str]]
             ],
-            [(Rict, i) for i in [Dict[str, List[float]], dict[str, list[tuple[int, int]]], Dict[int, Set[bool]]]],
+            [
+                (Rict, i)
+                for i in [
+                    Dict[str, List[float]],
+                    dict[str, list[tuple[int, int]]],
+                    Dict[int, Set[bool]],
+                ]
+            ],
         ]
     )
 )
