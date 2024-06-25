@@ -207,7 +207,7 @@ class Child0(ParentA):
 class Child1(ParentA):
     """Child1"""
 
-    def __init__(self, one: Dict[int, Set[bool]], **kwargs) -> None:
+    def __init__(self, one: dict[int, set[bool]], **kwargs) -> None:
         super().__init__(**kwargs)
         self.one = one
 
@@ -335,7 +335,7 @@ class Ambig(Complex):
 class D(Ambig):
     """D"""
 
-    def __init__(self, k: List[str]) -> None:
+    def __init__(self, k: list[str]) -> None:
         super().__init__()
         self._k = k
 
@@ -364,8 +364,8 @@ class BMD(MD):
 
     _attr = ["filename", "k", "dd"]
 
-    def __init__(self, filename: str, k: List[str], dd: Dict[str, int]) -> None:
-        super().__init__(k)
+    def __init__(self, filename: str, k: Set[str], dd: Dict[str, int]) -> None:
+        super().__init__(list(k))
         self.filename = filename
         self._dd = dd
 

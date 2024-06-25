@@ -127,18 +127,35 @@ WRAPPER_TYPES = list(
         *[
             [
                 (Rterable, i)
-                for i in [List[int], Iterable[str], Iterable[float], List[bool]]
+                for i in [
+                    List[int],
+                    Iterable[str],
+                    Iterable[float],
+                    List[bool],
+                    list[int],
+                ]
             ],
-            [(Ret, i) for i in [Set[int], Set[float], Set[str]]],
+            [(Ret, i) for i in [Set[int], Set[float], Set[str], set[str]]],
             [
                 (Ruple, i)
-                for i in [Tuple[int, List[Set[str]]], Tuple[str, Set[int], List[float]]]
+                for i in [
+                    Tuple[int, List[Set[str]]],
+                    tuple[list[int], str],
+                    Tuple[str, Set[int], List[float]],
+                ]
             ],
             [
                 (Rnion, i)
                 for i in [Union[Set[str], List[Tuple[float, bool]]], Union[float, str]]
             ],
-            [(Rict, i) for i in [Dict[str, List[float]], Dict[int, Set[bool]]]],
+            [
+                (Rict, i)
+                for i in [
+                    Dict[str, List[float]],
+                    dict[str, list[tuple[int, int]]],
+                    Dict[int, Set[bool]],
+                ]
+            ],
         ]
     )
 )
@@ -173,15 +190,19 @@ WRAPPER_TYPES_MISMATCH = list(
 WRAPPER_TYPE_CHECK = [
     (Rterable, List[int], [-1, 0, 1]),
     (Rterable, List[str], ["ab"]),
+    (Rterable, list[str], ["ab"]),
     (Rterable, List[float], []),
     (Ret, Set[int], set()),
+    (Ret, set[int], set()),
     (Ret, Set[float], {1.1, -23.0}),
     (Ret, Set[bool], {True, False}),
+    (Ruple, tuple[int, float, str], (-1, 1.1, "")),
     (Ruple, Tuple[int, float, str], (-1, 1.1, "")),
     (Ruple, Tuple[List[Set[bool]], str], ([{True}, {False}], "yes")),
     (Rnion, Union[float, str], 1.1),
     (Rnion, Union[float, str], "a"),
     (Rnion, Union[List[int], List[Union[str, int]]], [1, "1", "2", 2]),
+    (Rict, dict[int, set[str]], {0: {"", "a"}, 1: {"bcd", "efg"}}),
     (Rict, Dict[int, Set[str]], {0: {"", "a"}, 1: {"bcd", "efg"}}),
     (Rict, Dict[str, List[Tuple[bool, float]]], {"a": [(False, 1.1)]}),
     (Rict, Dict[int, str], dict()),
@@ -297,13 +318,16 @@ WRAPPER_TYPE_CHECK_WRONG = [
 ]
 
 WRAPPER_FROM_OBJ = [
+    (Rterable, list[int], ["0", 100, -100, True], [0, 100, -100, True]),
     (Rterable, List[int], ["0", 100, -100, True], [0, 100, -100, True]),
     (Rterable, Iterable[str], ["abc", 0], ["abc", "0"]),
     (Rterable, List[float], [-1.1, 2], [-1.1, 2.0]),
     (Ret, Set[str], [], set()),
     (Ret, Set[int], [-1, -2, 2], {-1, -2, 2}),
+    (Ret, set[int], [-1, -2, 2], {-1, -2, 2}),
     (Ret, Set[bool], {True, False}, {True, False}),
     (Ruple, Tuple[int, float, str], ["-1", 1.1, ""], (-1, 1.1, "")),
+    (Ruple, tuple[int, float, str], ["-1", 1.1, ""], (-1, 1.1, "")),
     (
         Ruple,
         Tuple[List[Set[bool]], str],
@@ -323,6 +347,12 @@ WRAPPER_FROM_OBJ = [
     (
         Rict,
         Dict[int, float],
+        {"1": "1.1", "2": 2.2, 3: "3.3", 4: 4.4},
+        {1: 1.1, 2: 2.2, 3: 3.3, 4: 4.4},
+    ),
+    (
+        Rict,
+        dict[int, float],
         {"1": "1.1", "2": 2.2, 3: "3.3", 4: 4.4},
         {1: 1.1, 2: 2.2, 3: 3.3, 4: 4.4},
     ),

@@ -19,6 +19,7 @@ from typing import (
     TYPE_CHECKING,
     Any,
     Dict,
+    GenericAlias,
     Iterable,
     List,
     Mapping,
@@ -63,7 +64,11 @@ class Python(Simple):
                 then the type that is meant to represent the python
                 std lib type will be returned, otherwise ``None``
         """
-        if isclass(key) or isinstance(key, _GenericAlias):
+        if (
+            isclass(key)
+            or isinstance(key, _GenericAlias)
+            or isinstance(key, GenericAlias)
+        ):
             return self._get(key, orchestrator)
         return None
 
@@ -79,7 +84,11 @@ class Python(Simple):
         Returns:
             bool: if ``True``, the type is part of python's std lib
         """
-        if not (isclass(obj) or isinstance(obj, _GenericAlias)):
+        if not (
+            isclass(obj)
+            or isinstance(obj, _GenericAlias)
+            or isinstance(obj, GenericAlias)
+        ):
             return False
         return any(self.relevant_types(obj, orchestrator))
 
