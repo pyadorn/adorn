@@ -223,7 +223,7 @@ class Child2(ParentB):
 
     def __init__(
         self,
-        food: Optional[Food],
+        food: Food | None,
         fruit: Fruit,
         meat: Meat,
         workout: Optional[Workout] = None,

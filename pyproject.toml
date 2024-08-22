@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adorn"
-version = "0.1.6"
+version = "0.1.7"
 description = "Adorn"
 authors = ["Jacob Baumbach <jacob.baumbach@hey.com>"]
 license = "Apache-2.0"
@@ -10,15 +10,16 @@ repository = "https://github.com/pyadorn/adorn"
 documentation = "https://pyadorn.github.io/adorn/"
 classifiers = [
     "Development Status :: 1 - Planning",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 
 [tool.poetry.urls]
 Changelog = "https://github.com/pyadorn/adorn/releases"
 
 [tool.poetry.dependencies]
-python = "^3.9.0"
+python = "^3.10.0"
 tomli = "^2.0.1"
 pyyaml = "^6.0.0"
 
@@ -43,6 +44,7 @@ ipython = "^8.1.0"
 nox = "^2023.4.22"
 nox-poetry = "^1.0.3"
 ruff = "^0.0.287"
+ipdb = "^0.13.13"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]

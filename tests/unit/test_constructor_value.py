@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import inspect
-from typing import List, Optional
+from typing import List
 
 import pytest
 from adorn.data.constructor import Constructor
@@ -56,7 +56,7 @@ def test_get_none():
             Constructor(gym.Child2),
             Params({}),
             {
-                "food": Optional[gym.Food],
+                "food": gym.Food | None,
                 "fruit": gym.Fruit,
                 "meat": gym.Meat,
                 "gp": str,
@@ -149,7 +149,7 @@ def test_get_kv_obj(target_cls, obj, target):
                 gym.Child2,
                 {
                     "gp": str,
-                    "food": Optional[gym.Food],
+                    "food": gym.Food | None,
                     "fruit": gym.Fruit,
                     "meat": gym.Meat,
                 },
