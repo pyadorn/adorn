@@ -66,7 +66,7 @@ CONSTRUCTOR_VALUE_TYPE_CHECK_WRONG = [
             gym.Child2,
             {
                 "gp": str,
-                "food": Optional[gym.Food],
+                "food": gym.Food | None,
                 "fruit": gym.Fruit,
                 "meat": gym.Meat,
             },

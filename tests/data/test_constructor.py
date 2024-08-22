@@ -75,7 +75,7 @@ from tests.example import gym
                 "food": inspect.Parameter(
                     "food",
                     kind=inspect.Parameter.POSITIONAL_OR_KEYWORD,
-                    annotation=Optional[gym.Food],
+                    annotation=gym.Food | None,
                 ),
                 "fruit": inspect.Parameter(
                     "fruit",

@@ -15,6 +15,7 @@
 import collections
 from copy import deepcopy
 from inspect import isclass
+from types import UnionType
 from typing import (
     TYPE_CHECKING,
     Any,
@@ -27,8 +28,8 @@ from typing import (
     Set,
     Tuple,
     Type,
-    Union,
     _GenericAlias,
+    _UnionGenericAlias,
 )
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -70,6 +71,8 @@ class Python(Simple):
             or isinstance(key, GenericAlias)
         ):
             return self._get(key, orchestrator)
+        elif Rnion._contains(key, orchestrator):
+            return Rnion
         return None
 
     def contains(self, obj: Any, orchestrator: "Orchestrator") -> bool:
@@ -84,12 +87,16 @@ class Python(Simple):
         Returns:
             bool: if ``True``, the type is part of python's std lib
         """
+        is_union_type = getattr(obj, "__class__", None) in {UnionType}
         if not (
             isclass(obj)
             or isinstance(obj, _GenericAlias)
             or isinstance(obj, GenericAlias)
+            or is_union_type
         ):
             return False
+        if is_union_type:
+            return Rnion._contains(obj, orchestrator)
         return any(self.relevant_types(obj, orchestrator))
 
 
@@ -581,9 +588,11 @@ class Rnion(Wrapper):
         Returns:
             bool: if ``True``, the type is ``Tuple``
         """
-        origin = getattr(obj, "__origin__", None)
+        class_attr = getattr(obj, "__class__", None)
         args = getattr(obj, "__args__", [])
-        return origin == Union and all(orchestrator.contains(i) for i in args)
+        return (class_attr == _UnionGenericAlias or class_attr == UnionType) and all(
+            orchestrator.contains(i) for i in args
+        )
 
     @classmethod
     def _from_obj(cls, target_cls: type, orchestrator: "Orchestrator", obj: Any) -> Any:

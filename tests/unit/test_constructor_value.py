@@ -56,7 +56,7 @@ def test_get_none():
             Constructor(gym.Child2),
             Params({}),
             {
-                "food": Optional[gym.Food],
+                "food": gym.Food | None,
                 "fruit": gym.Fruit,
                 "meat": gym.Meat,
                 "gp": str,
@@ -149,7 +149,7 @@ def test_get_kv_obj(target_cls, obj, target):
                 gym.Child2,
                 {
                     "gp": str,
-                    "food": Optional[gym.Food],
+                    "food": gym.Food | None,
                     "fruit": gym.Fruit,
                     "meat": gym.Meat,
                 },

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adorn"
-version = "0.1.6"
+version = "0.1.7"
 description = "Adorn"
 authors = ["Jacob Baumbach <jacob.baumbach@hey.com>"]
 license = "Apache-2.0"
@@ -43,6 +43,7 @@ ipython = "^8.1.0"
 nox = "^2023.4.22"
 nox-poetry = "^1.0.3"
 ruff = "^0.0.287"
+ipdb = "^0.13.13"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
