@@ -122,7 +122,7 @@ def safety(session: Session) -> None:
         "safety",
         "check",
         "-i",
-        "62044,70612",
+        "62044,70612,72083",
         "--full-report",
         f"--file={requirements}",
     )

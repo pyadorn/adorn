@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import inspect
-from typing import List, Optional
+from typing import List
 
 import pytest
 from adorn.data.constructor import Constructor
